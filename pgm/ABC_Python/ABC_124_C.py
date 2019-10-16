@@ -1,8 +1,7 @@
 def main():
-    S = [int(i) for i in input()]
-    print(min(sum(S[::2]) + len(S) + (-len(S) // 2) - sum(S[1::2]),
-              - (-len(S) // 2) - sum(S[::2]) + sum(S[1::2])))
-
+    S = input()
+    cnt = S[::2].count("0") + S[1::2].count("1")
+    print(min(cnt, len(S) - cnt))
     return
 
 
