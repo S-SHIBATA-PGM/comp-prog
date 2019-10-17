@@ -1,32 +1,52 @@
 A, B, C, D, E, F = map(int, input().split())
 
+ans = {}
+
 
 def main():
-    sa = {100 * i * A + 100 * j * B
-          for i in range(F) for j in range(F)
-          if 100 * i * A + 100 * j * B <= F and i + j != 0}
+    MAX_A = F // (100 * A)
 
-    sb = {i * C + j * D for i in range(F) for j in range(F)
-          if i * C + j * D <= F and i + j != 0}
+    for i in range(MAX_A + 1):
+        MAX_B = (F - i * 100 * A) // (100 * B)
 
-    a = sorted(sa)
-    b = sorted(sb)
+        for j in range(MAX_B + 1):
+            if i == 0 and j == 0:
+                continue
 
-    conc = 0.0
+            a = i * A + j * B
 
-    for i in a:
-        for j in b:
-            if F < i + j:
-                break
-            if E * i / 100 < j:
-                break
+            SAT = a * E
 
-            if conc < j / (i + j) * 100:
-                conc = j / (i + j) * 100
-                water = i
-                sugar = j
+            CD = F - a * 100
 
-    print(water + sugar, sugar)
+            SAT_FLG = True
+
+            if CD < SAT:
+                SAT_FLG = False
+
+            CD = min(SAT, CD)
+
+            MAX_C = CD // C
+
+            for k in range(MAX_C + 1):
+                l = (CD - k * C) // D
+
+                b = k * C + l * D
+
+                if SAT == b:
+                    print(a * 100 + b, b)
+                    return
+
+                LACK = SAT - b
+                if not LACK in ans:
+                    # Create New
+                    ans[LACK] = (a * 100 + b, b, SAT_FLG)
+                elif not ans[LACK][-1]:
+                    # SAT_FLG False
+                    # Overwrite
+                    ans[LACK] = (a * 100 + b, b, SAT_FLG)
+
+    print(" ".join([str(i) for i in ans[min(ans.keys())][:-1]]))
     return
 
 
