@@ -2,13 +2,13 @@ from collections import Counter
 from sys import stdin
 
 lines = stdin.readlines
-N, *A = [int(line) for line in lines()]
 
+N, *A = map(int, lines())
 An = Counter(A)
 
 
 def main():
-    print(sum([1 for k, v in An.items() if v % 2]))
+    print(sum([1 for v in An.values() if v % 2]))
     return
 
 
