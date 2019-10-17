@@ -7,5 +7,5 @@ for i in range(N):
     S[input()] += 1
 
 # value 降順
-S = sorted(S.items(), key=lambda x: -x[1])
+S = sorted(S.items(), key=lambda x:x[1], reverse=True)
 print(S[0][0])
