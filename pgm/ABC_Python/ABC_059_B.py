@@ -1,9 +1,4 @@
-A = input()
-B = input()
-
-num = len(B) if len(A) < len(B) else len(A)
-
-A = A.rjust(num, '0')
-B = B.rjust(num, '0')
+A = int(input())
+B = int(input())
 
 print("GREATER" if B < A else "LESS" if A < B else "EQUAL")
