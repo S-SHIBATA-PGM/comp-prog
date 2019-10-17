@@ -12,15 +12,14 @@ def gcd(a, b):
 
 def main():
     N, *A = map(int, open(0).read().split())
-    A.insert(0, 0)
-    A.append(0)
-    L = [0] * (N + 2)
+    L = [0] * N
     R = L[:]
-    for i in range(1, N):
+    R.append(0)
+    for i in range(N - 1):
         L[i + 1] = gcd(L[i], A[i])
-    for i in range(N, 0, -1):
+    for i in range(N - 1, -1, -1):
         R[i] = gcd(R[i + 1], A[i])
-    print(max(gcd(L[i], R[i + 1]) for i in range(1, N + 1)))
+    print(max(gcd(L[i], R[i + 1]) for i in range(N)))
     return
 
 
