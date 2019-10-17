@@ -10,15 +10,14 @@ def modadd(a, b):
 def main():
     lines = stdin.readlines()
     N = int(lines[0].split()[0])
-    M = [True] * (N + 1)
+    a = [True] * (N + 1)
     for i in map(int, lines[1:]):
-        M[i] = False
+        a[i] = False
     dp = [0] * (N + 1)
-    dp[0] = 1
-    for cur in range(N + 1):
-        for i in range(cur + 1, min(cur + 2, N) + 1):
-            if M[i]:
-                dp[i] = modadd(dp[cur], dp[i])
+    dp[:2] = 1, 1 if a[1] else 0
+    for i in range(2, N + 1):
+        if a[i]:
+            dp[i] = modadd(dp[i - 1], dp[i - 2])
     print(dp[N])
     return
 
