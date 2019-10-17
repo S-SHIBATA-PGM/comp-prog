@@ -1,30 +1,19 @@
-from sys import stdin
+input = open(0).read
 
-lines = stdin.readlines
+n, m, *l = map(int, input().split())
 
-l = [[int(i) - 1 for i in line.split()] for line in lines()]
+# abm は ai と bi の tuple を持つ list
+*abm, = zip(l[::2], l[1::2])
 
-N, M = l[0][0] + 1, l[0][1] + 1
+
+def f(i):
+    # 1 は tuple 1番目の要素 なので 2番目の要素
+    # N は tuple 2番目の要素 なので 1番目の要素
+    return set(abi[i < 2] for abi in abm if i in abi)
 
 
 def main():
-    f = [False] * N
-    t = [False] * N
-
-    for a, b in l[1:]:
-        if a == 0:
-            f[b] = True
-        elif b == N - 1:
-            t[a] = True
-
-    for a, b in zip(f, t):
-        if a and b:
-            print("POSSIBLE")
-            return
-    else:
-        print("IMPOSSIBLE")
-
-    return
+    print("POSSIBLE" if f(1) & f(n) else "IMPOSSIBLE")
 
 
 main()
