@@ -1,4 +1,5 @@
 N = int(input())
+Tn = [int(input()) for i in range(N)]
 
 
 def gcd(a, b):
@@ -16,19 +17,32 @@ def gcd(a, b):
     return result
 
 
+def gcd_n(numbers):
+    l = numbers[0]
+
+    for i in range(len(numbers)):
+        l = gcd(l, numbers[i])
+
+    return l
+
+
 def lcm(a, b):
     g = gcd(a, b)
 
     return a * (b // g)
 
 
+def lcm_n(numbers):
+    l = numbers[0]
+
+    for i in range(len(numbers)):
+        l = lcm(l, numbers[i])
+
+    return l
+
+
 def main():
-    ans = 1
-
-    for i in range(N):
-        ans = lcm(ans, int(input()))
-
-    print(ans)
+    print(lcm_n(Tn))
     return
 
 
