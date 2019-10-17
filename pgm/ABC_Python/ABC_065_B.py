@@ -1,13 +1,10 @@
-N = int(input())
+import sys
 
-a = []
+l = [int(i) for i in sys.stdin]
 
-for i in range(N):
-    a.append(int(input()) - 1)
+done = [False] * (l[0] + 1)
 
-done = [False] * N
-
-i = 0
+i = 1
 
 ans = 0
 
@@ -15,9 +12,9 @@ while True:
     if done[i] == False:
         done[i] = True
         ans += 1
-        if a[i] == 1:
+        if l[i] == 2:
             break
-        i = a[i]
+        i = l[i]
     else:
         ans = -1
         break
