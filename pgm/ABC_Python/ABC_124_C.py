@@ -4,5 +4,5 @@ def main():
     print(min(cnt, len(S) - cnt))
     return
 
-
+test
 main()
