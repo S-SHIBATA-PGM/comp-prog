@@ -2,9 +2,13 @@ import sys
 
 l = [int(i) for i in sys.stdin]
 
-done = [False] * (l[0] + 1)
+N = l[0]
 
-i = 1
+a = [int(i) - 1 for i in l[1:]]
+
+done = [False] * N
+
+i = 0
 
 ans = 0
 
@@ -12,9 +16,9 @@ while True:
     if done[i] == False:
         done[i] = True
         ans += 1
-        if l[i] == 2:
+        if a[i] == 1:
             break
-        i = l[i]
+        i = a[i]
     else:
         ans = -1
         break
