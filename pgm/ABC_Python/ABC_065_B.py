@@ -1,10 +1,10 @@
 import sys
 
-l = [int(i) for i in sys.stdin]
+l = [int(i) - 1 for i in sys.stdin]
 
-N = l[0]
+N = l[0] + 1
 
-a = [int(i) - 1 for i in l[1:]]
+a = l[1:]
 
 done = [False] * N
 
