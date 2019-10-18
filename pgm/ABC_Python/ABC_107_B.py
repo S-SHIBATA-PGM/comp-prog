@@ -1,9 +1,6 @@
 H, W = map(int, input().split())
 
-l = []
-
-for i in range(H):
-    l.append(input())
+l = [input() for i in range(H)]
 
 y = [False] * H
 x = [False] * W
