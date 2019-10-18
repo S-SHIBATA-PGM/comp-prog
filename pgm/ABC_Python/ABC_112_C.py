@@ -1,49 +1,39 @@
-N = int(input())
+def main():
+    N = int(input())
 
-xn = []
-yn = []
-hn = []
+    xn = []
+    yn = []
+    hn = []
 
-for i in range(N):
-    xi, yi, hi = map(int, input().split())
-    xn.append(xi)
-    yn.append(yi)
-    hn.append(hi)
+    for i in range(N):
+        xi, yi, hi = map(int, input().split())
+        if hi:
+            xn.append(xi)
+            yn.append(yi)
+            hn.append(hi)
 
-for Cx in range(101):
-    for Cy in range(101):
+    if len(xn) == 1:
+        print(xn[0], yn[0], hn[0])
+        return
 
-        flg = True
+    for Cx in range(101):
+        for Cy in range(101):
 
-        for i in range(N):
-            if 0 == hn[i]:
-                continue
+            last = None
 
-            h = abs(xn[i] - Cx) + abs(yn[i] - Cy) + hn[i]
+            for i in range(len(xn)):
+                H = abs(xn[i] - Cx) + abs(yn[i] - Cy) + hn[i]
 
-            if flg:
-                H = h
-                flg = False
+                if H < 0:
+                    continue
+                if last:
+                    if (last != H):
+                        break
+
+                last = H
             else:
-                if (H != h):
-                    flg = True
-                    break
+                print(Cx, Cy, H)
+                return
 
-        if flg:
-            continue
 
-        for i in range(N):
-            if 0 == hn[i]:
-                h = abs(xn[i] - Cx) + abs(yn[i] - Cy)
-                if h < H:
-                    flg = True
-                    break
-
-        if flg:
-            continue
-
-        print(Cx, Cy, H)
-        break
-
-    if not flg:
-        break
+main()
