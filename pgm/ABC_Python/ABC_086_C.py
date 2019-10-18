@@ -5,7 +5,7 @@ lines = stdin.readlines
 
 N = int(input())
 
-txy = ((map(int, line.split())) for line in lines())
+txy = [[int(i) for i in line.split()] for line in lines()]
 
 
 def main():
