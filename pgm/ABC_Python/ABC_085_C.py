@@ -2,18 +2,37 @@ N, Y = map(int, input().split())
 
 
 def main():
-    for x in range(N + 1):
-        for y in range(N + 1):
-            if N < x + y:
-                break
+    # 大きな額面の札から優先して使用
+    # 最小枚になる
+    x = Y // 10000
+    y = (Y - 10000 * x) // 5000
+    z = (Y - 10000 * x - 5000 * y) // 1000
 
-            z = N - x - y
+    while True:
+        t = x + y + z
 
-            if 10000 * x + 5000 * y + 1000 * z == Y:
-                print(x, y, z)
-                return
+        # 一万 → 一千
+        if t + 9 <= N and 0 < x:
+            x -= 1
+            z += 10
+            continue
 
-    print(-1, -1, -1)
+        # 五千 → 一千
+        if t + 4 <= N and 0 < y:
+            y -= 1
+            z += 5
+            continue
+
+        # 一万 → 五千
+        if t + 1 <= N and 0 < x:
+            x -= 1
+            y += 2
+            continue
+
+        break
+
+    print(x, y, z) if x + y + z == N else print(-1, -1, -1)
+
     return
 
 
