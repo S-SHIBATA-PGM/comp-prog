@@ -4,24 +4,11 @@ def main():
 
     N = int(input())
 
-    An = sorted(map(int, input().split()))
-    Bn = sorted(map(int, input().split()))
-    Cn = sorted(map(int, input().split()))
+    A = sorted(map(int, input().split()))
+    B = sorted(map(int, input().split()))
+    C = sorted(map(int, input().split()))
 
-    ans = 0
-    lx = 0
-    ux = 0
-
-    for Bi in Bn:
-        # 以上
-        lx = bisect_left(An, Bi, lx, N)
-
-        # より大きい
-        ux = bisect_right(Cn, Bi, ux, N)
-
-        ans += lx * (N - ux)
-
-    print(ans)
+    print(sum([bisect_left(A, Bi) * (N - bisect_right(C, Bi)) for Bi in B]))
     return
 
 
