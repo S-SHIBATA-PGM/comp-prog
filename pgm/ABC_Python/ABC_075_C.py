@@ -1,55 +1,44 @@
 N, M = map(int, input().split())
 
-graph = [[False for j in range(N)] for i in range(N)]
+graph = [[] for i in range(N)]
 
-am = [0] * M
-bm = [0] * M
+for i in range(M):
+    ai, bi = map(int, input().split())
+    ai -= 1
+    bi -= 1
+    graph[ai].append(bi)
+    graph[bi].append(ai)
+
+rank = [N] * N
+low = [N] * N
+visited = [False] * N
 
 
-def dfs(visited, n):
-    visited[n] = True
+def dfs(k, pos, parent):
+    rank[pos] = k
+    low[pos] = k
 
-    for k, v in enumerate(visited):
-        if v:
-            continue
+    k += 1
 
-        if not graph[n][k]:
-            continue
+    visited[pos] = True
 
-        visited = dfs(visited, k)
-
-    return visited
+    for i in graph[pos]:
+        if not visited[i]:
+            dfs(k, i, pos)
+            low[pos] = min(low[pos], low[i])
+        elif i != parent:
+            low[pos] = min(low[pos], rank[i])
 
 
 def main():
-    for i in range(M):
-        # 0-indexed
-        ai, bi = map(int, input().split())
-        ai -= 1
-        bi -= 1
-
-        am[i] = ai
-        bm[i] = bi
-
-        graph[ai][bi] = True
-        graph[bi][ai] = True
+    dfs(0, 0, -1)
 
     ans = 0
 
-    for ai, bi in zip(am, bm):
-        graph[ai][bi] = False
-        graph[bi][ai] = False
-
-        # 訪問済 All False
-        visited = dfs([False] * N, 0)
-
-        # All True ならば 橋 ではない
-        if not all(visited):
-            ans += 1
-
-        # 元に戻す
-        graph[ai][bi] = True
-        graph[bi][ai] = True
+    for i in range(N):
+        for j in graph[i]:
+            if rank[j] < low[i]:
+                ans += 1
 
     print(ans)
     return
