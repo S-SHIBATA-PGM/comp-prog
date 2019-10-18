@@ -22,12 +22,16 @@ def main():
 
     ans = 0
 
-    for i in range(N):
-        for j in range(N):
-            if not done[j] and ab[j][0] < cd[i][0] and ab[j][1] < cd[i][1]:
-                done[j] = True
+    for blue in cd:
+        i = 0
+
+        for red in ab:
+            if not done[i] and red[0] < blue[0] and red[1] < blue[1]:
+                done[i] = True
                 ans += 1
                 break
+
+            i += 1
 
     print(ans)
     return
