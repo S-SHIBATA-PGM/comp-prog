@@ -6,15 +6,6 @@ am = [0] * M
 bm = [0] * M
 
 
-def judge(visited):
-    for v in visited:
-        if not v:
-            return True
-    else:
-        # 完走 橋ではない
-        return False
-
-
 def dfs(visited, n):
     visited[n] = True
 
@@ -52,7 +43,8 @@ def main():
         # 訪問済 All False
         visited = dfs([False] * N, 0)
 
-        if judge(visited):
+        # All True ならば 橋 ではない
+        if not all(visited):
             ans += 1
 
         # 元に戻す
