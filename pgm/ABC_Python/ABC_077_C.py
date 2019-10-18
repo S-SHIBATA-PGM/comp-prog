@@ -1,19 +1,19 @@
 N = int(input())
 
-An = sorted(map(int, input().split()), reverse=True)
-Bn = sorted(map(int, input().split()), reverse=True)
-Cn = sorted(map(int, input().split()), reverse=True)
+An = sorted(map(int, input().split()))
+Bn = sorted(map(int, input().split()))
+Cn = sorted(map(int, input().split()))
 
 
 def f(xn, yn, zn):
     tn = [0] * N
     num = 0
-    j = 0
+    j = N - 1
 
-    for i in range(N):
-        while j <= N - 1 and xn[i] < yn[j]:
+    for i in range(N - 1, -1, - 1):
+        while 0 <= j and xn[i] < yn[j]:
             num += zn[j]
-            j += 1
+            j -= 1
         tn[i] = num
 
     return tn
