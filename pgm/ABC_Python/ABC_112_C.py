@@ -1,14 +1,14 @@
 N = int(input())
 
-xn = [0] * N
-yn = [0] * N
-hn = [0] * N
+xn = []
+yn = []
+hn = []
 
 for i in range(N):
     xi, yi, hi = map(int, input().split())
-    xn[i] = xi
-    yn[i] = yi
-    hn[i] = hi
+    xn.append(xi)
+    yn.append(yi)
+    hn.append(hi)
 
 for Cx in range(101):
     for Cy in range(101):
