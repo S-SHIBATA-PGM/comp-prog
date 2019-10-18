@@ -1,14 +1,31 @@
+N = int(input())
+
+An = sorted(map(int, input().split()), reverse=True)
+Bn = sorted(map(int, input().split()), reverse=True)
+Cn = sorted(map(int, input().split()), reverse=True)
+
+
+def f(xn, yn, zn):
+    tn = [0] * N
+    num = 0
+    j = 0
+
+    for i in range(N):
+        while j <= N - 1 and xn[i] < yn[j]:
+            num += zn[j]
+            j += 1
+        tn[i] = num
+
+    return tn
+
+
 def main():
-    from bisect import bisect_left
-    from bisect import bisect_right
+    Zn = [1] * N
 
-    N = int(input())
+    Zn = f(Bn, Cn, Zn)
+    Zn = f(An, Bn, Zn)
 
-    A = sorted(map(int, input().split()))
-    B = sorted(map(int, input().split()))
-    C = sorted(map(int, input().split()))
-
-    print(sum([bisect_left(A, Bi) * (N - bisect_right(C, Bi)) for Bi in B]))
+    print(sum(Zn))
     return
 
 
