@@ -12,19 +12,10 @@ T = list(input())
 
 
 def main():
-    C1 = Counter(S).most_common()
-    C2 = Counter(T).most_common()
+    C1 = sorted(Counter(S).values())
+    C2 = sorted(Counter(T).values())
 
-    if len(C1) != len(C2):
-        print("No")
-        return
-
-    flg = True
-    for i in range(len(C1)):
-        if C1[i][1] != C2[i][1]:
-            flg = False
-
-    print("Yes" if flg else "No")
+    print("Yes" if C1 == C2 else "No")
     return
 
 
