@@ -5,7 +5,7 @@ xn = [int(i) for i in input().split()]
 
 
 def main():
-    if 0 <= xn[0]:
+    if 0 < xn[0]:
         print(xn[K - 1])
         return
 
@@ -19,8 +19,12 @@ def main():
         if xn[i + K - 1] < 0 and i + K <= N - 1 and 0 < xn[i + K]:
             ans = min(ans, abs(xn[i]))
 
-        elif 0 < xn[i] and 0 != i and xn[i - 1] < 0:
-            ans = min(ans, abs(xn[i + K - 1]))
+        elif 0 < xn[i]:
+            if 0 != i:
+                if xn[i - 1] < 0:
+                    ans = min(ans, abs(xn[i + K - 1]))
+                else:
+                    break
 
         elif 0 <= xn[i + K - 1]:
             ans = min(ans,
