@@ -2,28 +2,26 @@ MAX_TIME = 10
 
 N = int(input())
 
-F = [[int(j) for j in input().split()] for i in range(N)]
+F = [int(input().replace(" ", ""), 2) for i in range(N)]
 
 P = [[int(j) for j in input().split()] for i in range(N)]
 
 
 def main():
-    ans = -11000000001
-
+    # 1 から 2 ** MAX_TIME - 1
     # 営業時間帯 最低でも ひとつの時間帯
-    # 選択パターン
-    for i in range(1, 2 ** MAX_TIME):
-        tmp = 0
+    # 選択する時間帯を2進法で表現したもの
 
-        # 他の店
-        for j in range(N):
-            # 各時間帯
-            cnt = sum([F[j][k] for k in range(MAX_TIME) if i >> k & 1])
-            tmp += P[j][cnt]
+    # F[店のインデックス]
+    # 他の店
+    # 選択する時間帯を2進法で表現したもの
 
-        ans = max(ans, tmp)
+    # P[店のインデックス][合致した時間帯の数]
+    # 利益
+    print(max(sum(
+        [p[bin(f & i).count("1")] for f, p in zip(F, P)])
+        for i in range(1, 2 ** MAX_TIME)))
 
-    print(ans)
     return
 
 
