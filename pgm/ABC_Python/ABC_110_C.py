@@ -2,11 +2,10 @@
 # cdaa
 # Yes‚É‚È‚é
 
-#from sys import stdin
+from sys import stdin
 from collections import Counter
-from operator import itemgetter
 
-#input = stdin.readline
+input = stdin.readline
 
 S = list(input())
 T = list(input())
