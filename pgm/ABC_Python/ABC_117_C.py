@@ -1,16 +1,12 @@
 import numpy as np
 
 N, M = map(int, input().split())
-X = [int(i) for i in input().split()]
+X = list(set(map(int, input().split())))
 
-# 昇順
 X.sort()
 
-# numpy array 配列の差分
 D = np.diff(X)
 
-# numpy array 降順
-D = np.sort(D)[::-1]
+D.sort()
 
-# numpy array 先頭から N - 2 まで 合計
-print(X[-1] - X[0] - np.sum(D[:N - 1]))
+print(0 if M <= N else np.sum(D[:M-N]))
