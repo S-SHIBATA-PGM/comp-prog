@@ -1,7 +1,6 @@
 INF = 1000000007
 
-N, K = map(int, input().split())
-h = [int(input()) for i in range(N)]
+N, K, *h = map(int, open(0).read().split())
 
 h.sort()
 
