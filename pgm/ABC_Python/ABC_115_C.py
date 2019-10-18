@@ -1,12 +1,21 @@
 INF = 1000000007
 
-N, K, *h = map(int, open(0).read().split())
+input = open(0).read
 
-h.sort()
+N, K, *h = map(int, input().split())
 
-ans = INF
 
-for i in range(N - K + 1):
-    ans = min(ans, h[i + K - 1] - h[i])
+def main():
 
-print(ans)
+    h.sort()
+
+    ans = INF
+
+    for i in range(N - K + 1):
+        ans = min(ans, h[i + K - 1] - h[i])
+
+    print(ans)
+    return
+
+
+main()
