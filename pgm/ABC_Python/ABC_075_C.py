@@ -24,10 +24,12 @@ def dfs(k, pos, parent):
 
     for i in graph[pos]:
         if not visited[i]:
-            dfs(k, i, pos)
+            k = dfs(k, i, pos)
             low[pos] = min(low[pos], low[i])
         elif i != parent:
-            low[pos] = min(low[pos], rank[i])
+            low[pos] = min(low[pos], low[i])
+
+    return k
 
 
 def main():
