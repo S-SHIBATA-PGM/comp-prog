@@ -1,10 +1,11 @@
 from sys import stdin
 
 input = stdin.readline
+lines = stdin.readlines
 
 N = int(input())
 
-txy = [[int(j) for j in input().split()] for i in range(N)]
+txy = ((map(int, line.split())) for line in lines())
 
 
 def main():
