@@ -1,27 +1,22 @@
 N = int(input())
 
-C = []
-S = []
-F = []
-
-for i in range(N - 1):
-    c, s, f = map(int, input().split())
-    C.append(c)
-    S.append(s)
-    F.append(f)
+CSFn = [[int(j) for j in input().split()] for i in range(N - 1)]
 
 
-def next(s, t):
-    # 始発
-    if t < S[s]:
-        t = S[s]
+def next(s):
+    t = 0
 
-    # タイムラグ
-    elif t % F[s]:
-        t += F[s] - t % F[s]
+    for Ci, Si, Fi in CSFn[s:]:
+        # 始発
+        if t < Si:
+            t = Si
 
-    # 列車の移動時間
-    t += C[s]
+        # タイムラグ
+        elif t % Fi:
+            t += Fi - t % Fi
+
+        # 列車の移動時間
+        t += Ci
 
     return t
 
@@ -29,12 +24,7 @@ def next(s, t):
 def main():
     # 出発駅
     for i in range(N - 1):
-        t = next(i, 0)
-
-        # 途中駅
-        for j in range(i + 1, N - 1):
-            t = next(j, t)
-
+        t = next(i)
         print(t)
 
     print(0)
