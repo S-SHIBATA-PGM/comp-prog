@@ -7,21 +7,22 @@ def judge(visited):
         return False
 
 
+def dfs(visited, graph, n):
+    visited[n] = True
+
+    for k, v in enumerate(graph[n]):
+        if not v:
+            continue
+
+        if visited[k]:
+            continue
+
+        visited = dfs(visited, graph, k)
+
+    return visited
+
+
 def main():
-    def dfs(visited, n):
-        visited[n] = True
-
-        for k, v in enumerate(graph[n]):
-            if not v:
-                continue
-
-            if visited[k]:
-                continue
-
-            visited = dfs(visited, k)
-
-        return visited
-
     N, M = map(int, input().split())
 
     graph = [[False for j in range(N)] for i in range(N)]
@@ -48,7 +49,9 @@ def main():
         graph[bi][ai] = False
 
         # 訪問済 All False
-        if judge(dfs([False] * N, 0)):
+        visited = dfs([False] * N, graph, 0)
+
+        if judge(visited):
             ans += 1
 
         # 元に戻す
