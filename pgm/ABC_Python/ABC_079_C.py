@@ -4,7 +4,7 @@ MAX_ITEM = 4
 NUM = 7
 OPS = ("+", "-")
 
-ABCD = list(input())
+ABCD = input()
 
 
 def main():
