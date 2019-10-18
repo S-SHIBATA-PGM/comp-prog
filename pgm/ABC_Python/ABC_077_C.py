@@ -1,34 +1,27 @@
 def main():
+    from bisect import bisect_left
+    from bisect import bisect_right
+
     N = int(input())
 
-    A = sorted(map(int, input().split()))
-    B = sorted(map(int, input().split()))
-    C = sorted(map(int, input().split()))
+    An = sorted(map(int, input().split()))
+    Bn = sorted(map(int, input().split()))
+    Cn = sorted(map(int, input().split()))
 
-    def lowerBound(a, v):
+    ans = 0
+    lx = 0
+    ux = 0
+
+    for Bi in Bn:
         # 以上
-        return lb(a, 0, len(a), v)
+        lx = bisect_left(An, Bi, lx, N)
 
-    def upperBound(a, v):
         # より大きい
-        # 値をプラス1
-        return lb(a, 0, len(a), v + 1)
+        ux = bisect_right(Cn, Bi, ux, N)
 
-    def lb(a, l, r, v):
-        low = l - 1
-        high = r
+        ans += lx * (N - ux)
 
-        while high - low > 1:
-            mid = low + high >> 1
-            if a[mid] >= v:
-                high = mid
-            else:
-                low = mid
-
-        return high
-
-    print(sum([lowerBound(A, Bi) * (N - upperBound(C, Bi)) for Bi in B]))
-
+    print(ans)
     return
 
 
