@@ -15,20 +15,14 @@ def main():
     flg = False
 
     for t, x, y in txy:
-        d = abs(x - px) + abs(y - py)
-        dt = t - pt
-        # 到達 あるいは 通過
-        if d <= dt:
-            # 距離と時間の偶奇が一致しない 戻れない
-            if d % 2 != dt % 2:
-                break
-            else:
-                pt = t
-                px = x
-                py = y
-        # 到達しない
-        else:
+        dt = t - pt - abs(x - px) - abs(y - py)
+        # 余った時間が奇数 戻れない
+        if dt < 0 or dt % 2 == 1:
             break
+
+        pt = t
+        px = x
+        py = y
     else:
         # break しなかった 完走
         flg = True
