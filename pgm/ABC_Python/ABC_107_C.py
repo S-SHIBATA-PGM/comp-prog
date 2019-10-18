@@ -15,24 +15,17 @@ def main():
 
     ans = MAX
 
-    for i in range(N):
-        if N - 1 < i + K - 1:
-            break
+    for i in range(N - K + 1):
+        if xn[i + K - 1] < 0 and i + K <= N - 1 and 0 < xn[i + K]:
+            ans = min(ans, abs(xn[i]))
 
-        if xn[i] < 0:
-            if xn[i + K - 1] < 0 and i + K <= N - 1 and 0 < xn[i + K]:
-                ans = min(ans, abs(xn[i]))
+        elif 0 < xn[i] and 0 != i and xn[i - 1] < 0:
+            ans = min(ans, abs(xn[i + K - 1]))
 
-            elif 0 <= xn[i + K - 1]:
-                ans = min(ans,
-                          2 * abs(xn[i]) + abs(xn[i + K - 1]),
-                          abs(xn[i]) + 2 * abs(xn[i + K - 1]))
-
-        elif 0 == xn[i]:
-            ans = min(ans, xn[i + K - 1])
-
-        elif 0 != i and xn[i - 1] < 0:
-            ans = min(ans, xn[i + K - 1])
+        elif 0 <= xn[i + K - 1]:
+            ans = min(ans,
+                      2 * abs(xn[i]) + abs(xn[i + K - 1]),
+                      abs(xn[i]) + 2 * abs(xn[i + K - 1]))
 
     print(ans)
     return
