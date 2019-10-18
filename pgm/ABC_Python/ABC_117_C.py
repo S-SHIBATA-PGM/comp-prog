@@ -1,5 +1,5 @@
 N, M = map(int, input().split())
-X = list(set([int(i) for i in input().split()]))
+X = list(set(map(int, input().split())))
 
 X.sort()
 
