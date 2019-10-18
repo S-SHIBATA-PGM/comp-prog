@@ -1,9 +1,6 @@
 N, T = map(int, input().split())
 
-ct = []
-
-for i in range(N):
-    ct.append([int(i) for i in input().split()])
+ct = [[int(j) for j in input().split()] for i in range(N)]
 
 ct.sort(key=lambda x: x[0])
 
