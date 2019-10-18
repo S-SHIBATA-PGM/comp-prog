@@ -11,21 +11,23 @@ for i in range(N):
     hn[i] = hi
 
 for Cx in range(101):
-    flg = True
-
     for Cy in range(101):
 
-        for i in range(N):
-            if 0 < hn[i]:
-                h = abs(xn[i] - Cx) + abs(yn[i] - Cy) + hn[i]
+        flg = True
 
-                if flg:
-                    H = h
-                    flg = False
-                else:
-                    if (H != h):
-                        flg = True
-                        break
+        for i in range(N):
+            if 0 == hn[i]:
+                continue
+
+            h = abs(xn[i] - Cx) + abs(yn[i] - Cy) + hn[i]
+
+            if flg:
+                H = h
+                flg = False
+            else:
+                if (H != h):
+                    flg = True
+                    break
 
         if flg:
             continue
