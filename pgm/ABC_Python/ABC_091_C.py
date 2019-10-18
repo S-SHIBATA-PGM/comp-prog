@@ -1,7 +1,4 @@
-from sys import stdin
 from operator import itemgetter
-
-input = stdin.readline
 
 N = int(input())
 
