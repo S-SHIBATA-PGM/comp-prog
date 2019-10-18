@@ -1,14 +1,10 @@
-import sys
-
-input = sys.stdin.readline
-
 N, M = map(int, input().split())
 
 Pm = [0] * M
 Ym = [0] * M
 ym = [0] * M
 
-Am = [[0 for i in range(2)] for j in range(M)]
+Am = [''] * M
 Cn = [0] * N
 
 D = {}
@@ -29,7 +25,7 @@ for i in range(M):
 
     # 0-indexed
     Cn[Pm[k] - 1] += 1
-    Am[k] = [Pm[k], Cn[Pm[k] - 1]]
+    Am[k] = str(Pm[k]).rjust(6, '0') + str(Cn[Pm[k] - 1]).rjust(6, '0')
 
 for i in range(M):
-    print('{:06d}{:06d}'.format(Am[i][0], Am[i][1]))
+    print(Am[i])
