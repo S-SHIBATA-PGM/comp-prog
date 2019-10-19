@@ -1,0 +1,5 @@
+S = input()
+print("NA" if (S[:2] < "01" or "12" < S[:2]) and (S[2:] < "01" or "12" < S[2:])
+      else "YYMM" if (S[:2] < "01" or "12" < S[:2]) and ("01" <= S[2:] <= "12")
+      else "MMYY" if ("01" <= S[:2] <= "12") and (S[2:] < "01" or "12" < S[2:])
+      else "AMBIGUOUS")
