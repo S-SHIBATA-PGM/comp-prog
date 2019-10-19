@@ -1,18 +1,15 @@
-from operator import itemgetter
-
 N = int(input())
 
-SP = [input().split() for i in range(N)]
+SP = {i+1: input().split() for i in range(N)}
 
-for k, v in enumerate(SP):
-    v.insert(0, str(k + 1))
-    v[2] = int(v[2])
+for v in SP.values():
+    v[1] = int(v[1])
 
 # 降順
-SP.sort(key=itemgetter(2), reverse=True)
+SP = sorted(SP.items(), key=lambda x: x[1][1], reverse=True)
 
 # 昇順
-SP.sort(key=itemgetter(1))
+SP = sorted(SP, key=lambda x: x[1][0])
 
 for sp in SP:
     print(sp[0])
