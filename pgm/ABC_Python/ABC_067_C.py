@@ -1,15 +1,11 @@
-INF = float('inf')
+from itertools import accumulate
 
 
 def main():
     N, *a = map(int, open(0).read().split())
-    ans = INF
-    tmp = 0
-    total = sum(a)
-    for i in range(N - 1):
-        tmp += a[i]
-        ans = min(ans, abs(2 * tmp - total))
-    print(ans)
+    a = list(accumulate(a))
+    total = a[-1]
+    print(min(abs(2 * a[i] - total) for i in range(N - 1)))
     return
 
 
