@@ -1,14 +1,15 @@
 from sys import stdin
-from operator import itemgetter
 
 
 def main():
     lines = stdin.readlines()
     N, K = map(int, lines[0].split())
-    abn = [[int(abi) for abi in line.split()] for line in lines[1:]]
-    abn.sort(key=itemgetter(0))
+    bn = [0] * (int(1e5) + 1)
+    for line in lines[1:]:
+        ai, bi = map(int, line.split())
+        bn[ai] += bi
     cnt = 0
-    for ai, bi in abn:
+    for ai, bi in enumerate(bn):
         cnt += bi
         if K <= cnt:
             print(ai)
