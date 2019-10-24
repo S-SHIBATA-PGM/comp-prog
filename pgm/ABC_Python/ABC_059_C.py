@@ -17,7 +17,7 @@ def f(flg, an):
 
 
 def main():
-    n, *an = map(int, open(0).read().split())
+    an = list(map(int, open(0).read().split()[1:]))
     print(min(f(False, an), f(True, an)))
     return
 
