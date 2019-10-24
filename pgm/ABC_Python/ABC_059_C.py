@@ -1,7 +1,7 @@
 def f(flg, an):
     accum = 0
     ret = 0
-    for i, ai in enumerate(an):
+    for ai in an:
         accum += ai
         if flg:
             flg = False
