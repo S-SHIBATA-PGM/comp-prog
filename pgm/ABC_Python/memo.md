@@ -21,7 +21,7 @@ N ƒVƒtƒg‚ğ—Dæ‚³‚¹‚½‚¢ê‡‚Í()‚ğ‚Â‚¯‚é
 
 O(1)  
 ABC_056  
-|1 + ã(8X+1) /2  
+(|1 + ã(8X+1)) /2  
 
 ABC_062  
 https://atcoder.jp/contests/abc062/submissions/1296576  
