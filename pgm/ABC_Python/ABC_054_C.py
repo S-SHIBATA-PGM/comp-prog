@@ -16,9 +16,7 @@ def dfs(e, ans, graph, done, N):
 def main():
     lines = stdin.readlines()
     N, M = map(int, lines[0].split())
-    graph = []
-    for i in range(N):
-        graph.append([])
+    graph = [[] for i in range(N)]
     for i in range(1, M + 1):
         a, b = map(int, lines[i].split())
         # 0-based indexing
