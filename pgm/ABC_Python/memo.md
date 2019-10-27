@@ -13,7 +13,7 @@ datetime.timedelta : ŠÔ·EŒo‰ßŠÔ
 
 import datetime  
 S = datetime.datetime.strptime(input(), "%Y/%m/%d")  
-T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")
+T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")  
 
-
-
+- ‚Í << ‚æ‚è‚à—Dæ“x‚ª‚‚¢  
+(1 << N) - 1
