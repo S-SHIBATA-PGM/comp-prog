@@ -1,4 +1,4 @@
-from collections import defaultdict
+from functools import reduce
 INF = int(1e9+7)
 
 
@@ -18,15 +18,12 @@ def primeFactor(n, pf):
 
 def main():
     N = int(input())
-    d = defaultdict(lambda: 0)
+    pf = [0] * (N + 1)
     for i in range(1, N + 1):
-        primeFactor(i, d)
-    ans = 1
-    for i in d.values():
-        ans *= i + 1
-        ans %= INF
-    print(ans)
+        primeFactor(i, pf)
+    print(reduce(lambda x, y: x * (y + 1) % INF, pf, 1))
     return
 
 
 main()
+
