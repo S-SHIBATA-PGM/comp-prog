@@ -1,28 +1,30 @@
-from functools import reduce
 INF = int(1e9+7)
 
 
-def primeFactor(n, pf):
-    # 素因数分解
-    if n == 1:
-        return
-    f = 2
-    while (f * f <= n):
-        if (n % f == 0):
-            pf[f] += 1
-            n = n // f
-        else:
-            f += 1
-    pf[n] += 1
+def primeNumber(n, pn):
+    # Sieve of Eratosthenes
+    b = [True] * (n + 1)
+    for i in range(2, n + 1):
+        if b[i]:
+            pn.append(i)
+            for j in range(i, n + 1, i):
+                b[j] = False
+    return
 
 
 def main():
     N = int(input())
-    pf = [0] * (N + 1)
-    for i in range(1, N + 1):
-        primeFactor(i, pf)
-    print(reduce(lambda x, y: x * (y + 1) % INF, pf, 1))
-    return
+    pn = []
+    primeNumber(N, pn)
+    ans = 1
+    for p in pn:
+        cnt = 0
+        cum = p
+        while cum <= N:
+            cnt += N // cum
+            cum *= p
+        ans = ans * (cnt + 1) % INF
+    print(ans)
 
 
 main()
