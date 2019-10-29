@@ -20,8 +20,8 @@ N シフトを優先させたい場合は()をつける
 (1 << N) - 1
 
 ※リスト内包記法
-https://qiita.com/frodo821/items/26131635eb16ee4b1467
-https://atcoder.jp/contests/abc052/submissions/8206471
+https://qiita.com/frodo821/items/26131635eb16ee4b1467  
+https://atcoder.jp/contests/abc052/submissions/8206471  
 
 ※O(1)  
 ABC_056  
