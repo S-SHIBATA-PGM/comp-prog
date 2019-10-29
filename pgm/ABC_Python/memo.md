@@ -19,10 +19,16 @@ T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")
 N シフトを優先させたい場合は()をつける  
 (1 << N) - 1
 
-O(1)  
+※リスト内包記法
+https://qiita.com/frodo821/items/26131635eb16ee4b1467
+https://atcoder.jp/contests/abc052/submissions/8206471
+
+※O(1)  
 ABC_056  
 (－1 + √(8X+1)) /2  
 
 ABC_062  
 https://atcoder.jp/contests/abc062/submissions/1296576  
+
+
 
