@@ -23,6 +23,10 @@ N ƒVƒtƒg‚ğ—Dæ‚³‚¹‚½‚¢ê‡‚Í()‚ğ‚Â‚¯‚é
 https://qiita.com/frodo821/items/26131635eb16ee4b1467  
 https://atcoder.jp/contests/abc052/submissions/8206471  
 
+loop = {0: 0}  
+[loop.update({0: loop[0] + i}) for i in range(5)]  
+print(loop)  
+
 ¦O(1)  
 ABC_056  
 (|1 + ã(8X+1)) /2  
