@@ -15,6 +15,9 @@ import datetime
 S = datetime.datetime.strptime(input(), "%Y/%m/%d")  
 T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")  
 
+※べき乗は優先度が高い  
+(2 ** (N // 2) + 1) % INF  
+
 ※マイナス は << よりも優先度が高い  
 N シフトを優先させたい場合は()をつける  
 (1 << N) - 1
