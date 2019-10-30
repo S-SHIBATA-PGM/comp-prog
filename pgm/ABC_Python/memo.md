@@ -15,9 +15,12 @@ import datetime
 S = datetime.datetime.strptime(input(), "%Y/%m/%d")  
 T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")  
 
-マイナス は << よりも優先度が高い  
+※マイナス は << よりも優先度が高い  
 N シフトを優先させたい場合は()をつける  
 (1 << N) - 1
+
+※flatten
+sum([[1,2,3],[4,5,6],[7,8,9]], [])  #=> [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ※リスト内包記法  
 https://qiita.com/frodo821/items/26131635eb16ee4b1467  
