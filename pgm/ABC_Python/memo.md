@@ -41,4 +41,7 @@ ABC_062
 https://atcoder.jp/contests/abc062/submissions/1296576  
 
 
+Å¶ê≥ãKï\åª  
+ABC_049_C  
+import re;print(re.match('(dream|dreamer|erase|eraser)*$',input())and'YES'or'NO')
 
