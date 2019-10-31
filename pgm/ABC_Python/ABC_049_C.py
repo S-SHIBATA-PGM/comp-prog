@@ -11,11 +11,11 @@ def main():
         lens = len(S)
         if S[-len(dreamer):] == dreamer:
             S = S[:-len(dreamer)]
-        elif S[-len(eraser):] == eraser:
+        if S[-len(eraser):] == eraser:
             S = S[:-len(eraser)]
-        elif S[-len(dream):] == dream:
+        if S[-len(dream):] == dream:
             S = S[:-len(dream)]
-        elif S[-len(erase):] == erase:
+        if S[-len(erase):] == erase:
             S = S[:-len(erase)]
         if lens == len(S):
             print("NO")
