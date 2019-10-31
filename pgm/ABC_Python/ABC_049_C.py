@@ -6,18 +6,18 @@ erase = "erase"
 
 def main():
     S = input()
-
-    while len(S):
-        lens = len(S)
-        if S[-len(dreamer):] == dreamer:
-            S = S[:-len(dreamer)]
-        if S[-len(eraser):] == eraser:
-            S = S[:-len(eraser)]
-        if S[-len(dream):] == dream:
-            S = S[:-len(dream)]
-        if S[-len(erase):] == erase:
-            S = S[:-len(erase)]
-        if lens == len(S):
+    i = len(S)
+    while 0 < i:
+        pre = i
+        if S[i - len(dreamer):i] == dreamer:
+            i -= len(dreamer)
+        if S[i - len(eraser):i] == eraser:
+            i -= len(eraser)
+        if S[i - len(dream):i] == dream:
+            i -= len(dream)
+        if S[i - len(erase):i] == erase:
+            i -= len(erase)
+        if pre == i:
             print("NO")
             return
     print("YES")
