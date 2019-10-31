@@ -10,9 +10,9 @@ def main():
     while len(S):
         lens = len(S)
         if S[-len(dreamer):] == dreamer:
-            S = S[:- len(dreamer)]
+            S = S[:-len(dreamer)]
         elif S[-len(eraser):] == eraser:
-            S = S[:- len(eraser)]
+            S = S[:-len(eraser)]
         elif S[-len(dream):] == dream:
             S = S[:-len(dream)]
         elif S[-len(erase):] == erase:
