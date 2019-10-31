@@ -34,10 +34,10 @@ loop = {0: 0}
 print(loop)  
 
 Å¶O(1)  
-ABC_056  
+ABC_056_C  
 (Å|1 + Å„(8X+1)) /2  
 
-ABC_062  
+ABC_062_C  
 https://atcoder.jp/contests/abc062/submissions/1296576  
 
 
