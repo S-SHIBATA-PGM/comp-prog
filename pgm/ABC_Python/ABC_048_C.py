@@ -1,14 +1,13 @@
 def main():
-    N, x, *an = map(int, open(0).read().split())
+    N, x, *a = map(int, open(0).read().split())
     ans = 0
-    for i in range(N - 1):
-        if x < an[i] + an[i + 1]:
-            cur = an[i] + an[i + 1] - x
+    pre = a[0]
+    for i in range(1, N):
+        if x < pre + a[i]:
+            cur = pre + a[i] - x
             ans += cur
-            if an[i + 1] <= cur:
-                an[i + 1] = 0
-            else:
-                an[i + 1] -= cur
+            a[i] = a[i] - cur if cur < a[i] else 0
+        pre = a[i]
     print(ans)
     return
 
