@@ -1,15 +1,7 @@
-INF = int(1e9 + 7)
-
-
 def main():
     N, *an = map(int, open(0).read().split())
-    ans = INF
-    for i in range(min(an), max(an) + 1):
-        tmp = 0
-        for ai in an:
-            tmp += (ai - i) ** 2
-        ans = min(ans, tmp)
-    print(ans)
+    print(min(sum((ai - (sum(an) // N)) ** 2 for ai in an),
+              sum((ai + (-sum(an) // N)) ** 2 for ai in an)))
     return
 
 
