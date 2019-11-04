@@ -18,25 +18,18 @@ def main():
         else:
             ans = max(ans, cur)
             while True:
-                flg = False
                 if 0 < cur:
                     accum //= s[i]
                     cur -= 1
-                    flg = True
                 i += 1
                 if N <= i:
                     j = i
                     break
-                elif flg and s[i] <= K:
+                elif s[i] <= K:
                     if cur == 0:
                         accum *= s[i]
                         cur += 1
                         j = i + 1
-                    break
-                elif s[i] <= K:
-                    accum = s[i]
-                    cur = 1
-                    j = i + 1
                     break
     print(max(ans, cur))
     return
