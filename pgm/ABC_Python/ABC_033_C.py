@@ -1,13 +1,5 @@
 def main():
-    S = [i for i in input().split("+")]
-    ans = 0
-    for s in S:
-        for si in s[::1]:
-            if si == "0":
-                break
-        else:
-            ans += 1
-    print(ans)
+    print(sum(1 for s in input().split("+") if "0" not in s))
     return
 
 
