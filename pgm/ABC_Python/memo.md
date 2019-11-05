@@ -15,6 +15,35 @@ import datetime
 S = datetime.datetime.strptime(input(), "%Y/%m/%d")  
 T = datetime.datetime.strptime("2019/05/01", "%Y/%m/%d")  
 
+※特殊メソッド  
+__int__(self)  
+メソッドはオブジェクトに付随する性質  
+int、lenはpythonの組み込み関数  
+joinはメソッド  
+
+※itertools.product型はジェネレータ  
+forループで列挙でタプルが取得できる  
+a = ("Shinji", "SHIBATA")  
+print("　".join(a))  
+print(["".join(x) for x in product("abc", repeat=N)])  
+"".join()メソッドもint()組み込み関数と同じように  
+map()組み込み関数の第1引数に指定出来て  
+map("".join, product("abc", repeat=N))  
+"".join()メソッドの引数にmapを指定できるので  
+print("\n".join(map("".join, product("abc", repeat=N))))  
+"".join()メソッドは、mapやリストやタプルなどのイテラブルオブジェクトを結合できる  
+map()関数はリストやタプルなどのイテラブルオブジェクトのすべての要素に同じ演算を適用する関数  
+
+※イテラブルなジェネレーター  
+「イテラブル」は「iterable」で「反復可能な」です。  
+for文などで反復できるもの全部ということでしょう。  
+ですので、__next__（イテレータ）の他yield（ジェネレータ）などが含まれます。   
+
+※関数
+import os
+os.getcwd()
+getcwdはosモジュールの関数
+
 ※べき乗は優先度が高い  
 (2 ** (N // 2) + 1) % INF  
 
