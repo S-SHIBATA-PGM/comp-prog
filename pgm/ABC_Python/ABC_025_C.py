@@ -28,22 +28,8 @@ def anySearch(s, i):
     return (s.count(any), foundIndex)
 
 
-def getPoint(board, row, clm):
-    # get first player point
-    if row == rowB:
-        ret = sum([b[i][j]
-                   for j in range(clm)
-                   for i in range(row)
-                   if board[i * 3 + j] == board[(i + 1) * 3 + j]])
-    else:
-        ret = sum([c[i][j]
-                   for j in range(clm)
-                   for i in range(row)
-                   if board[i * 3 + j] == board[i * 3 + j + 1]])
-    return ret
-
-
 def calc(board):
+    # first player point
     ret = sum([b[i][j]
                for j in range(clmB)
                for i in range(rowB)
@@ -56,43 +42,44 @@ def calc(board):
 
 
 def search(board):
-    # 既に点数計算が完了している
-    # if board in d:
-    #     return d[board]
     # any があるか
     # その登場回数、左からの最初の位置を調べる
-    tmp = anySearch(board, 0)
-    times = tmp[0]
-    idx = tmp[1]
+    rslt = anySearch(board, 0)
+    times = rslt[0]
+    idx = rslt[1]
     if not times:
         # すべての手番の終了
         # 点数計算
         return calc(board)
     # 次の手番
     turn = (times - 1) % 2
+    # 手番 score
     score = -1
     for i in range(times):
         # 現在の board はそのまま残す
-        copy = list(board)
+        cpy = list(board)
         # 左から any を手番で埋める
-        copy[idx] = str(turn)
-        tmp = "".join(copy)
-        if tmp not in d:
-            cur = search(tmp)
+        cpy[idx] = str(turn)
+        key = "".join(cpy)
+        if key not in d:
+            # 探索
+            cur = search(key)
         else:
-            cur = d[tmp]
+            # 既に点数計算が完了している
+            cur = d[key]
         if not turn:
-            # first
+            # first player
             if score < cur:
+                # first player の score のみ保持
                 first = cur
                 score = cur
         else:
-            # second
+            # second player
             if score < TOTAL_SCORE - cur:
-                # first player の score のみ記録
+                # first player の score のみ保持
                 first = cur
                 score = TOTAL_SCORE - cur
-        # for でスコア算出した idx の次を探す
+        # 点数計算した idx の次を探索
         idx = anySearch(board, idx + 1)[1]
     # 途中結果を記録
     d[board] = first
