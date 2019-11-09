@@ -1,5 +1,3 @@
-import sys
-sys.setrecursionlimit(30000)
 # どのように入っても
 any = "9"
 # 2行3列
@@ -12,6 +10,9 @@ clmC = 2
 d = dict()
 b = [[0] * clmB for i in range(rowB)]
 c = [[0] * clmC for i in range(rowC)]
+# first player と second player の 合計 score
+# b と c の合計で一定
+TOTAL_SCORE = 0
 
 
 def getIndex(s, i):
@@ -24,16 +25,7 @@ def getIndex(s, i):
 
 def anySearch(s, i):
     foundIndex = getIndex(s, i)
-    if i != 0:
-        j = 1
-        while j <= i:
-            nextIndex = foundIndex + 1
-            if nextIndex < len(s):
-                foundIndex = getIndex(s, nextIndex)
-                j += 1
-            else:
-                break
-    return (s.count(any, foundIndex), foundIndex)
+    return (s.count(any), foundIndex)
 
 
 def getPoint(board, row, clm):
@@ -65,8 +57,8 @@ def calc(board):
 
 def search(board):
     # 既に点数計算が完了している
-    if board in d:
-        return d[board]
+    # if board in d:
+    #     return d[board]
     # any があるか
     # その登場回数、左からの最初の位置を調べる
     tmp = anySearch(board, 0)
@@ -84,22 +76,36 @@ def search(board):
         copy = list(board)
         # 左から any を手番で埋める
         copy[idx] = str(turn)
-        point = search("".join(copy))
-        if (score < point):
-            score = point
-        # forで探索済み(i)の次を探す
-        idx = anySearch(board, i + 1)[1]
+        tmp = "".join(copy)
+        if tmp not in d:
+            cur = search(tmp)
+        else:
+            cur = d[tmp]
+        if not turn:
+            # first
+            if score < cur:
+                first = cur
+                score = cur
+        else:
+            # second
+            if score < TOTAL_SCORE - cur:
+                # first player の score のみ記録
+                first = cur
+                score = TOTAL_SCORE - cur
+        # for でスコア算出した idx の次を探す
+        idx = anySearch(board, idx + 1)[1]
     # 途中結果を記録
-    d[board] = score
-    return score
+    d[board] = first
+    return first
 
 
 def main():
-    global b, c
+    global b, c, TOTAL_SCORE
     for i in range(rowB):
         b[i][0], b[i][1], b[i][2] = map(int, input().split())
     for i in range(rowC):
         c[i][0], c[i][1] = map(int, input().split())
+    TOTAL_SCORE = sum(map(sum, b)) + sum(map(sum, c))
     # board
     # start position
     # 0 first player
@@ -108,9 +114,9 @@ def main():
     # 9 9 9 9 9 9 9 9 9
     board = any * int(any)
     # 9手目 first player からさかのぼって探索
-    score = search(board)
-    print(score)
-    print(sum(map(sum, b)) + sum(map(sum, c)) - score)
+    first = search(board)
+    print(first)
+    print(TOTAL_SCORE - first)
 
 
 main()
