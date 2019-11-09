@@ -15,12 +15,14 @@ def main():
         S[i], T[i] = map(int, lines[j].split())
     for d in range(D):
         for k in range(K):
+            if ans[k]:
+                continue
             if L[d] <= S[k] <= R[d]:
                 if S[k] < T[k]:
                     S[k] = min(T[k], R[d])
                 else:
                     S[k] = max(T[k], L[d])
-            if not ans[k] and S[k] == T[k]:
+            if S[k] == T[k]:
                 ans[k] = d + 1
     print("\n".join([str(a) for a in ans]))
 
