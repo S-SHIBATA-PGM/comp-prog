@@ -1,4 +1,5 @@
 from sys import stdin
+from scipy.sparse.csgraph import floyd_warshall
 MAX_L = 100000
 
 
@@ -27,17 +28,13 @@ def main():
             d[ui][vi] = li
             d[vi][ui] = li
     # Warshall–Floyd
-    # kは中継点
-    for k in range(1, N):
-        for i in range(1, N):
-            for j in range(1, N):
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+    d = floyd_warshall(d)
     ans = MAX_L
     for u in adjacent:
         for v in adjacent:
             if u.to == v.to:
                 continue
-            ans = min(ans, d[u.to][v.to] + u.cost + v.cost)
+            ans = min(ans, int(d[u.to][v.to]) + u.cost + v.cost)
     print(ans if ans != MAX_L else -1)
     return
 
