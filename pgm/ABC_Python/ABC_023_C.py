@@ -13,10 +13,12 @@ def main():
         r[row] += 1
         c[column] += 1
         rClm[row].append(column)
-    rcnt = [0] * R
+    # 行の飴の数
+    rcnt = [0] * (N + 1)
     for i in range(R):
         rcnt[r[i]] += 1
-    ccnt = [0] * C
+    # 列の飴の数
+    ccnt = [0] * (N + 1)
     for i in range(C):
         ccnt[c[i]] += 1
     ans = 0
