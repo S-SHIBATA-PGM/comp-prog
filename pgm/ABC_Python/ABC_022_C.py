@@ -1,6 +1,5 @@
 from sys import stdin
 from scipy.sparse.csgraph import floyd_warshall
-MAX_L = 100000
 
 
 class Edge:
@@ -13,7 +12,8 @@ class Edge:
 def main():
     lines = stdin.readlines()
     N, M = map(int, lines[0].split())
-    d = [[N * MAX_L + 1] * N for i in range(N)]
+    MAX_L = N * 100000
+    d = [[MAX_L + 1] * N for i in range(N)]
     for i in range(N):
         d[i][i] = 0
     adjacent = []
