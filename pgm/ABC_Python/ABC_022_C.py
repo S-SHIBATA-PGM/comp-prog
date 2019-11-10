@@ -12,8 +12,8 @@ class Edge:
 def main():
     lines = stdin.readlines()
     N, M = map(int, lines[0].split())
-    MAX_L = N * 100000
-    d = [[MAX_L + 1] * N for i in range(N)]
+    MAX_L = N * 100000 + 1
+    d = [[MAX_L] * N for i in range(N)]
     for i in range(N):
         d[i][i] = 0
     adjacent = []
