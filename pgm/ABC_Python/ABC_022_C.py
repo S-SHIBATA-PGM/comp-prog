@@ -14,6 +14,8 @@ def main():
     lines = stdin.readlines()
     N, M = map(int, lines[0].split())
     d = [[N * MAX_L + 1] * N for i in range(N)]
+    for i in range(N):
+        d[i][i] = 0
     adjacent = []
     for ui, vi, li in [[int(x) for x in line.split()] for line in lines[1:]]:
         # 0-based indexing
