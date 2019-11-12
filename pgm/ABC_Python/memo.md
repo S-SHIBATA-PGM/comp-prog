@@ -80,3 +80,6 @@ https://atcoder.jp/contests/abc062/submissions/1296576
 ABC_049_C  
 import re;print(re.match('(dream|dreamer|erase|eraser)*$',input())and'YES'or'NO')
 
+Å¶ABC_019_C
+ans = len({i // (i & -i) for i in A})
+
