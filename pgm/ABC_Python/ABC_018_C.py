@@ -1,14 +1,13 @@
 import numpy as np
-from sys import stdin
 INF = int(1e9+7)
 
 
 def main():
-    lines = stdin.readlines()
-    R, C, K = map(int, lines[0].split())
-    s = np.frombuffer(
-        "".join(line.strip() for line in lines[1:]).encode("utf-8"), "|S1"
-    ).reshape(R, -1)
+    R, C, K, *s = open(0).read().split()
+    R = int(R)
+    C = int(C)
+    K = int(K)
+    s = np.frombuffer("".join(s).encode("utf-8"), "|S1").reshape(R, -1)[:, :C]
     board = np.full((R + 2, C + 2), b"x", dtype="|S1")
     board[1:-1, 1:-1] = s
     d = np.full_like(board, INF, dtype=np.int32)
