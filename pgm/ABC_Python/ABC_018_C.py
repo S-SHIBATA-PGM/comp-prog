@@ -1,30 +1,27 @@
-o = "o"
+import numpy as np
+from sys import stdin
+INF = int(1e9+7)
 
 
 def main():
-    R, C, K, *s = open(0).read().split()
-    R = int(R)
-    C = int(C)
-    K = int(K)
-    board = [[0 for j in range(C)] for i in range(R)]
-    for i in range(R):
-        for j in range(C):
-            if o == s[i][j]:
-                board[i][j] = 1
-    for i in range(1, R):
-        for j in range(C):
-            if board[i][j]:
-                board[i][j] = board[i][j] + board[i - 1][j]
-    ans = 0
-    for i in range(K - 1, R - K + 1):
-        for j in range(K - 1, C - K + 1):
-            for k in range(j - K + 1, j + K):
-                if board[i + K - (1 + abs(k - j))][k]\
-                        < 2 * K - 1 - 2 * abs(k - j):
-                    break
-            else:
-                ans += 1
-    print(ans)
+    lines = stdin.readlines()
+    R, C, K = map(int, lines[0].split())
+    s = np.frombuffer(
+        "".join(line.strip() for line in lines[1:]).encode("utf-8"), "|S1"
+    ).reshape(R, -1)
+    board = np.full((R + 2, C + 2), b"x", dtype="|S1")
+    board[1:-1, 1:-1] = s
+    d = np.full_like(board, INF, dtype=np.int32)
+    d[board == b"x"] = 0
+    for i in range(1, C + 1):
+        np.minimum(d[:, i - 1] + 1, d[:, i], out=d[:, i])
+    for i in range(C, 0, -1):
+        np.minimum(d[:, i + 1] + 1, d[:, i], out=d[:, i])
+    for i in range(1, R + 1):
+        np.minimum(d[i - 1, :] + 1, d[i, :], out=d[i, :])
+    for i in range(R, 0, -1):
+        np.minimum(d[i + 1, :] + 1, d[i, :], out=d[i, :])
+    print(np.count_nonzero(K <= d))
     return
 
 
