@@ -154,3 +154,22 @@ V 	Other (void * – each item is a fixed-size chunk of memory)
 
 minimum
 
+
+    # ABC017C - ハイスコア
+    from itertools import accumulate
+     
+     
+    def main():
+        N, M, *A = map(int, open(0).read().split())
+        total, imos = 0, [0] * (M + 2)
+        for l, r, s in zip(*[iter(A)] * 3):
+            imos[l] += s
+            imos[r + 1] -= s
+            total += s
+        x = list(accumulate(imos))[1:-1]
+        ans = total - min(x)
+        print(ans)
+     
+     
+    if __name__ == "__main__":
+        main()
