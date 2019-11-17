@@ -1,40 +1,41 @@
 from sys import stdin
-import numpy as np
+from copy import deepcopy
 INF = int(1e9+7)
-o = b"o"
-x = b"x"
+o = "o"
+x = "x"
 
-read = stdin.buffer.read
-readline = stdin.buffer.readline
-readlines = stdin.buffer.readlines
+read = stdin.read
+readline = stdin.readline
+readlines = stdin.readlines
 
 
 def main():
     R, C, K = map(int, readline().split())
-    s = np.frombuffer(read(), "|S1").reshape(R, -1)[:, :C]
-    board = np.full((R + 2, C + 2), x, dtype="|S1")
-    board[1:-1, 1:-1] = s
-    d = np.full_like(board, 0, dtype=np.int32)
-    d[board == o] = 1
-    accum = d.copy()
+    s = readlines()
+    board = [[x] * (C + 2) for i in range(R + 2)]
+    for i in range(1, R + 1):
+        for j in range(1, C + 1):
+            board[i][j] = s[i - 1][j - 1]
+    d = [[1 if j == o else 0 for j in i] for i in board]
+    accum = deepcopy(d)
     # 最初だけ max
     for i in range(1, C + 1):
         for j in range(1, R + 1):
-            if accum[j, i]:
-                accum[j, i] = max(accum[j, i], d[j, i] + accum[j, i - 1])
+            if accum[j][i]:
+                accum[j][i] = max(accum[j][i], d[j][i] + accum[j][i - 1])
     for i in range(C, 0, -1):
         for j in range(1, R + 1):
-            if accum[j, i]:
-                accum[j, i] = min(accum[j, i], d[j, i] + accum[j, i + 1])
+            if accum[j][i]:
+                accum[j][i] = min(accum[j][i], d[j][i] + accum[j][i + 1])
     for i in range(1, R + 1):
         for j in range(1, C + 1):
-            if accum[i, j]:
-                accum[i, j] = min(accum[i, j], d[i, j] + accum[i - 1, j])
+            if accum[i][j]:
+                accum[i][j] = min(accum[i][j], d[i][j] + accum[i - 1][j])
     for i in range(R, 0, -1):
         for j in range(1, C + 1):
-            if accum[i, j]:
-                accum[i, j] = min(accum[i, j], d[i, j] + accum[i + 1, j])
-    print(np.count_nonzero(K <= accum))
+            if accum[i][j]:
+                accum[i][j] = min(accum[i][j], d[i][j] + accum[i + 1][j])
+    print(sum(1 for i in accum for j in i if K <= j))
     return
 
 
