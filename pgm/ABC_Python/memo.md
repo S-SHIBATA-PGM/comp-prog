@@ -181,5 +181,5 @@ minimum
 zip(*([i] * 2))  
 zip(*[i] * 2)
 
-
+stdinからバイナリデータを読みたい場合は、そのbuffer属性を使う  
 
