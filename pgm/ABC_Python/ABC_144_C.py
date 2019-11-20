@@ -5,7 +5,8 @@ def divisor(n):
 
 def main():
     N = int(input())
-    print(divisor(N)[-1][0] + divisor(N)[-1][1] - 2)
+    rslt = divisor(N)
+    print(rslt[-1][0] + rslt[-1][1] - 2)
     return
 
 
