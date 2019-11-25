@@ -1,16 +1,19 @@
 def main():
-    H = [int(i) for i in open(0).read().split()[1:]]
+    input()
+    H = map(int, input().split())
     ans = 0
-    tmp = 0
-    for h1, h2 in zip(H[:-1], H[1:]):
-        if h1 >= h2:
-            tmp += 1
+    prev = int(1e9+7)
+    cnt = -1
+    for cur in H:
+        if prev >= cur:
+            cnt += 1
         else:
-            if ans < tmp:
-                ans = tmp
-            tmp = 0
-    if ans < tmp:
-        ans = tmp
+            if ans < cnt:
+                ans = cnt
+            cnt = 0
+        prev = cur
+    if ans < cnt:
+        ans = cnt
     print(ans)
     return
 
