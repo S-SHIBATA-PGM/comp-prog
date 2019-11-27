@@ -2,9 +2,10 @@ from sys import stdin
 
 
 def main():
-    lines = stdin.readlines()
-    A = tuple(map(int, lines[1].split()))
-    B = tuple(map(int, lines[2].split()))
+    readline = stdin.readline
+    readline()
+    *A, = map(int, readline().split())
+    *B, = map(int, readline().split())
     pre = A[0]
     ans = 0
     for a, b in zip(A[1:], B):
