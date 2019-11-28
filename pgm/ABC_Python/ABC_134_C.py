@@ -1,11 +1,8 @@
 def main():
 
-    A = [int(i) for i in open(0).read().split()[1:]]
-    tmp = A[:]
-    tmp.sort()
-    first = tmp[-1]
-    second = tmp[-2]
-    print("\n".join(str(first) if a != first else str(second) for a in A))
+    N, *A = map(int, open(0).read().split())
+    first, second = sorted(A, reverse=True)[:2]
+    print("\n".join(map(str, [first if a != first else second for a in A])))
     return
 
 
