@@ -6,17 +6,13 @@ def main():
     readline()
     *A, = map(int, readline().split())
     *B, = map(int, readline().split())
-    B.append(0)
     ans = 0
-    mon = 0
     pre = 0
     for a, b in zip(A, B):
         pre += b
-        mon += a
-        tmp = mon if mon < pre else pre
-        ans += tmp
-        mon = a - tmp
+        tmp = a if a < pre else pre
         pre -= tmp
+        ans += tmp
     print(ans)
     return
 
