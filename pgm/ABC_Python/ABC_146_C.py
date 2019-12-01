@@ -13,8 +13,7 @@ def bisectionMethod(left, right):
     # to narrow the range
     while (1 < abs(right - left)):
         mid = (left + right) // 2
-        rslt = f(mid)
-        if rslt:
+        if f(mid):
             right = mid
         else:
             left = mid
