@@ -1,6 +1,4 @@
-A = 0
-B = 0
-X = 0
+A, B, X = map(int, input().split())
 
 
 def f(N):
@@ -21,11 +19,8 @@ def bisectionMethod(left, right):
 
 
 def main():
-    global A, B, X
-    A, B, X = map(int, input().split())
-    print(bisectionMethod(0, int(1e9)))
+    print(bisectionMethod(0, int(1e9 + 1)))
     return
 
 
 main()
-
