@@ -9,7 +9,7 @@ def f(N):
 
 def bisectionMethod(left, right):
     # Bisection Method
-    # [left, right]
+    # [left, right)
     # to narrow the range
     while (1 < abs(right - left)):
         mid = (left + right) // 2
@@ -23,8 +23,9 @@ def bisectionMethod(left, right):
 def main():
     global A, B, X
     A, B, X = map(int, input().split())
-    print(bisectionMethod(0, int(1e9 + 1)))
+    print(bisectionMethod(0, int(1e9)))
     return
 
 
 main()
+
