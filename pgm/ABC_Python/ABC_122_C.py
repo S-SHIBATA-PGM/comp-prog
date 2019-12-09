@@ -6,7 +6,7 @@ def main():
     read = stdin.read
     N, Q = map(int, readline().split())
     S = readline().strip()
-    * LR, = map(lambda x: int(x) - 1, read().split())
+    *LR, = map(lambda x: int(x) - 1, read().split())
     AC = []
     pre = None
     cnt = 0
