@@ -1,22 +1,12 @@
 from sys import stdin
 
 
-def iterate_tokens():
-    for line in stdin:
-        for word in line.split():
-            yield word
-
-
 def main():
-    tokens = iterate_tokens()
-    next(tokens)
-    Q = int(next(tokens))
-    S = next(tokens)
-    L = []
-    R = []
-    for i in range(Q):
-        L.append(int(next(tokens)) - 1)
-        R.append(int(next(tokens)) - 1)
+    readline = stdin.readline
+    read = stdin.read
+    N, Q = map(int, readline().split())
+    S = readline().strip()
+    * LR, = map(lambda x: int(x) - 1, read().split())
     AC = []
     pre = None
     cnt = 0
@@ -29,7 +19,7 @@ def main():
         elif pre == "A":
             pre = None
         AC.append(cnt)
-    for l, r in zip(L, R):
+    for l, r in zip(*[iter(LR)] * 2):
         print(AC[r] - AC[l])
     return
 
