@@ -6,11 +6,9 @@ def main():
     *AB, = map(int, stdin.read().split())
     A = AB[::2]
     B = AB[1::2]
-    Z = zip(A, B)
-    Z = sorted(Z)
     num = 0
     yen = 0
-    for a, b in Z:
+    for a, b in sorted(zip(A, B)):
         if M < num + b:
             yen += a * (M - num)
             break
