@@ -1,12 +1,24 @@
-A, B = map(int, input().split())
+from sys import stdin
+
+N, M = map(int, input().split())
+*AB, = map(int, stdin.read().split())
 
 
 def main():
-    ans = 0
-
-    for i in range(A, B):
-        ans ^= i
-    print(ans)
+    A = AB[::2]
+    B = AB[1::2]
+    Z = zip(A, B)
+    Z = sorted(Z)
+    num = 0
+    yen = 0
+    for a, b in Z:
+        if M < num + b:
+            yen += a * (M - num)
+            break
+        else:
+            yen += a * b
+            num += b
+    print(yen)
     return
 
 
