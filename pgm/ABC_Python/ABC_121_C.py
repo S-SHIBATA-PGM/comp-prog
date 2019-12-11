@@ -1,10 +1,9 @@
 from sys import stdin
 
-N, M = map(int, input().split())
-*AB, = map(int, stdin.read().split())
-
 
 def main():
+    N, M = map(int, input().split())
+    *AB, = map(int, stdin.read().split())
     A = AB[::2]
     B = AB[1::2]
     Z = zip(A, B)
