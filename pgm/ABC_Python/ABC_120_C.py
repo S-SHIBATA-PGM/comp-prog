@@ -1,6 +1,7 @@
 def main():
     S = input()
-    print(2 * min(S.count("0"), S.count("1")))
+    cnt = S.count("0")
+    print(2 * min(cnt, len(S) - cnt))
     return
 
 
