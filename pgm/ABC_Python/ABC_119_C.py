@@ -1,37 +1,22 @@
-from itertools import combinations
-from itertools import permutations
+N, A, B, C = map(int, input().split())
+L = [int(input()) for i in range(N)]
 
 
-def f(x, lst, rem):
-    d = abs(x - min(lst))
-    min_lst = min(lst)
-    tpl = None
-    for v in range(1, len(lst) - rem + 2):
-        for t in combinations(lst, v):
-            if abs(x - sum(t)) + 10 * (v - 1) < d:
-                d = abs(x - sum(t)) + 10 * (v - 1)
-                tpl = t
-    if tpl is None:
-        lst.remove(min_lst)
-    else:
-        for v in tpl:
-            lst.remove(v)
-    return d, lst
+def dfs(cur, a, b, c):
+    if cur == N:
+        return abs(a - A) + abs(b - B) + abs(c - C) - 30\
+            if 0 < min(a, b, c) else int(1e9+7)
+
+    ret1 = dfs(cur + 1, a + L[cur], b, c) + 10
+    ret2 = dfs(cur + 1, a, b + L[cur], c) + 10
+    ret3 = dfs(cur + 1, a, b, c + L[cur]) + 10
+    ret4 = dfs(cur + 1, a, b, c)
+
+    return min(ret1, ret2, ret3, ret4)
 
 
 def main():
-    N, A, B, C = map(int, input().split())
-    L = [int(input()) for i in range(N)]
-
-    ans = int(1e9+7)
-    for ABC in permutations((A, B, C), 3):
-        lst = L[:]
-        accum = 0
-        for i, v in enumerate(ABC):
-            d, lst = f(v, lst, 3 - i)
-            accum += d
-        ans = min(ans, accum)
-    print(ans)
+    print(dfs(0, 0, 0, 0))
 
 
 main()
