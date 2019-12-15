@@ -1,21 +1,16 @@
-from itertools import combinations
-from itertools import permutations
+from itertools import combinations, permutations
 
 
 def f(x, lst, rem):
-    d = abs(x - min(lst))
-    min_lst = min(lst)
-    tpl = None
-    for v in range(1, len(lst) - rem + 2):
-        for t in combinations(lst, v):
-            if abs(x - sum(t)) + 10 * (v - 1) < d:
-                d = abs(x - sum(t)) + 10 * (v - 1)
+    d = int(1e9+7)
+    tpl = ()
+    for v in range(len(lst) - rem + 1):
+        for t in combinations(lst, v + 1):
+            if abs(x - sum(t)) + 10 * v < d:
+                d = abs(x - sum(t)) + 10 * v
                 tpl = t
-    if tpl is None:
-        lst.remove(min_lst)
-    else:
-        for v in tpl:
-            lst.remove(v)
+    for v in tpl:
+        lst.remove(v)
     return d, lst
 
 
