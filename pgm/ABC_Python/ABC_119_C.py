@@ -21,7 +21,7 @@ def f(x, lst, rem):
 
 def main():
     N, A, B, C = map(int, input().split())
-    *L, = [int(input()) for i in range(N)]
+    L = [int(input()) for i in range(N)]
 
     ans = int(1e9+7)
     for ABC in permutations((A, B, C), 3):
