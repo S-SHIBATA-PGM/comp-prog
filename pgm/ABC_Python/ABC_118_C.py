@@ -1,28 +1,20 @@
-N = int(input())
-A = [int(i) for i in input().split()]
+from functools import reduce
 
-A.sort()
 
-num = 0
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
 
-if N == A.count(A[0]):
-    num = 1
-else:
-    l = A
-    x = []
 
-    while True:
-        x = []
-        x.append(l[0])
-        for i in range(1, len(l)):
-            if 0 < l[i] % l[0]:
-                x.append(l[i] % l[0])
+def gcd_n(numbers):
+    return reduce(gcd, numbers)
 
-        if len(x) == 1:
-            break
 
-        x.sort()
+def main():
+    N, *A = map(int, open(0).read().split())
+    print(gcd_n(A))
+    return
 
-        l = x
 
-print(A[0] if num == 1 else x[0])
+main()
