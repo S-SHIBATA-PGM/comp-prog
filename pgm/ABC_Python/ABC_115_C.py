@@ -1,20 +1,7 @@
-INF = 1000000007
-
-input = open(0).read
-
-N, K, *h = map(int, input().split())
-
-
 def main():
-
+    N, K, *h = map(int, open(0).read().split())
     h.sort()
-
-    ans = INF
-
-    for i in range(N - K + 1):
-        ans = min(ans, h[i + K - 1] - h[i])
-
-    print(ans)
+    print(min(j - i for i, j in zip(h, h[K - 1:])))
     return
 
 
