@@ -1,35 +1,19 @@
-import sys
+def main():
+    N, M, *PY = map(int, open(0).read().split())
+    lst = []
+    ans = [""] * M
+    for k, py in enumerate(zip(*[iter(PY)] * 2)):
+        lst.append((py[0], py[1], k))
+    lst.sort()
+    pre, num = lst[0][0], 1
+    for cur, y, i in lst:
+        if pre != cur:
+            num = 1
+        ans[i] = "{:06}{:06}".format(cur, num)
+        num += 1
+        pre = cur
+    print("\n".join(ans))
+    return
 
-input = sys.stdin.readline
 
-N, M = map(int, input().split())
-
-Pm = [0] * M
-Ym = [0] * M
-ym = [0] * M
-
-Am = [''] * M
-Cn = [0] * N
-
-D = {}
-
-for i in range(M):
-    P, Y = map(int, input().split())
-
-    Pm[i], Ym[i] = P, Y
-
-    ym[i] = Y
-
-    D[Y] = i
-
-ym.sort()
-
-for i in range(M):
-    k = D[ym[i]]
-
-    # 0-indexed
-    Cn[Pm[k] - 1] += 1
-    Am[k] = str(Pm[k]).rjust(6, '0') + str(Cn[Pm[k] - 1]).rjust(6, '0')
-
-for i in range(M):
-    print(Am[i])
+main()
