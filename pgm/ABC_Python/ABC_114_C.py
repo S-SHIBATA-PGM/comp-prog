@@ -1,8 +1,8 @@
 N = input()
 
 
-def f(d, used, next):
-    num = len(used | set(next))
+def f(d, used, cur):
+    num = len(used | set(cur))
     if d == 0:
         if num == 3:
             return 1
@@ -35,8 +35,8 @@ def high(N, used, ret):
 
 def low():
     ret = 0
-    for i in range(len(N) - 1):
-        ret += 3 * (3 ** i - 2 ** (i + 1) + 1)
+    for d in range(len(N) - 1):
+        ret += 3 * (3 ** d - 2 ** (d + 1) + 1)
     return ret
 
 
