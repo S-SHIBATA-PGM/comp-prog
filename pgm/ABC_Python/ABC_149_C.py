@@ -1,12 +1,14 @@
 def isPrime(n):
     # 素数判定
-    if n < 2:
+    if n == 2:
+        return True
+    if n < 2 or n % 2 == 0:
         return False
-    for i in range(2, n + 1):
-        if n < i ** 2:
-            break
-        if n % i == 0:
+    m = 3
+    while m * m <= n:
+        if n % m == 0:
             return False
+        m += 2
     return True
 
 
