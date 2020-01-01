@@ -1,26 +1,20 @@
-from collections import Counter
-
-input = open(0).read
-
-n, *v = map(int, input().split())
-
-
 def main():
-    e = Counter(v[::2])
-    o = Counter(v[1::2])
-
-    em = e.most_common(2)
-    om = o.most_common(2)
-
-    # 要素は最低でも 2 つ
-    em.append((0, 0))
-    om.append((0, 0))
-
-    if em[0][0] == om[0][0]:
-        print(min(n - em[0][1] - om[1][1], n - em[1][1] - om[0][1]))
+    n, *v = map(int, open(0).read().split())
+    be = [0] * int(1e5)
+    bo = [0] * int(1e5)
+    for e, o in zip(*[iter(v)] * 2):
+        be[e - 1] += 1
+        bo[o - 1] += 1
+    ve = max(be)
+    vo = max(bo)
+    ke = be.index(ve)
+    ko = bo.index(vo)
+    if ke == ko:
+        be[ke] = 0
+        bo[ko] = 0
+        print(min(n - ve - max(bo), n - vo - max(be)))
     else:
-        print(n - em[0][1] - om[0][1])
-
+        print(n - ve - vo)
     return
 
 
