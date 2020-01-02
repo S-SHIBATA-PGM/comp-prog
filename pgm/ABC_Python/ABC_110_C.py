@@ -9,7 +9,7 @@ def main():
             flg = False
             break
         d[s] = t
-    # 変換先の重複チェック
+    # 変換先重複チェック
     if len(d.values()) != len(set(d.values())):
         flg = False
     print("Yes" if flg else "No")
