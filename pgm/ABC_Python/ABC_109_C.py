@@ -1,19 +1,20 @@
-from sys import stdin
 from functools import reduce
-# バージョン 3.4.X 以前
-import fractions
-# バージョン 3.4.X より 後
-# import math
 
-input = stdin.readline
 
-N, X = map(int, input().split())
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
 
-xn = [abs(X - int(i)) for i in input().split()]
+
+def gcd_n(numbers):
+    return reduce(gcd, numbers)
 
 
 def main():
-    print(reduce(fractions.gcd, xn))
+    N, X, *x = map(int, open(0).read().split())
+    x = [abs(X - int(i)) for i in x]
+    print(gcd_n(x))
     return
 
 
