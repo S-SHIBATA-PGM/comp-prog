@@ -1,20 +1,19 @@
-from functools import reduce
-
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return a
 
 
-def gcd_n(numbers):
-    return reduce(gcd, numbers)
-
-
 def main():
-    N, X, *x = map(int, open(0).read().split())
-    x = [abs(X - int(i)) for i in x]
-    print(gcd_n(x))
+    N, X, *xn = map(int, open(0).read().split())
+    ans = None
+    for x in xn:
+        if ans is not None:
+            if abs(X - x) % ans:
+                ans = gcd(ans, abs(X - x))
+        else:
+            ans = abs(X - xn[0])
+    print(ans)
     return
 
 
