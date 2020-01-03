@@ -6,12 +6,11 @@ def gcd(a, b):
 
 def main():
     N, X, *xn = map(int, open(0).read().split())
-    ans = None
+    ans = abs(X - xn[0])
     for x in xn:
-        if ans is None:
-            ans = abs(X - xn[0])
-        elif abs(X - x) % ans:
-            ans = gcd(ans, abs(X - x))
+        div = abs(X - x)
+        if div % ans:
+            ans = gcd(ans, div)
     print(ans)
     return
 
