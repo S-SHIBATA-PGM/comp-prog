@@ -8,9 +8,9 @@ def main():
     N, X, *xn = map(int, open(0).read().split())
     ans = abs(X - xn[0])
     for x in xn:
-        div = abs(X - x)
-        if div % ans:
-            ans = gcd(ans, div)
+        dif = abs(X - x)
+        if dif % ans:
+            ans = gcd(ans, dif)
     print(ans)
     return
 
