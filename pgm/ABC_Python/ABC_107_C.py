@@ -1,10 +1,8 @@
-MAX = 300000001
-
-N, K = map(int, input().split())
-xn = [int(i) for i in input().split()]
+MAX_D = 300000001
 
 
 def main():
+    N, K, *xn = map(int, open(0).read().split())
     if 0 < xn[0]:
         print(xn[K - 1])
         return
@@ -13,7 +11,7 @@ def main():
         print(abs(xn[N - K]))
         return
 
-    ans = MAX
+    ans = MAX_D
 
     for i in range(N - K + 1):
         if xn[i + K - 1] < 0 and i + K <= N - 1 and 0 < xn[i + K]:
