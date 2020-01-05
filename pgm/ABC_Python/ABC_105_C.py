@@ -1,13 +1,12 @@
 def main():
     N = int(input())
     S = ""
+    base = 2
     while N:
-        if N % 2:
-            N -= 1
-            S = "1" + S
-        else:
-            S = "0" + S
-        N //= -2
+        S = str(N % base) + S
+        if N % base:
+            N -= N % base
+        N //= -base
     print(S if S else "0")
     return
 
