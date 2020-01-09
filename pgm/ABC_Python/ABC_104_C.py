@@ -20,7 +20,7 @@ def main():
             # コンプリートしない
             score = 100 * i * num
         if score < G:
-            # 目標の 総合スコア に到達しない時 問題を解く
+            # 目標の 総合スコア に到達しない時 さらに問題を解く
             num += dfs(G - score, i - 1)
         # 問題を解いた、解かなかったの最小
         return min(num, dfs(G, i - 1))
