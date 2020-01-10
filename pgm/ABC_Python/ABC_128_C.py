@@ -1,14 +1,13 @@
 from sys import stdin
 
 
-def f(s, p, P, i):
-    # 再帰
+def dfs(s, p, P, i):
     # スイッチを順に見ていく
     if len(s) == i:
         return 1 if P == p else 0
     # 場合の数
     # そのスイッチを使用しなかった場合 + 使用した場合
-    return f(s, p, P, i + 1) + f(s, p, P ^ s[i], i + 1)
+    return dfs(s, p, P, i + 1) + dfs(s, p, P ^ s[i], i + 1)
 
 
 def main():
@@ -24,11 +23,12 @@ def main():
             s[j - 1] |= (1 << i)
     # p
     # 二進法で表した数における各桁は電球
-    # スイッチの数 MOD 2 におけるゼロイチを二進法で表す
+    # スイッチONの数 MOD 2 におけるゼロイチを二進法で表す
+    # 一致する場合に 全ての電球が点灯
     p = 0
     for i, j in enumerate(pn):
         p |= (1 << i) if j == 1 else 0
-    print(f(s, p, 0, 0))
+    print(dfs(s, p, 0, 0))
 
 
 main()
