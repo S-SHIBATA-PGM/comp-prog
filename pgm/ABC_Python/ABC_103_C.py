@@ -1,11 +1,6 @@
-input = open(0).read
-
-N, *an = [int(i) - 1 for i in input().split()]
-N += 1
-
-
 def main():
-    print(sum(an))
+    N, *a = map(int, open(0).read().split())
+    print(sum(a) - N)
     return
 
 
