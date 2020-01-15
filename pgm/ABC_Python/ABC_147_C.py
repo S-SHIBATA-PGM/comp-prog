@@ -22,7 +22,7 @@ def main():
             if not flg:
                 break
         if flg:
-            ans = max(ans, bin(b)[2:].count("1"))
+            ans = max(ans, bin(b).count("1"))
     print(ans)
     return
 
