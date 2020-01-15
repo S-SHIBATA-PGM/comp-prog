@@ -1,20 +1,9 @@
-input = open(0).read
-
-N, *An = map(int, input().split())
-
-
 def main():
+    N, *A = map(int, open(0).read().split())
     for i in range(N):
-        An[i] = An[i] - i - 1
-
-    ans = 0
-
-    An.sort()
-
-    for i in range(N):
-        ans += abs(An[i] - An[N // 2])
-
-    print(ans)
+        A[i] -= i + 1
+    A.sort()
+    print(sum(A[N // 2 + N % 2:]) - sum(A[:N // 2]))
     return
 
 
