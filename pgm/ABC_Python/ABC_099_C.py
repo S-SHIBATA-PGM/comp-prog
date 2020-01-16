@@ -7,11 +7,10 @@ def f(num, base):
 
 
 def main():
-    N = int(input())
-    st = {N}
+    N = {int(input())}
     ans = 0
-    while (all(st)):
-        st = {x - f(x, 6) for x in st} | {x - f(x, 9) for x in st}
+    while (all(N)):
+        N = {x - f(x, 6) for x in N} | {x - f(x, 9) for x in N}
         ans += 1
     print(ans)
     return
