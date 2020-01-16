@@ -1,26 +1,18 @@
-N = int(input())
+def f(num, base):
+    # calc max Pth Power
+    ret = 1
+    while ret <= num:
+        ret *= base
+    return ret // base
 
 
 def main():
-    ans = N
-
-    for i in range(N + 1):
-        num = 0
-        cur = i
-
-        while 0 < cur:
-            num += cur % 6
-            cur //= 6
-
-        cur = N - i
-
-        while 0 < cur:
-            num += cur % 9
-            cur //= 9
-
-        if num < ans:
-            ans = num
-
+    N = int(input())
+    st = {N}
+    ans = 0
+    while (all(st)):
+        st = {x - f(x, 6) for x in st} | {x - f(x, 9) for x in st}
+        ans += 1
     print(ans)
     return
 
