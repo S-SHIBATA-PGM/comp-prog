@@ -1,11 +1,20 @@
 def main():
     s = input()
     K = int(input())
-    print(sorted(list({s[i:j]
-                       for i
-                       in range(len(s))
-                       for j
-                       in range(i + 1, min(i + K + 1, len(s) + 1))}))[K - 1])
+    lst = sorted(list(set(s)))
+    ans = []
+
+    def dfs(sub):
+        if len(ans) < K:
+            ans.append(sub)
+            for c in lst:
+                if sub + c in s:
+                    return dfs(sub + c)
+        return
+
+    for c in lst:
+        dfs(c)
+    print(ans[-1])
     return
 
 
