@@ -8,11 +8,11 @@ Public Class Main
         arr = Split(Console.ReadLine())
         A = arr(0) : B = arr(1)
         U = Console.ReadLine()
-        If S = U
+        If S = U Then
             A -= 1
         Else
             B -= 1
         End If
-        Console.WriteLine(A.ToString() & " " & B.ToString())
+        Console.WriteLine(Cstr(A) + " " + CStr(B))
     End Sub
 End Class
