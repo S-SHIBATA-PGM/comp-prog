@@ -6,7 +6,7 @@ Public Class Main
         A = Array.ConvertAll(Of String, Integer)(Split(Console.ReadLine()), AddressOf Integer.Parse)
         Dim flg As Boolean = True
         For Each Ai As Integer In A
-            If (Ai Mod 2 = 0) AndAlso (Ai Mod 3 <> 0) AndAlso (Ai Mod 5 <> 0) Then
+            If Ai Mod 2 = 0 AndAlso Ai Mod 3 <> 0 AndAlso Ai Mod 5 <> 0 Then
                 flg = False
                 Exit For
             End If
