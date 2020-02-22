@@ -10,7 +10,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             int Ai = sc.nextInt();
             if (Ai % 2 == 0) {
-                if ((Ai % 3 != 0) && (Ai % 5 != 0)) {
+                if (Ai % 3 != 0 && Ai % 5 != 0) {
                     flg = false;
                     break;
                 }
