@@ -6,6 +6,6 @@ function main(input) {
     var accum = 0;
     for (var i = 0; i < A.length; i++)
         accum += parseInt(A[i]);
-    console.log(1 < Math.ceil(H / accum) ? "No" : "Yes");
+    console.log(accum < H ? "No" : "Yes");
 }
 main(require('fs').readFileSync('/dev/stdin', 'utf8'));
