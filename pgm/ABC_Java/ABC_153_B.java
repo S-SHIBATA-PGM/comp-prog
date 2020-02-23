@@ -10,7 +10,10 @@ public class Main {
         int accum = 0;
         for (int i = 0; i < N; i++)
             accum += sc.nextInt();
-        out.println(accum < H ? "No" : "Yes");
+        if (accum < H)
+            out.println("No");
+        else
+            out.println("Yes");
         out.flush();
     }
 }
