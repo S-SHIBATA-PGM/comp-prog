@@ -5,24 +5,18 @@ public class Main {
         FastScanner sc = new FastScanner();
         final int H = sc.nextInt();
         final int N = sc.nextInt();
-        int A[] = sc.nextIntArray(N);
+        int A[] = sc.intArray(N);
         int accum = 0;
         for (int i = 0; i < N; i++)
             accum += A[i];
-        if (accum < H)
-            System.out.println("No");
-        else
-            System.out.println("Yes");
+        System.out.println(accum < H ? "No" : "Yes");
     }
 
+    // FastScanner start
     static class FastScanner {
-
         final private int BUFFER_SIZE = 1 << 16;
-
         private DataInputStream din;
-
         private byte[] buffer;
-
         private int bufferPointer, bytesRead;
 
         public FastScanner() {
@@ -37,13 +31,37 @@ public class Main {
             bufferPointer = bytesRead = 0;
         }
 
-        public String nextString() throws IOException {
+        private byte read() throws IOException {
+            if (bufferPointer == bytesRead)
+                fillBuffer();
+            return buffer[bufferPointer++];
+        }
 
+        public void close() throws IOException {
+            if (din == null)
+                return;
+            din.close();
+        }
+
+        private void fillBuffer() throws IOException {
+            bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+            if (bytesRead == -1)
+                buffer[0] = -1;
+        }
+
+        public char nextChar() throws IOException {
             byte c = read();
             while (Character.isWhitespace(c)) {
                 c = read();
             }
+            return (char) c;
+        }
 
+        public String nextString() throws IOException {
+            byte c = read();
+            while (Character.isWhitespace(c)) {
+                c = read();
+            }
             StringBuilder builder = new StringBuilder();
             builder.append((char) c);
             c = read();
@@ -51,7 +69,6 @@ public class Main {
                 builder.append((char) c);
                 c = read();
             }
-
             return builder.toString();
         }
 
@@ -66,18 +83,9 @@ public class Main {
             do {
                 ret = ret * 10 + c - '0';
             } while ((c = read()) >= '0' && c <= '9');
-
             if (neg)
                 return -ret;
             return ret;
-        }
-
-        public int[] nextIntArray(int n) throws IOException {
-            int arr[] = new int[n];
-            for (int i = 0; i < n; i++) {
-                arr[i] = nextInt();
-            }
-            return arr;
         }
 
         public long nextLong() throws IOException {
@@ -96,22 +104,6 @@ public class Main {
             return ret;
         }
 
-        public long[] nextLongArray(int n) throws IOException {
-            long arr[] = new long[n];
-            for (int i = 0; i < n; i++) {
-                arr[i] = nextLong();
-            }
-            return arr;
-        }
-
-        public char nextChar() throws IOException {
-            byte c = read();
-            while (Character.isWhitespace(c)) {
-                c = read();
-            }
-            return (char) c;
-        }
-
         public double nextDouble() throws IOException {
             double ret = 0, div = 1;
             byte c = read();
@@ -120,46 +112,41 @@ public class Main {
             boolean neg = (c == '-');
             if (neg)
                 c = read();
-
             do {
                 ret = ret * 10 + c - '0';
             } while ((c = read()) >= '0' && c <= '9');
-
             if (c == '.') {
                 while ((c = read()) >= '0' && c <= '9') {
                     ret += (c - '0') / (div *= 10);
                 }
             }
-
             if (neg)
                 return -ret;
             return ret;
         }
 
-        public double[] nextDoubleArray(int n) throws IOException {
-            double arr[] = new double[n];
+        public int[] intArray(int n) throws IOException {
+            int arr[] = new int[n];
             for (int i = 0; i < n; i++) {
-                arr[i] = nextDouble();
+                arr[i] = nextInt();
             }
             return arr;
         }
 
-        private void fillBuffer() throws IOException {
-            bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
-            if (bytesRead == -1)
-                buffer[0] = -1;
+        public long[] longArray(int n) throws IOException {
+            long arr[] = new long[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = nextLong();
+            }
+            return arr;
         }
 
-        private byte read() throws IOException {
-            if (bufferPointer == bytesRead)
-                fillBuffer();
-            return buffer[bufferPointer++];
-        }
-
-        public void close() throws IOException {
-            if (din == null)
-                return;
-            din.close();
+        public double[] doubleArray(int n) throws IOException {
+            double arr[] = new double[n];
+            for (int i = 0; i < n; i++)
+                arr[i] = nextDouble();
+            return arr;
         }
     }
+    // FastScanner end
 }
