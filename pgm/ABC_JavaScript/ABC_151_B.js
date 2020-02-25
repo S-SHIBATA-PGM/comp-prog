@@ -1,7 +1,3 @@
-// (x + ans) / N >= M
-// x + ans >= N * M
-// ans >= N * M - x
-
 function main(input) {
     var line = input.split(/\r?\n/g);
     var arr = line[0].split(" ");
