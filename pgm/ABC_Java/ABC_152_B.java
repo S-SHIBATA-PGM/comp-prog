@@ -6,15 +6,15 @@ public class Main {
         String[] arr = reader.readLine().split(" ");
         int a = Integer.parseInt(arr[0]);
         int b = Integer.parseInt(arr[1]);
-        String ans = "";
+        int ans = 0;
         if (a < b) {
-            for (int i = 0; i < b; i++) {
-                ans += a;
-            }
+            ans = a;
+            for (int i = 0; i < b - 1; i++)
+                ans = 10 * ans + a;
         } else {
-            for (int i = 0; i < a; i++) {
-                ans += b;
-            }
+            ans = b;
+            for (int i = 0; i < a - 1; i++)
+                ans = 10 * ans + b;
         }
         System.out.println(ans);
     }
