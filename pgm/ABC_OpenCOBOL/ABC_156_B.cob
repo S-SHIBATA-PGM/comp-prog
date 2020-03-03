@@ -12,9 +12,8 @@ WORKING-STORAGE                  SECTION.
 PROCEDURE                        DIVISION.
     ACCEPT LN.
     UNSTRING LN DELIMITED BY SPACE INTO N K.
-    MOVE 0 TO cnt.
-    PERFORM UNTIL N <= 0
-       COMPUTE N = N / K
+    MOVE 1 TO cnt.
+    PERFORM UNTIL N < K ** cnt
        ADD 1 TO cnt
     END-PERFORM.
     MOVE cnt TO ZS.
