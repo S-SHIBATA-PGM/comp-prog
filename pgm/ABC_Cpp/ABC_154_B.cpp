@@ -14,7 +14,7 @@ using namespace std;
 using ll = int64_t;
 
 int main() {
-    string S, T;
+    string S;
     cin >> S;
     cout << string (S.length(), 'x') << endl;
     return 0;
