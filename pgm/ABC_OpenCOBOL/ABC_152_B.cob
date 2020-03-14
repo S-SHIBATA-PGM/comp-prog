@@ -14,14 +14,12 @@ PROCEDURE DIVISION.
   UNSTRING LN DELIMITED BY SPACE INTO a b.
   IF a < b
       PERFORM VARYING i FROM 1 BY 1 UNTIL b < i
-          STRING ans(1:FUNCTION STORED-CHAR-LENGTH(ans)) a
-          INTO ans
+          MOVE a TO ans(i:1)
       END-PERFORM
   ELSE
       PERFORM VARYING i FROM 1 BY 1 UNTIL a < i
-          STRING ans(1:FUNCTION STORED-CHAR-LENGTH(ans)) b
-          INTO ans
+          MOVE b TO ans(i:1)
       END-PERFORM
   END-IF.
-  DISPLAY ans(1:FUNCTION STORED-CHAR-LENGTH(ans)).
+  DISPLAY ans.
   STOP RUN.
