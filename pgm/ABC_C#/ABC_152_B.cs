@@ -5,9 +5,8 @@ class Program
     static void Main()
     {
         String[] arr = Console.ReadLine().Split();
-        string a = arr[0], b = arr[1];
+        int a = int.Parse(arr[0]), b = int.Parse(arr[1]);
         Console.WriteLine(
-            int.Parse(a) < int.Parse(b) ?
-            new string(a[0], int.Parse(b)) : new string(b[0], int.Parse(a)));
+            a < b ? new string(arr[0][0], b) : new string(arr[1][0], a));
     }
 }
