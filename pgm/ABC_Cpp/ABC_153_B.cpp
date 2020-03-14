@@ -13,13 +13,38 @@
 using namespace std;
 using ll = int64_t;
 
+template<class T> void gc (T& x) {
+    char c;
+    int s = 0;
+    x = 0;
+
+    c = getchar_unlocked();
+
+    if (c == '-')
+        s = 1;
+    else if ('0' <= c && c <= '9')
+        x = c - '0';
+
+    while (true) {
+        c = getchar_unlocked();
+
+        if (c < '0' || '9' < c)
+            break;
+        x = x * 10 + (c - '0');
+    }
+
+    if (s)
+        x = -x;
+}
+
 int main() {
     int H, N;
-    cin >> H >> N;
+    gc (H);
+    gc (N);
     int A, accum;
     accum = 0;
     REP (i, N) {
-        cin >> A;
+        gc (A);
         accum += A;
     }
     cout << (1 < (double)H / accum ? "No" : "Yes") << endl;
