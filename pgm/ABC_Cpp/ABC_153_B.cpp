@@ -17,14 +17,11 @@ template<class T> void gc (T& x) {
     char c;
     int s = 0;
     x = 0;
-
     c = getchar_unlocked();
-
     if (c == '-')
         s = 1;
     else if ('0' <= c && c <= '9')
         x = c - '0';
-
     while (true) {
         c = getchar_unlocked();
 
@@ -32,7 +29,6 @@ template<class T> void gc (T& x) {
             break;
         x = x * 10 + (c - '0');
     }
-
     if (s)
         x = -x;
 }
@@ -47,6 +43,6 @@ int main() {
         gc (A);
         accum += A;
     }
-    cout << (1 < (double)H / accum ? "No" : "Yes") << endl;
+    cout << (H <= accum ? "Yes" : "No") << endl;
     return 0;
 }

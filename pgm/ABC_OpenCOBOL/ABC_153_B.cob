@@ -1,0 +1,45 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+FILE-CONTROL.
+    SELECT SYSIN ASSIGN TO KEYBOARD ORGANIZATION LINE SEQUENTIAL.
+
+DATA DIVISION.
+FILE SECTION.
+FD SYSIN.
+    01 INDATA     PIC X(600000).
+WORKING-STORAGE SECTION.
+01 LN             PIC X(600000).
+01 maxlen         PIC 9(6) VALUE 100000.
+01 cur            PIC 9(10) VALUE 1.
+01 i              PIC 9(18) VALUE 1.
+01 j              PIC 9(18).
+01 len            PIC 9(10).
+01 H              PIC 9(10).
+01 N              PIC 9(6).
+01 A              PIC 9(5).
+01 accum          PIC 9(10).
+01 ans            PIC X(3).
+
+PROCEDURE DIVISION.
+  ACCEPT LN.
+  UNSTRING LN DELIMITED BY SPACE INTO H N.
+  OPEN INPUT SYSIN.
+  READ SYSIN INTO LN.
+  CLOSE SYSIN.
+  PERFORM maxlen TIMES
+      PERFORM VARYING j FROM cur BY 1 UNTIL LN(j:1) = SPACE
+      END-PERFORM
+      COMPUTE len = j - cur
+      MOVE LN(cur:len) TO A
+      ADD A TO accum
+      COMPUTE cur = j + 1
+      ADD 1 TO i
+  END-PERFORM.
+  IF H <= accum
+      DISPLAY "Yes"
+  ELSE
+      DISPLAY "No"
+  END-IF.
