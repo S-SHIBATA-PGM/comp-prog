@@ -1,9 +1,8 @@
+import math
+
 def main():
     N, K = map(int, input().split())
-    cnt = 1
-    while K ** cnt <= N:
-        cnt += 1
-    print(cnt)
+    print(int(math.log(N) / math.log(K)) + 1)
     return
 
 
