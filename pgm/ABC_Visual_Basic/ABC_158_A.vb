@@ -1,8 +1,10 @@
+Imports System.Collections.Generic
+
 Class Main
     Public Shared Sub Main()
-        Dim arr() As String
-        arr = Split(Console.ReadLine())
-        Dim S As New System.Collections.Generic.HashSet(Of Char)(arr(0))
+        Dim line As String
+        line = Console.ReadLine()
+        Dim S As New HashSet(Of Char)(line)
         Console.WriteLine(If(1 < S.Count, "Yes", "No"))
     End Sub
 End Class
