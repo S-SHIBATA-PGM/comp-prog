@@ -13,14 +13,12 @@ class Program
         int N = sc.nextInt();
         int[] A = sc.intArray(N);
         bool flg = true;
-        for (int i = 0; i < N; i++)
-        {
-            if (A[i] % 2 == 0 && A[i] % 3 != 0 && A[i] % 5 != 0)
+        foreach (int Ai in A)
+            if (Ai % 2 == 0 && Ai % 3 != 0 && Ai % 5 != 0)
             {
                 flg = false;
                 break;
             }
-        }
         Console.WriteLine(flg ? "APPROVED" : "DENIED");
     }
 }
