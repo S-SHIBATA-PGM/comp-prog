@@ -1,11 +1,10 @@
-"use strict";
 function main(input) {
-    var line = input.split(/\r?\n/g);
-    var arr = line[0].split(" ");
+    let line = input.split(/\r?\n/g);
+    let arr = line[0].split(" ");
     const H = arr[0], N = arr[1];
-    var A = line[1].split(" ");
-    var accum = 0;
-    for (var i = 0; i < A.length; i++)
+    let A = line[1].split(" ");
+    let accum = 0;
+    for (let i in A)
         accum += parseInt(A[i]);
     console.log(accum < H ? "No" : "Yes");
 }
