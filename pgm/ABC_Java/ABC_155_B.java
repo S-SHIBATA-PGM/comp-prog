@@ -9,11 +9,9 @@ public class Main {
         boolean flg = true;
         for (int i = 0; i < N; i++) {
             int Ai = sc.nextInt();
-            if (Ai % 2 == 0) {
-                if (Ai % 3 != 0 && Ai % 5 != 0) {
-                    flg = false;
-                    break;
-                }
+            if (Ai % 2 == 0 && Ai % 3 != 0 && Ai % 5 != 0) {
+                flg = false;
+                break;
             }
         }
         out.println(flg ? "APPROVED" : "DENIED");
