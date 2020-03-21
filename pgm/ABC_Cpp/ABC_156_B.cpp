@@ -15,11 +15,8 @@ using namespace std;
 int main() {
     int N, K;
     cin >> N >> K;
-    int ans = 0;
-    while (N) {
-        N /= K;
-        ans++;
-    }
-    cout << ans << endl;
+    int cnt = 1;
+    while (pow (K, cnt) <= N) cnt++;
+    cout << cnt << endl;
     return 0;
 }
