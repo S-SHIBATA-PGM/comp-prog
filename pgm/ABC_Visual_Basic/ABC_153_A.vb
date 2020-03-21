@@ -4,6 +4,6 @@ Public Class Main
         Dim arr(2) as String
         arr = Split(Console.ReadLine())
         H = arr(0) : A = arr(1)
-        Console.WriteLine(IIf(H mod A <> 0, Math.Floor(H / A) + 1, H / A))
+        Console.WriteLine(Math.Ceiling(H / A))
     End Sub
 End Class
