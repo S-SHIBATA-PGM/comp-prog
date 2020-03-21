@@ -14,8 +14,9 @@ using namespace std;
 using ll = int64_t;
 
 int main() {
-    int H, A;
+    double H;
+    int A;
     cin >> H >> A;
-    cout << ceil ((double)H / A) << endl;
+    cout << ceil (H / A) << endl;
     return 0;
 }
