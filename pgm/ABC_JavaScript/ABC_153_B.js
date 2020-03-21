@@ -1,3 +1,4 @@
+"use strict";
 function main(input) {
     var line = input.split(/\r?\n/g);
     var arr = line[0].split(" ");
