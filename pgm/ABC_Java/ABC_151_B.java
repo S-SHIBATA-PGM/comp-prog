@@ -1,4 +1,8 @@
 import java.io.*;
+// import java.math.*;
+import java.util.*;
+// import java.util.Map.*;
+// import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -9,8 +13,9 @@ public class Main {
         M = sc.nextInt();
         int[] A = sc.intArray(N - 1);
         int accum = 0;
-        for (int Ai : A)
+        for (int Ai : A) {
             accum += Ai;
+        }
         int ans = N * M - accum;
         System.out.println(ans < 0 ? 0 : K < ans ? -1 : ans);
     }

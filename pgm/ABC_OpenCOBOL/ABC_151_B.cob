@@ -4,24 +4,24 @@ PROGRAM-ID. PROGRAM_ID.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 LN             PIC X(400).
-01 maxlen         PIC 9(10) VALUE 100.
+01 maxlen         PIC 9(3) VALUE 100.
 01 cur            PIC 9(10) VALUE 1.
 01 i              PIC 9(18) VALUE 1.
 01 j              PIC 9(18).
 01 len            PIC 9(10).
+01 ans            PIC S9(10).
+01 zs             PIC Z(9)9.
 01 N              PIC 9(10).
 01 K              PIC 9(10).
 01 M              PIC 9(10).
 01 A              PIC 9(10).
-01 accum          PIC 9(10).
-01 ans            PIC S9(10).
-01 zs             PIC Z(9)9.
+01 accum          PIC 9(10) VALUE ZERO.
 
 PROCEDURE DIVISION.
   ACCEPT LN.
   UNSTRING LN DELIMITED BY SPACE INTO N K M.
-  COMPUTE maxlen = N - 1.
   ACCEPT LN.
+  COMPUTE maxlen = N - 1.
   PERFORM maxlen TIMES
       PERFORM VARYING j FROM cur BY 1 UNTIL LN(j:1) = SPACE
       END-PERFORM
