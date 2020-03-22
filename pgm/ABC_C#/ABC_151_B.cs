@@ -14,17 +14,12 @@ class Program
         N = sc.nextInt();
         K = sc.nextInt();
         M = sc.nextInt();
-        int A, accum;
-        accum = 0;
-        for (int i = 0; i < N - 1; i++)
-        {
-            A = sc.nextInt();
-            accum += A;
-        }
-        int num = N * M - accum;
-        if (num < 0) Console.WriteLine(0);
-        else if (num <= K) Console.WriteLine(num);
-        else Console.WriteLine(-1);
+        int[] A = sc.intArray(N - 1);
+        int accum = 0;
+        foreach (int Ai in A)
+            accum += Ai;
+        int ans = N * M - accum;
+        Console.WriteLine(ans < 0 ? 0 : K < ans ? -1 : ans);
     }
 }
 

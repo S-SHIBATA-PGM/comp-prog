@@ -16,17 +16,13 @@ using ll = int64_t;
 int main() {
     int N, K, M;
     cin >> N >> K >> M;
-    int A, accum;
-    accum = 0;
+    int accum = 0;
     REP (i, N - 1) {
+        int A;
         cin >> A;
         accum += A;
     }
-    int num = N * M - accum;
-    if (num < 0) cout << 0 << endl;
-    else if (num <= K)
-        cout << num << endl;
-    else
-        cout << -1 << endl;
+    int ans = N * M - accum;
+    cout << (ans < 0 ? 0 : K < ans ? -1 : ans) << endl;
     return 0;
 }

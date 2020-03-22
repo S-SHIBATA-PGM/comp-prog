@@ -3,12 +3,14 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         FastScanner sc = new FastScanner();
-        final int N = sc.nextInt();
-        final int K = sc.nextInt();
-        final int M = sc.nextInt();
+        final int N, K, M;
+        N = sc.nextInt();
+        K = sc.nextInt();
+        M = sc.nextInt();
+        int[] A = sc.intArray(N - 1);
         int accum = 0;
-        for (int i = 0; i < N - 1; i++)
-            accum += sc.nextInt();
+        for (int Ai : A)
+            accum += Ai;
         int ans = N * M - accum;
         System.out.println(ans < 0 ? 0 : K < ans ? -1 : ans);
     }
@@ -126,7 +128,7 @@ public class Main {
             return ret;
         }
 
-        public int[] nextIntArray(int n) throws IOException {
+        public int[] intArray(int n) throws IOException {
             int arr[] = new int[n];
             for (int i = 0; i < n; i++) {
                 arr[i] = nextInt();
@@ -134,7 +136,7 @@ public class Main {
             return arr;
         }
 
-        public long[] nextLongArray(int n) throws IOException {
+        public long[] longArray(int n) throws IOException {
             long arr[] = new long[n];
             for (int i = 0; i < n; i++) {
                 arr[i] = nextLong();
@@ -142,7 +144,7 @@ public class Main {
             return arr;
         }
 
-        public double[] nextDoubleArray(int n) throws IOException {
+        public double[] doubleArray(int n) throws IOException {
             double arr[] = new double[n];
             for (int i = 0; i < n; i++)
                 arr[i] = nextDouble();

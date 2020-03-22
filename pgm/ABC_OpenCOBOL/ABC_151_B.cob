@@ -9,13 +9,13 @@ WORKING-STORAGE SECTION.
 01 i              PIC 9(18) VALUE 1.
 01 j              PIC 9(18).
 01 len            PIC 9(10).
-01 N              PIC 9(3).
-01 K              PIC 9(3).
-01 M              PIC 9(3).
-01 A              PIC 9(3).
-01 accum          PIC 9(5) VALUE 0.
-01 num            PIC S9(5) VALUE 0.
-01 ans            PIC Z(2)9.
+01 N              PIC 9(10).
+01 K              PIC 9(10).
+01 M              PIC 9(10).
+01 A              PIC 9(10).
+01 accum          PIC 9(10) VALUE 0.
+01 ans            PIC S9(10).
+01 ZS             PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT LN.
@@ -30,15 +30,15 @@ PROCEDURE DIVISION.
       COMPUTE cur = j + 1
       ADD 1 TO i
   END-PERFORM.
-  COMPUTE num = N * M - accum.
-  IF num < ZERO
+  COMPUTE ans = N * M - accum.
+  IF ans < 0
       DISPLAY 0
   ELSE
-      IF num <= K
-          MOVE num TO ans
-          DISPLAY ans
-      ELSE
+      IF K < ans
           DISPLAY -1
+      ELSE
+          MOVE ans TO ZS
+          DISPLAY ZS
       END-IF
   END-IF.
   STOP RUN.
