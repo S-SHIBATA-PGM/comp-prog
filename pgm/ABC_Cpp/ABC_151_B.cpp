@@ -18,9 +18,9 @@ int main() {
     cin >> N >> K >> M;
     int accum = 0;
     REP (i, N - 1) {
-        int A;
-        cin >> A;
-        accum += A;
+        int Ai;
+        cin >> Ai;
+        accum += Ai;
     }
     int ans = N * M - accum;
     cout << (ans < 0 ? 0 : K < ans ? -1 : ans) << endl;
