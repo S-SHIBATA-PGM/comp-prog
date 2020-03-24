@@ -16,10 +16,7 @@ class Program
         M = sc.nextInt();
         int[] A = sc.intArray(N - 1);
         int accum = 0;
-        foreach (int Ai in A)
-        {
-            accum += Ai;
-        }
+        foreach (int Ai in A) accum += Ai;
         int ans = N * M - accum;
         Console.WriteLine(ans < 0 ? 0 : K < ans ? -1 : ans);
     }
