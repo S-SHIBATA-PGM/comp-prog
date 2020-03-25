@@ -7,7 +7,7 @@ import java.util.*;
 public class Main {
     public static void main (String[] args) throws IOException {
         FastScanner sc = new FastScanner();
-        final int N, K, M;
+        int N, K, M;
         N = sc.nextInt();
         K = sc.nextInt();
         M = sc.nextInt();
