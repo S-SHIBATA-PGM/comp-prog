@@ -10,12 +10,12 @@ Class Main
         N = sc.nextInt()
         K = sc.nextInt()
         M = sc.nextInt()
-        Dim A() As Integer = sc.intArray(N - 1)
         Dim accum As Integer = 0
+        Dim A() As Integer = sc.intArray(N - 1)
         For Each Ai As Integer In A
             accum += Ai
         Next
-        Dim ans = N * M - accum
+        Dim ans As Integer = N * M - accum
         Console.WriteLine(If(ans < 0, 0, If(K < ans, -1, ans)))
     End Sub
 End Class
