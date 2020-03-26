@@ -11,8 +11,8 @@ public class Main {
         N = sc.nextInt();
         K = sc.nextInt();
         M = sc.nextInt();
-        int accum = 0;
         int[] A = sc.intArray (N - 1);
+        int accum = 0;
         for (int Ai : A) {
             accum += Ai;
         }
