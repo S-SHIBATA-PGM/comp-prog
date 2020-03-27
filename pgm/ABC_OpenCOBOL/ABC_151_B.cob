@@ -13,8 +13,8 @@ WORKING-STORAGE SECTION.
 01 N              PIC 9(10).
 01 K              PIC 9(10).
 01 M              PIC 9(10).
-01 accum          PIC 9(10) VALUE ZERO.
 01 Ai             PIC 9(10).
+01 accum          PIC 9(10) VALUE ZERO.
 01 ans            PIC S9(10).
 
 PROCEDURE DIVISION.
@@ -32,7 +32,7 @@ PROCEDURE DIVISION.
       ADD 1 TO i
   END-PERFORM.
   COMPUTE ans = N * M - accum.
-  IF ans < 0
+  IF ans < ZERO
       DISPLAY ZERO
   ELSE
       IF K < ans
