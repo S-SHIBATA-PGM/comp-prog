@@ -9,13 +9,13 @@ WORKING-STORAGE SECTION.
 01 i              PIC 9(10) VALUE 1.
 01 j              PIC 9(10).
 01 len            PIC 9(10).
-01 zs             PIC Z(9)9.
 01 N              PIC 9(10).
 01 K              PIC 9(10).
 01 M              PIC 9(10).
 01 Ai             PIC 9(10).
 01 accum          PIC 9(10).
 01 ans            PIC S9(10).
+01 zs             PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT ln.
@@ -31,7 +31,7 @@ PROCEDURE DIVISION.
       COMPUTE cur = j + 1
       ADD 1 TO i
   END-PERFORM.
-  COMPUTE ans = N * M - accum
+  COMPUTE ans = N * M - accum.
   IF ans < ZERO
       DISPLAY ZERO
   ELSE
