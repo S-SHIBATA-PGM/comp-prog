@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -11,12 +11,12 @@ class Program
     {
         FastScanner sc = new FastScanner(Console.OpenStandardInput());
         int N, K, M;
-        N = sc.nextInt();
-        K = sc.nextInt();
-        M = sc.nextInt();
+        N  = sc.nextInt();
+        K  = sc.nextInt();
+        M  = sc.nextInt();
         int[] A = sc.intArray(N - 1);
-        int accum = 0;
-        foreach (int Ai in A) accum += Ai;
+        int accum  = 0;
+        foreach(int Ai in A) accum += Ai;
         int ans = N * M - accum;
         Console.WriteLine(ans < 0 ? 0 : K < ans ? -1 : ans);
     }
