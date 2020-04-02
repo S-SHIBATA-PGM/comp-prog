@@ -10,10 +10,9 @@ class Program
     static void Main()
     {
         FastScanner sc = new FastScanner(Console.OpenStandardInput());
-        int N, K, M;
-        N = sc.nextInt();
-        K = sc.nextInt();
-        M = sc.nextInt();
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int M = sc.nextInt();
         int[] A = sc.intArray(N - 1);
         int accum = 0;
         foreach (int Ai in A) accum += Ai;
