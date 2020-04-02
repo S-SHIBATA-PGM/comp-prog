@@ -2,7 +2,9 @@
 function main(input) {
     let line = input.split("\n");
     let arr = line[0].split(" ").map(Number);
-    const N = arr[0], K = arr[1], M = arr[2];
+    const N = arr[0];
+    const K = arr[1];
+    const M = arr[2];
     arr = line[1].split(" ").map(Number);
     let accum = arr.reduce((A, x) => A + x);
     let ans = N * M - accum;
