@@ -14,11 +14,8 @@ WORKING-STORAGE SECTION.
 01 N              PIC 9(10).
 01 K              PIC 9(10).
 01 M              PIC 9(10).
-01 Ai             PIC 9(10).
 01 accum          PIC 9(10) VALUE ZERO.
-01 A1.
-    03 A11 OCCURS 100 DEPENDING ON N.
-        05 A      PIC S9(10).
+01 Ai             PIC 9(10).
 
 PROCEDURE DIVISION.
   ACCEPT ln.
