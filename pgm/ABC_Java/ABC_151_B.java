@@ -7,9 +7,10 @@ import java.util.*;
 public class Main {
     public static void main (String[] args) throws IOException {
         FastScanner sc = new FastScanner();
-        final int N = sc.nextInt();
-        final int K = sc.nextInt();
-        final int M = sc.nextInt();
+        final int N, K, M;
+        N = sc.nextInt();
+        K = sc.nextInt();
+        M = sc.nextInt();
         int[] A = sc.intArray (N - 1);
         int accum = 0;
         for (int Ai : A)

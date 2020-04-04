@@ -18,7 +18,7 @@ int main() {
     cin >> N >> K >> M;
     int accum = 0;
     REP (i, N - 1) {
-        int Ai = 0;
+        int Ai;
         cin >> Ai;
         accum += Ai;
     }
