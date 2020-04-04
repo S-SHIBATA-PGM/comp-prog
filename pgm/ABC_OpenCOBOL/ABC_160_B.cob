@@ -17,5 +17,5 @@ PROCEDURE DIVISION.
   COMPUTE dv5 = rm / 5.
   COMPUTE ans = dv * 1000 + dv5 * 5.
   MOVE ans TO zs.
-  DISPLAY zs.
+  DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
