@@ -16,7 +16,7 @@ Class Main
             accum += Ai
         Next
         Dim ans As Integer = N * M - accum
-        Console.WriteLine(If(ans < 0, 0, If(K < ans, -1, ans)))
+        Console.WriteLine(If(ans < 0, 0 , If(K < ans, -1, ans)))
     End Sub
 End Class
 
