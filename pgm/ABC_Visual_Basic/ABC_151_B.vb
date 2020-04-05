@@ -12,7 +12,7 @@ Class Main
         M = sc.nextInt()
         Dim A() As Integer = sc.intArray(N - 1)
         Dim accum As Integer = 0
-        For Each Ai As Integer in A
+        For Each Ai As Integer In A
             accum += Ai
         Next
         Dim ans As Integer = N * M - accum
