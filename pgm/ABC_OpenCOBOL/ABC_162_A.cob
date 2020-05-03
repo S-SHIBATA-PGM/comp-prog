@@ -1,0 +1,19 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln             PIC X(30).
+01 A              PIC 9(10).
+01 B              PIC 9(10).
+01 cnt            PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  INSPECT ln TALLYING cnt FOR ALL "7".
+  IF cnt = ZERO
+      DISPLAY "No"
+  ELSE
+      DISPLAY "Yes"
+  END-IF.
+  STOP RUN.
