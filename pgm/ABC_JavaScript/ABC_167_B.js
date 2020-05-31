@@ -2,10 +2,10 @@
 function main(input) {
     const line = input.split("\n");
     let arr = line[0].split(" ");
-    const A = parseInt(arr[0]);
-    const B = parseInt(arr[1]);
-    const C = parseInt(arr[2]);
-    const K = parseInt(arr[3]);
+    const A = arr.shift() * 1;
+    const B = arr.shift() * 1;
+    const C = arr.shift() * 1;
+    const K = arr.shift() * 1;
     if (K <= A) {
         console.log(K);
     } else if (K <= A + B) {
