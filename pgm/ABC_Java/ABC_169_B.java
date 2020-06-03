@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Main {
     public static void main (String[] args) throws IOException {
-        final long INF = 1000000000000000000L;
+        final long INF = (long)1e18;
         FastScanner sc = new FastScanner();
         final int N = sc.nextInt();
         long[] A = sc.longArray (N);
@@ -25,6 +25,7 @@ public class Main {
             }
         }
         System.out.println (ans);
+        return;
     }
 
     // FastScanner start
