@@ -5,16 +5,13 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        String[] arr = reader.readLine().split (" ");
         int N;
-        N = Integer.parseInt (arr[0]);
-        Integer[] arrHon = {2, 4, 5, 7, 9};
-        Integer[] arrPon = {0, 1, 6, 8};
-        if (Arrays.asList (arrHon).contains (N % 10)) {
+        N = Integer.parseInt (reader.readLine());
+        if (Arrays.asList (2, 4, 5, 7, 9).contains (N % 10)) {
             System.out.println ("hon");
             return;
         }
-        if (Arrays.asList (arrPon).contains (N % 10)) {
+        if (Arrays.asList (0, 1, 6, 8).contains (N % 10)) {
             System.out.println ("pon");
             return;
         }
