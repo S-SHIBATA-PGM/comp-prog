@@ -13,13 +13,33 @@
 using namespace std;
 using ll = int64_t;
 
+template<class T> void gc (T& x) {
+    char c;
+    int s = 0;
+    x = 0;
+    c = getchar_unlocked();
+    if (c == '-')
+        s = 1;
+    else if ('0' <= c && c <= '9')
+        x = c - '0';
+    while (true) {
+        c = getchar_unlocked();
+        if (c < '0' || '9' < c)
+            break;
+        x = x * 10 + (c - '0');
+    }
+    if (s)
+        x = -x;
+}
+
 int main() {
     int N, M;
-    cin >> N >> M;
+    gc (N);
+    gc (M);
     int accum = 0;
     REP (i, M) {
         int Ai;
-        cin >> Ai;
+        gc (Ai);
         accum += Ai;
     }
     cout << (N < accum ? -1 : N - accum) << endl;
