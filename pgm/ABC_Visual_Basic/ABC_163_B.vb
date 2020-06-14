@@ -1,6 +1,5 @@
 ' Imports System.Collections.Generic
 Imports System.IO
-' Imports System.Linq
 Imports System.Text
 ' Imports System.Text.RegularExpressions
 
@@ -10,7 +9,10 @@ Class Main
         Dim N As Integer = sc.nextInt()
         Dim M As Integer = sc.nextInt()
         Dim A() As Integer = sc.intArray(M)
-        Dim accum = A.Sum()
+        Dim accum As Integer = 0
+        For Each Ai As Integer in A
+            accum += Ai
+        Next
         Console.WriteLine(If(N < accum, -1, N - accum))
         Return
     End Sub
