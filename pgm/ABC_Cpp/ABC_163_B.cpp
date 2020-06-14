@@ -42,6 +42,6 @@ int main() {
         gc (Ai);
         accum += Ai;
     }
-    cout << (N < accum ? -1 : N - accum) << endl;
+    printf ("%d\n", N < accum ? -1 : N - accum);
     return 0;
 }
