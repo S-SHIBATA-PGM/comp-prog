@@ -10,7 +10,9 @@ public class Main {
         final int N = sc.nextInt();
         final int M = sc.nextInt();
         int[] A = sc.intArray (M);
-        int accum = Arrays.stream (A).sum();
+        int accum = 0;
+        for (int Ai : A)
+            accum += Ai;
         System.out.println (N < accum ? -1 : N - accum);
         return;
     }
