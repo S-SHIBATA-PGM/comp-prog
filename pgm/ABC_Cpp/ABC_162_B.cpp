@@ -13,12 +13,12 @@
 using namespace std;
 using ll = int64_t;
 
-long calc (long n, long N) {
+ll calc (ll n, ll N) {
     return (n + N / n * n) * (N / n) / 2;
 }
 
 int main() {
-    long N;
+    ll N;
     cin >> N;
     cout << calc (1L, N) - calc (3L, N) - calc (5L, N) + calc (15L, N) << endl;
     return 0;
