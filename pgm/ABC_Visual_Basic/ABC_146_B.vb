@@ -1,4 +1,5 @@
 ' Imports System.Collections.Generic
+Imports System.Text
 ' Imports System.Text.RegularExpressions
 
 Class Main
@@ -11,10 +12,11 @@ Class Main
     End Sub
 
     Shared Function Trans(ByVal S As String, ByVal f As String, ByVal t As String) As String
+        Dim sb As New StringBuilder(S.Length)
         For i As Integer = 0 To S.Length - 1
             Dim idx = f.indexOf(S(i))
-            S = S.Substring(0, i) + t(idx) + S.Substring(i + 1)
+            sb.Append(t(idx))
         Next
-        Trans = S
+        Trans = sb.ToString()
     End Function
 End Class
