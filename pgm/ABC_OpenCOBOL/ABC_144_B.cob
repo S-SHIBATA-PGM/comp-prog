@@ -1,0 +1,31 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(10).
+01 i          PIC 9(10).
+01 j          PIC 9(10).
+01 flg        PIC 9(1) VALUE ZERO.
+01 ans        PIC X(30).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL 9 < i
+    PERFORM VARYING j FROM 1 BY 1 UNTIL 9 < j
+      IF i * j = N
+        MOVE 1 TO flg
+        EXIT PERFORM
+      END-IF
+    END-PERFORM
+    IF 1 = flg
+      EXIT PERFORM
+    END-IF
+  END-PERFORM.
+  IF 1 = flg
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
