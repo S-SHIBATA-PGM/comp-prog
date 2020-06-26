@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(10).
+01 S          PIC X(100).
+01 qt         PIC 9(10).
+01 rm         PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  ACCEPT S.
+  DIVIDE N BY 2 GIVING qt REMAINDER rm.
+  IF ZERO = rm
+    IF S(1 : N / 2) = S(N / 2 + 1 : N / 2)
+      DISPLAY "Yes"
+    ELSE
+      DISPLAY "No"
+    END-IF
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
