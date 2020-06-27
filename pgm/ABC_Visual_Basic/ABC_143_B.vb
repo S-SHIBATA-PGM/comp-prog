@@ -1,14 +1,14 @@
 ' Imports System.Collections.Generic
 Imports System.IO
 ' Imports System.Linq
-Imports System.Text
+' Imports System.Text
 
 Class Main
     Public Shared Sub Main()
         Dim sc As New FastScanner(Console.OpenStandardInput())
         Dim N As Integer = sc.nextInt()
         Dim d As Integer() = sc.intArray(N)
-        Dim com As List(Of List(Of Integer)) = Combination(d, 2)
+        Dim com As List(Of List(Of Integer)) = combination(d, 2)
         Dim ans As Integer = 0
         For i As Integer = 0 To com.Count -1
             ans += com(i)(0) * com(i)(1)
@@ -16,7 +16,7 @@ Class Main
         Console.WriteLine(ans)
         Return
     End Sub
-    Shared Function Combination(ByVal nums As Integer(), ByVal k As Integer) As List(Of List(Of Integer))
+    Shared Function combination(ByVal nums As Integer(), ByVal k As Integer) As List(Of List(Of Integer))
         Dim ret As New List(Of List(Of Integer))
         If nums.Length < k Then
             return ret
@@ -113,15 +113,6 @@ Public Class FastScanner
     End Function
     Public Function charArray(n As Integer) As Char()
         Return enumerateChar(n)
-    End Function
-    Public Function Scan() As String
-        Dim sb As New StringBuilder()
-        Dim b As Char = nextChar()
-        Do
-            sb.Append(b)
-            b = Convert.ToChar(read())
-        Loop While Asc(b) >= 33 AndAlso Asc(b) <= 126
-        Return sb.ToString()
     End Function
     Private Function read() As Byte
         If isEof
