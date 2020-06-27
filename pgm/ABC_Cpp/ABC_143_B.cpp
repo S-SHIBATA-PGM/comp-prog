@@ -16,13 +16,13 @@ using ll = int64_t;
 vector<vector<int>> combination (vector<int> nums, int k) {
     vector<vector<int>> ret;
     if (k == 1) {
-        REP (i, nums.size())
+        REP (i, (signed)nums.size())
         ret.push_back (vector<int> (1, nums[i]));
     } else {
-        REP (i, nums.size() - k + 1) {
+        REP (i, (signed)nums.size() - k + 1) {
             vector<int> cur (&nums[i + 1], &nums[nums.size()]);
             vector<vector<int>> rows = combination (cur, k - 1);
-            REP (j, rows.size()) {
+            REP (j, (signed)rows.size()) {
                 rows[j].insert (rows[j].begin(), nums[i]);
                 ret.push_back (rows[j]);
             }
