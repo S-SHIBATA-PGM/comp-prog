@@ -15,16 +15,4 @@ class Program
         Console.WriteLine(ans);
         return;
     }
-    IEnumerable<TResult> Zip<TResult, T1, T2>
-        (IEnumerable<T1> a,
-         IEnumerable<T2> b,
-         Func<T1, T2, TResult> combine)
-    {
-        using (var f = a.GetEnumerator())
-        using (var s = b.GetEnumerator())
-        {
-            while (f.MoveNext() && s.MoveNext())
-                yield return combine(f.Current, s.Current);
-        }
-    }
 }
