@@ -39,7 +39,7 @@ public class Main {
         List<List<Character>> z = zip (S, T);
         int ans = 0;
         for (List<Character> v : z) {
-            if (v.get (0) != v.get (1))
+            if (!v.get (0).equals (v.get (1)))
                 ans++;
         }
         System.out.println (ans);
