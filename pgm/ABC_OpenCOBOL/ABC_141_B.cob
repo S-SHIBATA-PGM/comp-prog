@@ -1,0 +1,41 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 S         PIC X(100).
+01 O         PIC X(3) VALUE "RUD".
+01 E         PIC X(3) VALUE "LUD".
+01 cnt       PIC 9(10).
+01 flg       PIC 9(1) VALUE 1.
+01 i         PIC 9(10) COMP.
+01 len       PIC 9(10).
+01 qt        PIC 9(10).
+01 rm        PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT S.
+  MOVE FUNCTION STORED-CHAR-LENGTH(S) TO len.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL len < i
+    DIVIDE i BY 2 GIVING qt REMAINDER rm
+    MOVE ZERO TO cnt
+    IF rm = 1
+      INSPECT O TALLYING cnt FOR ALL S(i:1)
+      IF ZERO = cnt
+        MOVE ZERO TO flg
+        EXIT PERFORM
+      END-IF
+    ELSE
+      INSPECT E TALLYING cnt FOR ALL S(i:1)
+      IF ZERO = cnt
+        MOVE ZERO TO flg
+        EXIT PERFORM
+      END-IF
+    END-IF
+  END-PERFORM.
+  IF ZERO NOT = flg
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
