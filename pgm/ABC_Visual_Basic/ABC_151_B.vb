@@ -12,7 +12,7 @@ Class Main
         M = sc.nextInt()
         Dim A() As Integer = sc.intArray(N - 1)
         Dim accum As Integer = 0
-        For Each Ai As Integer in A
+        For Each Ai As Integer In A
             accum += Ai
         Next
         Dim ans As Integer = N * M - accum
@@ -51,12 +51,29 @@ Public Class FastScanner
         Next
         Return a
     End Function
+    Private Function enumerateString(n As Integer) As String()
+        Dim a(n - 1) As String
+        For i As Integer = 0 To n - 1
+            a(i) = nextString()
+        Next
+        Return a
+    End Function
     Public Function nextChar() As Char
         Dim b As Byte = 0
         Do
             b = read()
-        Loop While (b < 33 OrElse 126 < b) AndAlso Not isEof
+        Loop While 33 < b AndAlso b < 126 AndAlso Not isEof
         Return Convert.ToChar(b)
+    End Function
+    public Function nextString() As String
+        Dim b As Byte = 0
+        Dim builder As New StringBuilder()
+        b = read()
+        While 33 < b AndAlso b < 126 AndAlso Not isEof
+            builder.Append(Convert.ToChar(b))
+            b = read()
+        End While
+        Return builder.ToString()
     End Function
     Public Function nextInt() As Integer
         Return if(isEof, Integer.MinValue, Ctype(nextLong(), Integer))
@@ -94,14 +111,8 @@ Public Class FastScanner
     Public Function charArray(n As Integer) As Char()
         Return enumerateChar(n)
     End Function
-    Public Function Scan() As String
-        Dim sb As New StringBuilder()
-        Dim b As Char = nextChar()
-        Do
-            sb.Append(b)
-            b = Convert.ToChar(read())
-        Loop While Asc(b) >= 33 AndAlso Asc(b) <= 126
-        Return sb.ToString()
+    Public Function stringArray(n As Integer) As String()
+        Return enumerateString(n)
     End Function
     Private Function read() As Byte
         If isEof
