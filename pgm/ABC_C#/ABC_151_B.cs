@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+// using System.Globalization;
 using System.IO;
-using System.Linq;
+// using System.Linq;
 using System.Text;
 
 class Program
@@ -46,8 +46,20 @@ public class FastScanner
         {
             b = read();
         }
-        while ((b < 33 || 126 < b) && !isEof);
+        while (33 < b && b < 126 && !isEof);
         return (char)b;
+    }
+    public string nextString()
+    {
+        byte b = 0;
+        StringBuilder builder = new StringBuilder();
+        b = read();
+        while (33 < b && b < 126 && !isEof)
+        {
+            builder.Append((char)b);
+            b = read();
+        }
+        return builder.ToString();
     }
     public int nextInt()
     {
@@ -93,14 +105,9 @@ public class FastScanner
     {
         return enumerate(n, nextChar);
     }
-    public string Scan()
+    public string[] stringArray(int n)
     {
-        var sb = new StringBuilder();
-        for (var b = nextChar(); b >= 33 && b <= 126; b = (char)read())
-        {
-            sb.Append(b);
-        }
-        return sb.ToString();
+        return enumerate(n, nextString);
     }
     private byte read()
     {
