@@ -3,15 +3,10 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 maxlen     PIC 9(10) VALUE 100 COMP.
-01 cur        PIC 9(10) VALUE 1 COMP.
 01 i          PIC 9(10) VALUE 1 COMP.
-01 k          PIC 9(10) VALUE 1 COMP.
-01 len        PIC 9(10) COMP.
 01 N          PIC 9(10).
 01 num        PIC 9(10) VALUE 4.
 01 ans        PIC X(12).
-01 idx        PIC 9(10).
 01 zs         PIC Z(9)9.
 01 S          PIC X(3).
 01 C1.
@@ -32,8 +27,7 @@ PROCEDURE DIVISION.
         AT END
           CONTINUE
         WHEN S = j(ix)
-          MOVE ix TO idx
-          ADD 1 TO C(idx)
+          ADD 1 TO C(ix)
           SET ix UP BY 1
       END-SEARCH
     END-PERFORM
