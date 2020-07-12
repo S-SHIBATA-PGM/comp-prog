@@ -9,7 +9,7 @@ def main():
     C = [0] * len(judge)
     for Si in S:
         C[judge.index(Si)] += 1
-    print("\n".join([judge[i] + mul + str(C[i]) for i in range(len(judge))]))
+    print("\n".join((judge[i] + mul + str(C[i]) for i in range(len(judge)))))
     return
 
 
