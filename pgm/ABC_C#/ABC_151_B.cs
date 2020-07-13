@@ -42,11 +42,8 @@ public class FastScanner
     public char nextChar()
     {
         byte b = 0;
-        do
-        {
-            b = read();
-        }
-        while (33 < b && b < 126 && !isEof);
+        b = read();
+        while (!isEof && (b < 33 || 126 < b)) b = read();
         return (char)b;
     }
     public string nextString()
@@ -54,7 +51,8 @@ public class FastScanner
         byte b = 0;
         StringBuilder builder = new StringBuilder();
         b = read();
-        while (33 < b && b < 126 && !isEof)
+        while (!isEof && (b < 33 || 126 < b)) b = read();
+        while (!isEof && 33 <= b && b <= 126)
         {
             builder.Append((char)b);
             b = read();
@@ -93,14 +91,6 @@ public class FastScanner
             else ret = ret * 10 + b - '0';
         }
     }
-    public int[] intArray(int n)
-    {
-        return enumerate(n, nextInt);
-    }
-    public long[] longArray(int n)
-    {
-        return enumerate(n, nextLong);
-    }
     public char[] charArray(int n)
     {
         return enumerate(n, nextChar);
@@ -108,6 +98,14 @@ public class FastScanner
     public string[] stringArray(int n)
     {
         return enumerate(n, nextString);
+    }
+    public int[] intArray(int n)
+    {
+        return enumerate(n, nextInt);
+    }
+    public long[] longArray(int n)
+    {
+        return enumerate(n, nextLong);
     }
     private byte read()
     {
