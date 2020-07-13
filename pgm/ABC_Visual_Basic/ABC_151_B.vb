@@ -30,20 +30,6 @@ Public Class FastScanner
         str = stream
         Exit Sub
     End Sub
-    Private Function enumerateInt(n As Integer) As Integer()
-        Dim a(n - 1) As Integer
-        For i As Integer = 0 To n - 1
-            a(i) = nextInt()
-        Next
-        Return a
-    End Function
-    Private Function enumerateLong(n As Integer) As Long()
-        Dim a(n - 1) As Long
-        For i As Integer = 0 To n - 1
-            a(i) = nextLong()
-        Next
-        Return a
-    End Function
     Private Function enumerateChar(n As Integer) As Char()
         Dim a(n - 1) As Char
         For i As Integer = 0 To n - 1
@@ -58,18 +44,36 @@ Public Class FastScanner
         Next
         Return a
     End Function
+    Private Function enumerateInt(n As Integer) As Integer()
+        Dim a(n - 1) As Integer
+        For i As Integer = 0 To n - 1
+            a(i) = nextInt()
+        Next
+        Return a
+    End Function
+    Private Function enumerateLong(n As Integer) As Long()
+        Dim a(n - 1) As Long
+        For i As Integer = 0 To n - 1
+            a(i) = nextLong()
+        Next
+        Return a
+    End Function
     Public Function nextChar() As Char
         Dim b As Byte = 0
-        Do
+        b = read()
+        While Not isEof AndAlso (b < 33 OrElse 126 < b)
             b = read()
-        Loop While 33 < b AndAlso b < 126 AndAlso Not isEof
+        End While
         Return Convert.ToChar(b)
     End Function
     public Function nextString() As String
         Dim b As Byte = 0
         Dim builder As New StringBuilder()
         b = read()
-        While 33 < b AndAlso b < 126 AndAlso Not isEof
+        While Not isEof AndAlso (b < 33 OrElse 126 < b)
+            b = read()
+        End While
+        While Not isEof AndAlso 33 <= b AndAlso b <= 126
             builder.Append(Convert.ToChar(b))
             b = read()
         End While
@@ -102,17 +106,17 @@ Public Class FastScanner
         End While
         Return ret
     End Function
-    Public Function intArray(n As Integer) As Integer()
-        Return enumerateInt(n)
-    End Function
-    Public Function longArray(n As Integer) As Long()
-        Return enumerateLong(n)
-    End Function
     Public Function charArray(n As Integer) As Char()
         Return enumerateChar(n)
     End Function
     Public Function stringArray(n As Integer) As String()
         Return enumerateString(n)
+    End Function
+    Public Function intArray(n As Integer) As Integer()
+        Return enumerateInt(n)
+    End Function
+    Public Function longArray(n As Integer) As Long()
+        Return enumerateLong(n)
     End Function
     Private Function read() As Byte
         If isEof

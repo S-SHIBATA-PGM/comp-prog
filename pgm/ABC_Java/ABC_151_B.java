@@ -121,6 +121,18 @@ public class Main {
                 return -ret;
             return ret;
         }
+        public char[] charArray (int n) throws IOException {
+            char arr[] = new char[n];
+            for (int i = 0; i < n; i++)
+                arr[i] = nextChar();
+            return arr;
+        }
+        public String[] stringArray (int n) throws IOException {
+            String arr[] = new String[n];
+            for (int i = 0; i < n; i++)
+                arr[i] = nextString();
+            return arr;
+        }
         public int[] intArray (int n) throws IOException {
             int arr[] = new int[n];
             for (int i = 0; i < n; i++) {
@@ -139,12 +151,6 @@ public class Main {
             double arr[] = new double[n];
             for (int i = 0; i < n; i++)
                 arr[i] = nextDouble();
-            return arr;
-        }
-        public String[] stringArray (int n) throws IOException {
-            String arr[] = new String[n];
-            for (int i = 0; i < n; i++)
-                arr[i] = nextString();
             return arr;
         }
     }
