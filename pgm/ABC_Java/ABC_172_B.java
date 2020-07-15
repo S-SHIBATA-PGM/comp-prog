@@ -1,3 +1,4 @@
+// Ref ABC 172 B
 import java.io.*;
 // import java.math.*;
 import java.util.*;
@@ -6,6 +7,20 @@ import java.util.*;
 
 @SuppressWarnings ("unchecked")
 public class Main {
+    public static void main (String[] args) throws Exception {
+        BufferedReader reader =
+            new BufferedReader (new InputStreamReader (System.in));
+        List<Character> S = toCharacterList (reader.readLine());
+        List<Character> T = toCharacterList (reader.readLine());
+        List<List<Character>> z = zip (S, T);
+        int ans = 0;
+        for (List<Character> v : z) {
+            if (!v.get (0).equals (v.get (1)))
+                ans++;
+        }
+        System.out.println (ans);
+        return;
+    }
     public static <T> List<List<T>> zip (List<T>... lists) {
         List<List<T>> zipped = new ArrayList<List<T>>();
         for (List<T> list : lists) {
@@ -30,19 +45,5 @@ public class Main {
             lst.add (Character.valueOf (s.charAt (i)));
         }
         return lst;
-    }
-    public static void main (String[] args) throws Exception {
-        BufferedReader reader =
-            new BufferedReader (new InputStreamReader (System.in));
-        List<Character> S = toCharacterList (reader.readLine());
-        List<Character> T = toCharacterList (reader.readLine());
-        List<List<Character>> z = zip (S, T);
-        int ans = 0;
-        for (List<Character> v : z) {
-            if (!v.get (0).equals (v.get (1)))
-                ans++;
-        }
-        System.out.println (ans);
-        return;
     }
 }
