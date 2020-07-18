@@ -12,7 +12,7 @@ class Program
         FastScanner sc = new FastScanner(Console.OpenStandardInput());
         int N = sc.nextInt();
         decimal[] A = sc.decimalArray(N);
-        Console.WriteLine(1 / A.Sum(v => 1M / v));
+        Console.WriteLine(1 / A.Sum(v => 1 / v));
         return;
     }
 }
