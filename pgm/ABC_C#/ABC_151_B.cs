@@ -65,31 +65,44 @@ public class FastScanner
     }
     public long nextLong()
     {
-        if (isEof)
-        {
-            return long.MinValue;
-        }
+        if (isEof) return long.MinValue;
         long ret = 0;
         byte b = 0;
-        var ng = false;
-        do
+        bool neg = false;
+        do b = read();
+        while (b != 45 && (b < 48 || 57 < b));
+        neg = b == 45;
+        if (neg) b = read();
+        while (!isEof && 48 <= b && b <= 57)
         {
+            ret = ret * 10 + b - 48;
             b = read();
         }
-        while (b != '-' && (b < '0' || '9' < b));
-        if (b == '-')
+        return neg ? -ret : ret;
+    }
+    public decimal nextDecimal()
+    {
+        if (isEof) return decimal.MinValue;
+        decimal ret = 0M;
+        decimal div = 1M;
+        byte b = 0;
+        bool neg = false;
+        b = read();
+        while (!isEof && (b < 48 || 57 < b) && b != 45 && b != 46) b = read();
+        neg = b == 45;
+        if (neg) b = read();
+        while (!isEof && 48 <= b && b <= 57)
         {
-            ng = true;
+            ret = ret * 10 + b - 48;
             b = read();
         }
-        for (; true; b = read())
+        if (b == 46) b = read();
+        while (!isEof && 48 <= b && b <= 57)
         {
-            if (b < '0' || '9' < b)
-            {
-                return ng ? -ret : ret;
-            }
-            else ret = ret * 10 + b - '0';
+            ret += (b - 48) / (div *= 10);
+            b = read();
         }
+        if (neg) return -ret; return ret;
     }
     public char[] charArray(int n)
     {
@@ -106,6 +119,10 @@ public class FastScanner
     public long[] longArray(int n)
     {
         return enumerate(n, nextLong);
+    }
+    public decimal[] decimalArray(int n)
+    {
+        return enumerate(n, nextDecimal);
     }
     private byte read()
     {
