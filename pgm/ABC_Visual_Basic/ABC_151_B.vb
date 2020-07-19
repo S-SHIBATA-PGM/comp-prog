@@ -30,31 +30,10 @@ Public Class FastScanner
         str = stream
         Exit Sub
     End Sub
-    Private Function enumerateChar(n As Integer) As Char()
-        Dim a(n - 1) As Char
+    private Function enumerate(of T)(n As Integer, f as Func(Of T)) As T()
+        Dim a(n - 1) As T
         For i As Integer = 0 To n - 1
-            a(i) = nextChar()
-        Next
-        Return a
-    End Function
-    Private Function enumerateString(n As Integer) As String()
-        Dim a(n - 1) As String
-        For i As Integer = 0 To n - 1
-            a(i) = nextString()
-        Next
-        Return a
-    End Function
-    Private Function enumerateInt(n As Integer) As Integer()
-        Dim a(n - 1) As Integer
-        For i As Integer = 0 To n - 1
-            a(i) = nextInt()
-        Next
-        Return a
-    End Function
-    Private Function enumerateLong(n As Integer) As Long()
-        Dim a(n - 1) As Long
-        For i As Integer = 0 To n - 1
-            a(i) = nextLong()
+            a(i) = f()
         Next
         Return a
     End Function
@@ -88,35 +67,69 @@ Public Class FastScanner
         End If
         Dim ret As Long = 0
         Dim b As Byte = 0
-        Dim ng As Boolean = False
+        Dim neg As Boolean = False
         Do
             b = read()
-        Loop While b <> Asc("-"c) AndAlso (b < Asc("0"c) OrElse Asc("9"c) < b)
-        If b = Asc("-"c)
-            ng = true
+        Loop While b <> 45 AndAlso (b < 48 OrElse 57 < b)
+        If b = 45
+            neg = True
             b = read()
         End If
-        While True
-            If b < Asc("0"c) OrElse Asc("9"c) < b
-                Return If(ng, -ret, ret)
-            Else
-                ret = ret * 10 + b - Asc("0"c)
-            End If
+        While Not isEof AndAlso 48 <= b AndAlso b <= 57
+            ret = ret * 10 + b - 48
             b = read()
         End While
-        Return ret
+        Return If(neg, -ret, ret)
+    End Function
+    Public Function nextDecimal() As Decimal
+        If isEof
+            Return Decimal.MinValue
+        End If
+        Dim ret As Decimal = 0D
+        Dim div As Decimal = 1D
+        Dim b As Byte = 0
+        Dim neg As Boolean = False
+        b = read()
+        While Not isEof AndAlso (b < 48 OrElse 57 < b) AndAlso b <> 45 _
+        AndAlso b <> 46
+            b = read()
+        End While
+        If b = 45
+            neg = True
+            b = read()
+        End If
+        While Not isEof AndAlso 48 <= b AndAlso b <= 57
+            ret = ret * 10 + b - 48
+            b = read()
+        End While
+        If b = 46
+            b = read()
+        End If
+        While Not isEof AndAlso 48 <= b AndAlso b <= 57
+            div *= 10
+            ret += (b - 48) / div
+            b = read()
+        End While
+        If neg
+            return -ret
+        Else
+            return ret
+        End If
     End Function
     Public Function charArray(n As Integer) As Char()
-        Return enumerateChar(n)
+        Return enumerate(n, AddressOf nextChar)
     End Function
     Public Function stringArray(n As Integer) As String()
-        Return enumerateString(n)
+        Return enumerate(n, AddressOf nextString)
     End Function
     Public Function intArray(n As Integer) As Integer()
-        Return enumerateInt(n)
+        Return enumerate(n, AddressOf nextInt)
     End Function
     Public Function longArray(n As Integer) As Long()
-        Return enumerateLong(n)
+        Return enumerate(n, AddressOf nextLong)
+    End Function
+    Public Function decimalArray(n As Integer) As Decimal()
+        Return enumerate(n, AddressOf nextDecimal)
     End Function
     Private Function read() As Byte
         If isEof
