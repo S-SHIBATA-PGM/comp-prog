@@ -9,7 +9,7 @@ Class Main
         Dim sc As New FastScanner(Console.OpenStandardInput())
         Dim N As Integer = sc.nextInt()
         Dim A() As Integer = sc.intArray(N)
-        Console.WriteLine(1 / A.Sum(Function(Ai) 1D / Ai))
+        Console.WriteLine(1 / A.Sum(Function(v) 1 / v))
         Return
     End Sub
 End Class
