@@ -4,13 +4,9 @@ function main(input) {
     let arr = line[0].split(" ");
     const K = parseInt(arr[0]);
     const X = parseInt(arr[1]);
-    let sp = "";
-    for (let i = X - K + 1; i < X + K; i++) {
-        process.stdout.write(sp);
-        process.stdout.write(String(i));
-        sp = " ";
-    }
-    console.log();
+    let ans = []
+    for (let i = X - K + 1; i < X + K; i++) ans.push(i);
+    console.log(ans.join(" "));
     return;
 }
 main(require('fs').readFileSync('/dev/stdin', 'utf8'));
