@@ -11,7 +11,7 @@ Class Main
         Dim arr() As String
         arr = Split(Console.ReadLine())
         K = arr(0) : X = arr(1)
-        Dim ans = new List(Of Integer)()
+        Dim ans As New List(Of Integer)()
         For i As Integer = X - K + 1 To X + K - 1
             ans.Add(i)
         Next
