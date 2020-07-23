@@ -1,0 +1,56 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 K          PIC S9(10).
+01 X          PIC S9(10).
+01 i          PIC S9(10).
+01 nl         PIC 9(10) VALUE ZERO.
+01 sp         PIC 9(10) VALUE ZERO.
+01 st         PIC S9(10).
+01 ed         PIC S9(10).
+01 ans        PIC X(30).
+01 zs         PIC -Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO K X.
+  COMPUTE st = X - K + 1.
+  COMPUTE ed = X + K - 1.
+  MOVE st TO i.
+  IF K = 1
+    MOVE 1 TO nl
+    PERFORM DISP
+    STOP RUN
+  ELSE
+    PERFORM DISP
+  END-IF.
+  MOVE 1 TO sp.
+  ADD 1 TO st.
+  PERFORM VARYING i FROM st BY 1 UNTIL ed <= i
+    PERFORM DISP
+  END-PERFORM.
+  MOVE 1 TO nl.
+  PERFORM DISP.
+  STOP RUN.
+
+DISP SECTION.
+    MOVE i TO zs.
+    IF ZERO <> sp
+      DISPLAY SPACE WITH NO ADVANCING
+    END-IF.
+    IF ZERO <> i
+      IF ZERO <> nl
+        DISPLAY FUNCTION TRIM(zs)
+      ELSE
+        DISPLAY FUNCTION TRIM(zs) WITH NO ADVANCING
+      END-IF
+    ELSE
+      IF ZERO <> nl
+        DISPLAY ZERO
+      ELSE
+        DISPLAY ZERO WITH NO ADVANCING
+      END-IF
+    END-IF.
