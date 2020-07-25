@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 S          PIC X(30).
+
+PROCEDURE DIVISION.
+  ACCEPT S.
+  IF S(1:1) = S(2:1) AND S(2:1) <> S(3:1) AND S(3:1) = S(4:1)
+    DISPLAY "Yes"
+  ELSE
+    IF S(1:1) = S(3:1) AND S(2:1) <> S(3:1) AND S(2:1) = S(4:1)
+      DISPLAY "Yes"
+    ELSE
+      IF S(1:1) = S(4:1) AND S(1:1) <> S(2:1) AND S(2:1) = S(3:1)
+        DISPLAY "Yes"
+      ELSE
+        DISPLAY "No"
+      END-IF
+    END-IF
+  END-IF.
+  STOP RUN.
