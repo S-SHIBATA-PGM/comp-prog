@@ -1,0 +1,45 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 NX         PIC X(30).
+01 LX         PIC X(30).
+01 N          PIC S9(10).
+01 L          PIC S9(10).
+01 ans        PIC S9(10).
+01 zs         PIC -Z(9)9.
+
+*> (N * (L + (L + N - 1))) / 2
+*> (N * (2 * L + N - 1)) / 2
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO NX LX.
+  IF NX(1:1) = "-"
+    MOVE NX(2:FUNCTION STORED-CHAR-LENGTH(NX) - 1) TO N
+    COMPUTE N = -N
+  ELSE
+    MOVE NX(1:FUNCTION STORED-CHAR-LENGTH(NX)) TO N
+  END-IF.
+  IF LX(1:1) = "-"
+    MOVE LX(2:FUNCTION STORED-CHAR-LENGTH(LX) - 1) TO L
+    COMPUTE L = -L
+  ELSE
+    MOVE LX(1:FUNCTION STORED-CHAR-LENGTH(LX)) TO L
+  END-IF.
+  COMPUTE ans = (N * (2 * L + N - 1)) / 2.
+  IF ZERO < L
+    COMPUTE ans = ans - L
+  ELSE
+    IF L + N - 1 < ZERO
+      COMPUTE ans = ans - (L + N - 1)
+    END-IF
+  END-IF.
+  IF ZERO = ans
+    DISPLAY 0
+  ELSE
+    MOVE ans TO zs
+    DISPLAY FUNCTION TRIM(zs)
+  END-IF.
+  STOP RUN.
