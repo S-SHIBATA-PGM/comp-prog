@@ -33,6 +33,10 @@ class Solver
                         flg = true;
                         break;
                     }
+                    else if (this.ub < area)
+                    {
+                        break;
+                    }
                 }
                 if (flg) break;
             }
