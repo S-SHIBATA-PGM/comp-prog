@@ -24,12 +24,12 @@ class Solver
                 this.mp.set(this.S[i], 0);
             }
 
-            this.mp.set(this.S[i], this.mp.get(this.S[i])! + 1);
+            this.mp.set(this.S[i], this.mp.get(this.S[i]) + 1);
 
-            if (this.maxvotes < this.mp.get(this.S[i])!)
+            if (this.maxvotes < this.mp.get(this.S[i]))
             {
                 this.ans = this.S[i];
-                this.maxvotes = this.mp.get(this.S[i])!;
+                this.maxvotes = this.mp.get(this.S[i]);
             }
         }
     }
