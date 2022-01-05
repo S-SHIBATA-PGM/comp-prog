@@ -1,2 +1,2 @@
 # comp-prog
-Competition programming
+Competitive programming.
