@@ -7,43 +7,36 @@ class Solver
     line: string[];
 
     N: number;
+    ans: string = "";
     input: string;
+    maxvotes: number = 0;
 
     constructor()
     {
         this.input = fs.readFileSync("/dev/stdin", "utf8");
         this.line = this.input.split("\n");
         this.N = parseInt(this.line[0], 10);
-        this.S = this.line.slice(1).filter((x) => x.trim() !== "");
-        for (const idx in this.S)
+        this.S = this.line.slice(1);
+        for (let i = 0, lng = this.S.length; i < lng; i++)
         {
-            if (this.S.hasOwnProperty(idx))
+            if (!this.mp.hasOwnProperty(this.S[i]))
             {
-                if (this.mp[this.S[idx]] === undefined)
-                {
-                    this.mp[this.S[idx]] = 0;
-                }
-                this.mp[this.S[idx]] += 1;
+                this.mp[this.S[i]] = 0;
+            }
+
+            this.mp[this.S[i]]++;
+
+            if (this.maxvotes < this.mp[this.S[i]])
+            {
+                this.ans = this.S[i];
+                this.maxvotes = this.mp[this.S[i]];
             }
         }
     }
 
     solve()
     {
-        const maxvotes
-            = Object.values(this.mp).reduce(
-                (prev, curr) => Math.max(prev, curr));
-        for (const idx in this.mp)
-        {
-            if (this.mp.hasOwnProperty(idx))
-            {
-                if (this.mp[idx] === maxvotes)
-                {
-                    console.log(idx);
-                    break;
-                }
-            }
-        }
+        console.log(this.ans);
         return 0;
     }
 }
