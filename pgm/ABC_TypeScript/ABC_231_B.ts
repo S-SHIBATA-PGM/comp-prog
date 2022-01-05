@@ -2,9 +2,9 @@ import fs = require("fs");
 
 class Solver
 {
-    mp: {[key: string]: number} = {};
     S: string[];
     line: string[];
+    mp: Map<string, number> = new Map();
 
     N: number;
     ans: string = "";
@@ -19,17 +19,17 @@ class Solver
         this.S = this.line.slice(1);
         for (let i = 0, lng = this.S.length; i < lng; i++)
         {
-            if (!this.mp.hasOwnProperty(this.S[i]))
+            if (!this.mp.has(this.S[i]))
             {
-                this.mp[this.S[i]] = 0;
+                this.mp.set(this.S[i], 0);
             }
 
-            this.mp[this.S[i]]++;
+            this.mp.set(this.S[i], this.mp.get(this.S[i])! + 1);
 
-            if (this.maxvotes < this.mp[this.S[i]])
+            if (this.maxvotes < this.mp.get(this.S[i])!)
             {
                 this.ans = this.S[i];
-                this.maxvotes = this.mp[this.S[i]];
+                this.maxvotes = this.mp.get(this.S[i])!;
             }
         }
     }
