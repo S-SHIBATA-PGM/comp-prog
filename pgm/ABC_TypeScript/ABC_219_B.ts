@@ -4,10 +4,10 @@ class Solver
 {
     S: string[];
     T: number[];
-    ans: string[];
     arr: string[];
     line: string[];
 
+    ans: string;
     input: string;
 
     constructor()
@@ -16,17 +16,17 @@ class Solver
         this.line = this.input.split("\n");
         this.S = this.line.slice(0, 3);
         this.T = this.line[3].split("").map((str) => parseInt(str, 10) - 1);
-        this.ans = new Array(this.T.length).fill("");
+        this.ans = "";
     }
 
     solve()
     {
         for (let i = 0, lng = this.T.length; i < lng; i++)
         {
-            this.ans[i] = this.S[this.T[i]];
+            this.ans += this.S[this.T[i]];
         }
 
-        console.log(this.ans.join(""));
+        console.log(this.ans);
         return 0;
     }
 }
