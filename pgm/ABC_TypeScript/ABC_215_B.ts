@@ -16,7 +16,20 @@ class Solver
 
     solve()
     {
-        console.log(Math.log2(this.N) | 0);
+        let ans = 0;
+        let i = 0;
+        let num = 1;
+        while (true)
+        {
+            if (this.N < num)
+            {
+                ans = i - 1;
+                break;
+            }
+            num *= 2;
+            i++;
+        }
+        console.log(ans);
         return 0;
     }
 }
