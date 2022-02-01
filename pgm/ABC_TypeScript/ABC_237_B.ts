@@ -48,7 +48,8 @@ class Solver
         this.fs = new FastScanner();
         this.H = this.fs.integer();
         this.W = this.fs.integer();
-        this.A = Array.from(new Array(this.H), _ => new Array(this.W).fill(0));
+        this.A
+            = Array.from(new Array(this.H), (_) => new Array(this.W).fill(0));
         for (let i = 0; i < this.H; i++)
         {
             for (let j = 0; j < this.W; j++)
