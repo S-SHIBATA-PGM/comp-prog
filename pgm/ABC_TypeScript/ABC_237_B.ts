@@ -51,7 +51,7 @@ class Solver
     {
         this.fs = new FastScanner();
         [this.H, this.W] = this.fs.numberArray();
-        this.B = Array.from(new Array(this.W), (_) => new Array(this.H));
+        this.B = Array.from(Array(this.W), (_) => Array(this.H));
         for (let i = 0; i < this.H; i++)
         {
             const row = this.fs.numberArray();
