@@ -2,43 +2,43 @@ import fs = require("fs");
 
 class FastScanner
 {
-    inputs: string[];
+    line: string[];
     index = 0;
     constructor()
     {
-        this.inputs = fs.readFileSync("/dev/stdin", "utf8").split(/ |\n/);
+        this.line = fs.readFileSync("/dev/stdin", "utf8").split("\n");
     }
-    bigint(): BigInt
+    next()
     {
-        return BigInt(this.inputs[this.index++]);
+        return this.line[this.index++];
     }
-    integer(): number
+    bigint(s: string): BigInt
     {
-        return parseInt(this.inputs[this.index++], 10);
+        return BigInt(s);
     }
-    number(): number
+    integer(s: string): number
     {
-        return Number(this.inputs[this.index++]);
+        return parseInt(s, 10);
     }
-    string()
+    number(s: string): number
     {
-        return this.inputs[this.index++];
+        return Number(s);
     }
-}
-
-function transpose<T>(table: T[][]): T[][]
-{
-    return table
-        .sort((a, b) => b.length - a.length)[0]
-        .map((_, idx) => table.map((row) => row[idx]))
-        .map((row) => row.filter((v) => v));
+    stringArray()
+    {
+        return this.next().split(" ");
+    }
+    intArray()
+    {
+        return this.next().split(" ").map((s) => this.integer(s));
+    }
 }
 
 class Solver
 {
     fs: FastScanner;
 
-    A: Array<Array<number>>;
+    B;
 
     H: number;
     W: number;
@@ -46,26 +46,19 @@ class Solver
     constructor()
     {
         this.fs = new FastScanner();
-        this.H = this.fs.integer();
-        this.W = this.fs.integer();
-        this.A
-            = Array.from(new Array(this.H), (_) => new Array(this.W).fill(0));
+        [this.H, this.W] = this.fs.intArray();
+        this.B = new Array(this.W);
+        for (let i = 0; i < this.W; i++) this.B[i] = new Array(this.H);
         for (let i = 0; i < this.H; i++)
         {
-            for (let j = 0; j < this.W; j++)
-            {
-                this.A[i][j] = this.fs.integer();
-            }
+            const row = this.fs.intArray();
+            for (let j = 0; j < this.W; j++) this.B[j][i] = row[j];
         }
     }
 
     solve()
     {
-        const B = transpose(this.A);
-        for (let i = 0; i < this.W; i++)
-        {
-            console.log(B[i].join(" "));
-        }
+        for (let i = 0; i < this.W; i++) console.log(this.B[i].join(" "));
         return 0;
     }
 }
