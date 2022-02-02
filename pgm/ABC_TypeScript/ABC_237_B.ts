@@ -24,13 +24,17 @@ class FastScanner
     {
         return Number(s);
     }
-    stringArray()
-    {
-        return this.next().split(" ");
-    }
     intArray()
     {
         return this.next().split(" ").map((s) => this.integer(s));
+    }
+    numberArray()
+    {
+        return this.next().split(" ").map((s) => this.number(s));
+    }
+    stringArray()
+    {
+        return this.next().split(" ");
     }
 }
 
@@ -38,7 +42,7 @@ class Solver
 {
     fs: FastScanner;
 
-    B;
+    B: Array<Array<number>>;
 
     H: number;
     W: number;
@@ -46,12 +50,11 @@ class Solver
     constructor()
     {
         this.fs = new FastScanner();
-        [this.H, this.W] = this.fs.intArray();
-        this.B = new Array(this.W);
-        for (let i = 0; i < this.W; i++) this.B[i] = new Array(this.H);
+        [this.H, this.W] = this.fs.numberArray();
+        this.B = Array.from(new Array(this.W), (_) => new Array(this.H));
         for (let i = 0; i < this.H; i++)
         {
-            const row = this.fs.intArray();
+            const row = this.fs.numberArray();
             for (let j = 0; j < this.W; j++) this.B[j][i] = row[j];
         }
     }
