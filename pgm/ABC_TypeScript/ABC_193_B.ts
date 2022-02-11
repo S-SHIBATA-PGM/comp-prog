@@ -1,6 +1,6 @@
 import fs = require("fs");
 
-const INF: number = 1000000007;
+const INF: number = 1e9 + 7;
 
 class FastScanner
 {
