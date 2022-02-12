@@ -1,0 +1,44 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(400).
+01 maxlen     PIC 9(10) VALUE 100 COMP.
+01 cur        PIC 9(10) VALUE 1 COMP.
+01 i          PIC 9(10) VALUE 1 COMP.
+01 j          PIC 9(10) COMP.
+01 k          PIC 9(10) COMP.
+01 len        PIC 9(10) COMP.
+01 ans        PIC 9(10) VALUE 1.
+01 zs         PIC Z(9)9.
+01 D          PIC 9(10) VALUE 0.
+01 N          PIC 9(10).
+01 X          PIC 9(10).
+01 L1.
+   03 L11 OCCURS 100 DEPENDING ON N.
+      05 L    PIC S9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N X.
+  ACCEPT ln.
+  MOVE N TO maxlen.
+  PERFORM maxlen TIMES
+    PERFORM VARYING j FROM cur BY 1 UNTIL ln(j:1) = SPACE
+    END-PERFORM
+    COMPUTE len = j - cur
+    MOVE ln(cur:len) TO L(i)
+    COMPUTE cur = j + 1
+    ADD 1 TO i
+  END-PERFORM.
+  PERFORM VARYING k FROM 1 BY 1 UNTIL N < k
+    ADD L(k) TO D
+    IF D <= X
+      ADD 1 TO ans
+    ELSE
+      EXIT PERFORM
+  END-PERFORM.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
