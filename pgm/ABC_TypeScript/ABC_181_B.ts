@@ -1,4 +1,3 @@
-// Ref ABC 237 B
 import fs = require("fs");
 
 class FastScanner
@@ -61,11 +60,10 @@ class Solver
         let ans = 0;
         for (let i = 0; i < this.N; i++)
         {
-            ans
-                += (this.AB[i][1] - this.AB[i][0] + 1)
-                * (this.AB[i][0] + this.AB[i][1]) / 2;
+            ans += this.AB[i][1] * (this.AB[i][1] + 1);
+            ans -= this.AB[i][0] * (this.AB[i][0] - 1);
         }
-        console.log(ans);
+        console.log(ans / 2);
         return 0;
     }
 }
