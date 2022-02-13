@@ -1,0 +1,22 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 H          PIC 9(10).
+01 W          PIC 9(10).
+01 r          PIC 9(10).
+01 c          PIC 9(10).
+01 ans        PIC S9(10).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO H W.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO r c.
+  COMPUTE ans = H * W - r * W - c * H + r * c.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
