@@ -1,0 +1,27 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 i          PIC 9(10) COMP.
+01 j          PIC 9(10) COMP.
+01 ans        PIC 9(10) VALUE 999.
+01 zs         PIC Z(9)9.
+01 S          PIC X(10).
+01 SLEN       PIC 9(10).
+01 num        PIC 9(10).
+01 numab      PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT S.
+  COMPUTE SLEN = FUNCTION STORED-CHAR-LENGTH(S).
+  PERFORM VARYING i FROM 1 BY 1 UNTIL SLEN - 2 < i
+    MOVE S(i:3) TO num
+    COMPUTE numab = 753 - num
+    IF numab < ans
+      MOVE numab TO ans
+    END-IF
+  END-PERFORM.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
