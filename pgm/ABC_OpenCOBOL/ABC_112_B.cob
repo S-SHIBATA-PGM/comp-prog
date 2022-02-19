@@ -1,0 +1,31 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(10).
+01 i          PIC 9(9) COMP.
+01 ans        PIC 9(9) VALUE 1001.
+01 zs         PIC Z(9)9.
+01 N          PIC 9(9).
+01 T          PIC 9(9).
+01 ci         PIC 9(9).
+01 ti         PIC 9(9).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N T.
+  PERFORM N TIMES
+    ACCEPT ln
+    UNSTRING ln DELIMITED BY SPACE INTO ci ti
+    IF ti <= T AND ci < ans
+      MOVE ci TO ans
+    END-IF
+  END-PERFORM.
+  IF ans = 1001
+    DISPLAY "TLE"
+  ELSE
+    MOVE ans TO zs
+    DISPLAY FUNCTION TRIM(zs)
+  END-IF.
+  STOP RUN.
