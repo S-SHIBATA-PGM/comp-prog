@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ans        PIC 9(9).
+01 zs         PIC Z(9)9.
+01 N          PIC 9(9).
+01 A          PIC 9(9).
+01 B          PIC 9(9).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  IF 1 = N
+    DISPLAY "Hello World"
+  ELSE
+    ACCEPT A
+    ACCEPT B
+    COMPUTE ans = A + B
+    MOVE ans TO zs
+    DISPLAY FUNCTION TRIM(zs)
+  END-IF.
+  STOP RUN.
