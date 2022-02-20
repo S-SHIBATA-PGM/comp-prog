@@ -1,0 +1,81 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(400).
+01 H          PIC 9(10).
+01 W          PIC 9(10).
+01 i          PIC 9(10) COMP.
+01 j          PIC 9(10) COMP.
+01 a1.
+   03 a11 OCCURS 100 DEPENDING H INDEXED XA.
+      05 a    PIC X(100).
+01 cntH1.
+   03 cntH11 OCCURS 100 DEPENDING H INDEXED XH.
+      05 cntH PIC 9(1) VALUE ZERO.
+01 cntW1.
+   03 cntW11 OCCURS 100 DEPENDING W INDEXED XW.
+      05 cntW PIC 9(1) VALUE ZERO.
+01 c          PIC 9(10) VALUE ZERO.
+01 flgH       PIC 9(1).
+01 flgW       PIC 9(1).
+01 st         PIC X(100).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO H W.
+
+  PERFORM VARYING i FROM 1 BY 1 UNTIL H < i
+    SET XA TO i
+    ACCEPT a(XA)
+  END-PERFORM
+
+  PERFORM VARYING i FROM 1 BY 1 UNTIL H < i
+    MOVE 1 TO flgH
+    PERFORM VARYING j FROM 1 BY 1 UNTIL W < j
+      SET XA TO i
+      IF a(XA)(j:1) = '#'
+        MOVE ZERO TO flgH
+        EXIT PERFORM
+      END-IF
+    END-PERFORM
+    IF 1 = flgH
+      SET XH TO i
+      MOVE 1 TO cntH(XH)
+    END-IF
+  END-PERFORM.
+
+  PERFORM VARYING i FROM 1 BY 1 UNTIL W < i
+    MOVE 1 TO flgW
+    PERFORM VARYING j FROM 1 BY 1 UNTIL H < j
+      SET XA TO j
+      IF a(XA)(i:1) = '#'
+        MOVE ZERO TO flgW
+        EXIT PERFORM
+      END-IF
+    END-PERFORM
+    IF 1 = flgW
+      SET XW TO i
+      MOVE 1 TO cntW(XW)
+    END-IF
+  END-PERFORM.
+
+  PERFORM VARYING i FROM 1 BY 1 UNTIL H < i
+    SET XH TO i
+    SET XA TO i
+    IF ZERO = cntH(XH)
+      MOVE ZERO TO c
+      PERFORM VARYING j FROM 1 BY 1 UNTIL W < j
+        SET XW TO j
+        IF ZERO = cntW(XW)
+          MOVE a(XA)(j:1) TO st(j - c:1)
+        ELSE
+          ADD 1 TO c
+        END-IF
+      END-PERFORM
+      DISPLAY st(1:FUNCTION STORED-CHAR-LENGTH(st))
+    END-IF
+  END-PERFORM.
+
+  STOP RUN.
