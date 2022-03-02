@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 a          PIC 9(10).
+01 ap         PIC 9(10).
+01 b          PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO a b.
+  COMPUTE ap = a + 1.
+  IF ap = b
+    DISPLAY "Yes"
+  ELSE
+    IF a = 1 AND b = 10
+      DISPLAY "Yes"
+    ELSE
+      DISPLAY "No"
+    END-IF
+  END-IF.
+  STOP RUN.
