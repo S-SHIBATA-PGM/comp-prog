@@ -1,0 +1,45 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC S9(11).
+01 R          PIC 9(1).
+01 ans        PIC X(128).
+01 i          PIC 9(3).
+01 len        PIC 9(3).
+01 p          PIC 9(3).
+01 str        PIC X(128).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  MOVE 1 TO p.
+  PERFORM UNTIL N = ZERO
+    IF FUNCTION MOD(N, 2) = 1
+      SUBTRACT 1 FROM N
+      STRING
+        '1'
+        INTO str POINTER p
+      END-STRING
+    ELSE
+      STRING
+        ZERO
+        INTO str POINTER p
+      END-STRING
+    END-IF
+    DIVIDE -2 INTO N
+  END-PERFORM.
+  COMPUTE len = FUNCTION STORED-CHAR-LENGTH(str).
+  MOVE 1 TO p.
+  PERFORM VARYING i FROM len BY -1 UNTIL i <= ZERO
+    STRING
+      str(i:1)
+      INTO ans POINTER p
+    END-STRING
+  END-PERFORM
+  IF ZERO = len
+    DISPLAY ZERO
+  ELSE
+    DISPLAY ans(1:len)
+  STOP RUN.
+
