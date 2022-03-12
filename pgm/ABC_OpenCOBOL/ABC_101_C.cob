@@ -1,0 +1,44 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 INP        PIC X(14).
+01 INP2       PIC X(700000).
+01 NK1.
+   03 NK11 OCCURS 2.
+      05 NK   PIC 9(6).
+01 R          PIC 9(6).
+01 X          PIC 9(6).
+01 cur        PIC 9(2) VALUE 1.
+01 i          PIC 9(18) VALUE 1.
+01 j          PIC 9(18).
+01 len        PIC 9(2).
+01 maxlen     PIC 9(1) VALUE 2.
+01 zs         PIC Z(6).
+
+PROCEDURE DIVISION.
+  ACCEPT INP.
+  ACCEPT INP2.
+  PERFORM maxlen TIMES
+    PERFORM VARYING j FROM cur BY 1
+      UNTIL INP(j:1) = SPACE
+    END-PERFORM
+    COMPUTE len = j - cur
+    MOVE INP(cur:len) TO NK(i)
+    COMPUTE cur = j + 1
+    ADD 1 TO i
+  END-PERFORM.
+*> N <= K + (K - 1) * (G - 1)
+*> (N - K) / (K - 1) + 1
+  SUBTRACT NK(2) FROM NK(1).
+  SUBTRACT 1 FROM NK(2).
+  DIVIDE NK(2) INTO NK(1) GIVING X REMAINDER R.
+  IF R NOT = 0 THEN
+    ADD 1 TO X
+  END-IF.
+  ADD 1 TO X.
+  MOVE X TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
