@@ -1,0 +1,36 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 N          PIC 9(6).
+01 ans        PIC X(6).
+01 i          PIC 9(6) BINARY.
+01 r          PIC 9(1).
+01 res        PIC 9(6).
+01 sumr       PIC 9(6).
+01 t          PIC 9(6).
+01 zs         PIC Z(7).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  MOVE N TO res.
+  PERFORM VARYING i FROM 0 BY 1 UNTIL N < i
+    MOVE i TO t
+    MOVE ZERO TO sumr
+    PERFORM UNTIL t <= ZERO
+      DIVIDE 6 INTO t GIVING t REMAINDER r
+      ADD r TO sumr
+    END-PERFORM
+    SUBTRACT i FROM N GIVING t
+    PERFORM UNTIL t <= ZERO
+      DIVIDE 9 INTO t GIVING t REMAINDER r
+      ADD r TO sumr
+    END-PERFORM
+    COMPUTE res = FUNCTION MIN(res, sumr)
+  END-PERFORM.
+  MOVE res TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
