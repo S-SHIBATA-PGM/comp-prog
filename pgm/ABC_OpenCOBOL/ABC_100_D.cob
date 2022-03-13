@@ -1,0 +1,97 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(4).
+01 M          PIC 9(4).
+01 ln         PIC X(38).
+01 a          PIC 9(4).
+01 b          PIC 9(4).
+01 x          PIC S9(11).
+01 y          PIC S9(11).
+01 z          PIC S9(11).
+01 mx         PIC 9(14).
+01 sm         PIC S9(14).
+01 c000_1.
+   03 c000_11 OCCURS 1000 DEPENDING N.
+      05 c000 PIC S9(11).
+01 c001_1.
+   03 c001_11 OCCURS 1000 DEPENDING N.
+      05 c001 PIC S9(11).
+01 c010_1.
+   03 c010_11 OCCURS 1000 DEPENDING N.
+      05 c010 PIC S9(11).
+01 c100_1.
+   03 c100_11 OCCURS 1000 DEPENDING N.
+      05 c100 PIC S9(11).
+01 c011_1.
+   03 c011_11 OCCURS 1000 DEPENDING N.
+      05 c011 PIC S9(11).
+01 c101_1.
+   03 c101_11 OCCURS 1000 DEPENDING N.
+      05 c101 PIC S9(11).
+01 c110_1.
+   03 c110_11 OCCURS 1000 DEPENDING N.
+      05 c110 PIC S9(11).
+01 c111_1.
+   03 c111_11 OCCURS 1000 DEPENDING N.
+      05 c111 PIC S9(11).
+01 cake000    PIC 9(14) VALUE ZERO.
+01 cake001    PIC 9(14) VALUE ZERO.
+01 cake010    PIC 9(14) VALUE ZERO.
+01 cake100    PIC 9(14) VALUE ZERO.
+01 cake011    PIC 9(14) VALUE ZERO.
+01 cake101    PIC 9(14) VALUE ZERO.
+01 cake110    PIC 9(14) VALUE ZERO.
+01 cake111    PIC 9(14) VALUE ZERO.
+01 zs         PIC Z(14)9.
+01 i          PIC 9(4) BINARY.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N M.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ACCEPT ln
+    UNSTRING ln DELIMITED BY SPACE INTO x y z
+    COMPUTE sm = -x - y - z
+    MOVE sm TO c000(i)
+    COMPUTE sm = -x - y + z
+    MOVE sm TO c001(i)
+    COMPUTE sm = -x + y - z
+    MOVE sm TO c010(i)
+    COMPUTE sm = x - y - z
+    MOVE sm TO c100(i)
+    COMPUTE sm = -x + y + z
+    MOVE sm TO c011(i)
+    COMPUTE sm = x - y + z
+    MOVE sm TO c101(i)
+    COMPUTE sm = x + y - z
+    MOVE sm TO c110(i)
+    COMPUTE sm = x + y + z
+    MOVE sm TO c111(i)
+  END-PERFORM.
+  SORT c000_11 DESCENDING c000.
+  SORT c001_11 DESCENDING c001.
+  SORT c010_11 DESCENDING c010.
+  SORT c100_11 DESCENDING c100.
+  SORT c011_11 DESCENDING c011.
+  SORT c101_11 DESCENDING c101.
+  SORT c110_11 DESCENDING c110.
+  SORT c111_11 DESCENDING c111.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL M < i
+    ADD c000(i) TO cake000
+    ADD c001(i) TO cake001
+    ADD c010(i) TO cake010
+    ADD c100(i) TO cake100
+    ADD c011(i) TO cake011
+    ADD c101(i) TO cake101
+    ADD c110(i) TO cake110
+    ADD c111(i) TO cake111
+  END-PERFORM.
+  COMPUTE mx = FUNCTION MAX(cake000, cake001, cake010, cake100,
+    cake011, cake101, cake110, cake111).
+  MOVE mx TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
