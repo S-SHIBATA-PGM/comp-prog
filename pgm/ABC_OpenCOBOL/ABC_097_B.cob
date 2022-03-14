@@ -1,0 +1,28 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(18).
+01 ans        PIC Z(18).
+01 b          PIC 9(4).
+01 bp         PIC 9(18).
+01 p          PIC 9(4).
+01 tmp        PIC 9(18).
+
+PROCEDURE DIVISION.
+  ACCEPT A.
+  MOVE 1 TO tmp.
+  PERFORM VARYING b FROM 2 BY 1 UNTIL A < b
+    PERFORM VARYING p FROM 2 BY 1 UNTIL A < p
+      COMPUTE bp = b ** p
+      IF A < bp THEN
+        EXIT PERFORM
+      END-IF
+      COMPUTE tmp = FUNCTION MAX(tmp, bp)
+    END-PERFORM
+  END-PERFORM.
+  MOVE tmp TO ans.
+  DISPLAY FUNCTION TRIM(ans).
+  STOP RUN.
+
