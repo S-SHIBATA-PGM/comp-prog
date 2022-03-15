@@ -1,0 +1,33 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 K          PIC 9(2).
+01 S1.
+   03 S11 OCCURS 3.
+      05 S    PIC X(1).
+01 i          PIC 9(18) VALUE 1.
+01 j          PIC 9(18).
+01 len        PIC 9(2) VALUE 1.
+01 ln         PIC X(10).
+01 maxlen     PIC 9(1) VALUE 3.
+01 x          PIC 9(4).
+01 zs         PIC Z(5).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  PERFORM maxlen TIMES
+    MOVE ln(i:len) TO S11(i)
+    ADD 1 TO i
+  END-PERFORM.
+  MOVE 700 TO x.
+  PERFORM VARYING j FROM 1 BY 1 UNTIL 3 < j
+    IF S(j) = 'o' THEN
+      ADD 100 TO x
+    END-IF
+  END-PERFORM.
+  MOVE x TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
