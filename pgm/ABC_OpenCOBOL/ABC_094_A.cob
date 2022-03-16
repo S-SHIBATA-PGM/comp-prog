@@ -1,0 +1,32 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ABX1.
+   03 ABX11 OCCURS 3.
+      05 ABX  PIC S9(8).
+01 cur        PIC 9(2) VALUE 1.
+01 i          PIC 9(18) VALUE 1.
+01 j          PIC 9(18).
+01 len        PIC 9(2).
+01 ln         PIC X(10).
+01 maxlen     PIC 9(1) VALUE 3.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  PERFORM maxlen TIMES
+    PERFORM VARYING j FROM cur BY 1 UNTIL ln(j:1) = SPACE
+    END-PERFORM
+    COMPUTE len = j - cur
+    MOVE ln(cur:len) TO ABX(i)
+    COMPUTE cur = j + 1
+    ADD 1 TO i
+  END-PERFORM.
+  IF ABX(1) <= ABX(3) AND ABX(3) <= ABX(1) + ABX(2) THEN
+    DISPLAY "YES";
+  ELSE
+    DISPLAY "NO";
+  END-IF.
+  STOP RUN.
+
