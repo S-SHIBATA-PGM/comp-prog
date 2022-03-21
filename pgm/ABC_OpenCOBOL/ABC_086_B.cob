@@ -1,0 +1,37 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 a          PIC X(3).
+01 b          PIC X(3).
+01 flg        PIC 9(1) VALUE 0.
+01 i          PIC 9(6).
+01 ln         PIC X(7).
+01 ln2        PIC X(6).
+01 num        PIC 9(6).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO a b.
+  STRING
+  a(1:FUNCTION STORED-CHAR-LENGTH(a))
+  b(1:FUNCTION STORED-CHAR-LENGTH(b))
+  INTO ln2.
+  MOVE ln2 TO num.
+  PERFORM VARYING i FROM 2 BY 1 UNTIL num < i
+    IF num < i * i THEN
+      EXIT PERFORM
+    ELSE
+      IF num = i * i THEN
+        MOVE 1 TO flg
+      END-IF
+    END-IF
+  END-PERFORM.
+  IF flg = 1 THEN
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
+
