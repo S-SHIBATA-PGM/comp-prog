@@ -1,0 +1,22 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 cnt        PIC 9(1).
+01 i          PIC 9(1).
+01 ln         PIC X(3).
+01 zs         PIC Z(1)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  MOVE 0 TO cnt.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL 3 < i
+    IF ln(i:1) = '1' THEN
+      ADD 1 TO cnt
+    END-IF
+  END-PERFORM.
+  MOVE cnt TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
