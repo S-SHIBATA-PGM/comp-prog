@@ -1,0 +1,160 @@
+000001 IDENTIFICATION DIVISION.
+000002 PROGRAM-ID. ABC_082_B.
+000003 
+000004 DATA DIVISION.
+000005 WORKING-STORAGE SECTION.
+000006 01 a          PIC 9(3).
+000007 01 b          PIC 9(3).
+000008 01 bk         PIC 9(3).
+000009 01 edtmp      PIC 9(3).
+000010 01 flg        PIC 9(1).
+000011 01 i          PIC 9(18).
+000012 01 j          PIC 9(18).
+000013 01 judge      PIC 9(1) VALUE 9.
+000014 01 ln         PIC X(101).
+000015 01 ln2        PIC X(101).
+000016 01 nowidx     PIC 9(4) VALUE 0.
+000017 01 ret        PIC 9(3).
+000018 01 sary1.
+000019    03 sary11 OCCURS 100.
+000020       05 qary PIC X(1).
+000021 01 sidx       PIC 9(4) VALUE 0.
+000022 01 slast      PIC 9(3).
+000023 01 stack1.
+000024    03 stack11 OCCURS 1000.
+000025       05 st   PIC 9(3).
+000026       05 ed   PIC 9(3).
+000027 01 sttmp      PIC 9(3).
+000028 01 t          PIC X(1).
+000029 01 tary1.
+000030    03 tary11 OCCURS 100.
+000031       05 qary PIC X(1).
+000032 01 tlast      PIC 9(3).
+000033 01 q          PIC 9(3).
+000034 01 qary1.
+000035    03 qary11 OCCURS 100.
+000036       05 qary PIC X(1).
+000037 01 qfirst     PIC 9(3).
+000038 01 qlast      PIC 9(3).
+000039 01 x          PIC X(1).
+000040 01 xlast      PIC 9(3).
+000041 01 zs         PIC Z(5)9.
+000042 
+000043 PROCEDURE DIVISION.
+000044   ACCEPT ln.
+000045   ACCEPT ln2.
+000046   PERFORM VARYING i FROM 1 BY 1 UNTIL ln(i:1) = SPACE
+000047     MOVE ln(i:1) TO qary OF qary11(i)
+000048   END-PERFORM.
+000049   SUBTRACT 1 FROM i.
+000050   MOVE i TO slast.
+000051   MOVE 1 TO qfirst.
+000052   MOVE slast TO qlast.
+000053   PERFORM PARTITION.
+000054   MOVE 1 TO flg.
+000055   PERFORM UNTIL flg = 0
+000056     PERFORM QSORT
+000057     IF flg = 0 THEN
+000058       IF nowidx < sidx THEN
+000059         MOVE 1 TO flg
+000060         ADD 1 TO nowidx
+000061         MOVE st(nowidx) TO qfirst
+000062         MOVE ed(nowidx) TO qlast
+000063         PERFORM PARTITION
+000064       END-IF
+000065     END-IF
+000066   END-PERFORM.
+000067   PERFORM VARYING i FROM 1 BY 1 UNTIL slast < i
+000068     MOVE qary OF qary11(i) TO qary OF sary11(i)
+000069   END-PERFORM.
+000070   INITIALIZE qary1.
+000071   INITIALIZE stack1.
+000072   PERFORM VARYING i FROM 1 BY 1 UNTIL ln2(i:1) = SPACE
+000073     MOVE ln2(i:1) TO qary OF qary11(i)
+000074   END-PERFORM.
+000075   SUBTRACT 1 FROM i.
+000076   MOVE i TO tlast.
+000077   MOVE 1 TO qfirst.
+000078   MOVE tlast TO qlast.
+000079   COMPUTE xlast = FUNCTION MIN(slast, qlast).
+000080   PERFORM PARTITION.
+000081   MOVE 0 TO sidx.
+000082   MOVE 0 TO nowidx.
+000083   MOVE 1 TO flg.
+000084   PERFORM UNTIL flg = 0
+000085     PERFORM QSORT
+000086     IF flg = 0 THEN
+000087       IF nowidx < sidx THEN
+000088         MOVE 1 TO flg
+000089         ADD 1 TO nowidx
+000090         MOVE st(nowidx) TO qfirst
+000091         MOVE ed(nowidx) TO qlast
+000092         PERFORM PARTITION
+000093       END-IF
+000094     END-IF
+000095   END-PERFORM.
+000096   MOVE tlast TO j.
+000097   PERFORM VARYING i FROM 1 BY 1 UNTIL tlast < i
+000098     MOVE qary OF qary11(j) TO qary OF tary11(i)
+000099     SUBTRACT 1 FROM j
+000100   END-PERFORM.
+000101   PERFORM VARYING i FROM 1 BY 1 UNTIL xlast < i
+000102     IF qary OF sary11(i) < qary OF tary11(i) THEN
+000103       MOVE 1 TO judge
+000104       EXIT PERFORM
+000105     ELSE
+000106       IF qary OF tary11(i) < qary OF sary11(i) THEN
+000107         MOVE 0 TO judge
+000108         EXIT PERFORM
+000109       END-IF
+000110     END-IF
+000111   END-PERFORM.
+000112   IF tlast <= slast AND judge = 9 THEN
+000113     MOVE 0 TO judge
+000114   END-IF
+000115   IF judge = 0 THEN
+000116     DISPLAY "No"
+000117   ELSE
+000118     DISPLAY "Yes"
+000119   END-IF.
+000120   STOP RUN.
+000121 
+000122 PARTITION SECTION.
+000123   MOVE qary OF qary11(qlast) TO x
+000124   MOVE qfirst TO a
+000125   SUBTRACT 1 FROM a
+000126   PERFORM VARYING b FROM qfirst BY 1 UNTIL qlast <= b
+000127     IF qary OF qary11(b) <= x THEN
+000128       ADD 1 TO a
+000129       MOVE qary OF qary11(a) TO t
+000130       MOVE qary OF qary11(b) TO qary OF qary11(a)
+000131       MOVE t TO qary OF qary11(b)
+000132     END-IF
+000133   END-PERFORM
+000134   ADD 1 TO a
+000135   MOVE qary OF qary11(a) TO t
+000136   MOVE qary OF qary11(qlast) TO qary OF qary11(a)
+000137   MOVE t TO qary OF qary11(qlast)
+000138   MOVE a TO q.
+000139 
+000140 QSORT SECTION.
+000141   IF qfirst < qlast THEN
+000142     MOVE q TO ret
+000143     MOVE qlast TO bk
+000144     SUBTRACT 1 FROM ret GIVING qlast
+000145     ADD 1 ret GIVING sttmp
+000146     MOVE bk TO edtmp
+000147     IF sttmp < edtmp THEN
+000148       ADD 1 TO sidx
+000149       MOVE sttmp TO st(sidx)
+000150       MOVE edtmp TO ed(sidx)
+000151     END-IF
+000152     IF qfirst < qlast THEN
+000153       PERFORM PARTITION
+000154     ELSE
+000155       MOVE 0 TO flg
+000156     END-IF
+000157   ELSE
+000158     MOVE 0 TO flg
+000159   END-IF.
+
