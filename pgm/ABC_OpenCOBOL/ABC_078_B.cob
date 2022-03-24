@@ -1,0 +1,25 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 D          PIC 9(6).
+01 R          PIC 9(6).
+01 X          PIC 9(6).
+01 Y          PIC 9(6).
+01 Z          PIC 9(6).
+01 ln         PIC X(20).
+01 zs         PIC Z(6)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO X Y Z.
+  *> A * Y + (A + 1) * Z <= X
+  *> A <= (X - Z) / (Y + Z)
+  SUBTRACT Z FROM X.
+  ADD Y TO Z.
+  DIVIDE Z INTO X GIVING D REMAINDER R.
+  MOVE D TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
