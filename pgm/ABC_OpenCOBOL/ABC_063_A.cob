@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 a          PIC 9(1).
+01 b          PIC 9(1).
+01 ln         PIC X(3).
+01 tmp        PIC 9(2).
+01 zs         PIC Z(3).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO A B.
+  ADD a TO b GIVING tmp.
+  MOVE tmp TO zs.
+  IF 10 <= tmp THEN
+    DISPLAY "error"
+  ELSE
+    DISPLAY FUNCTION TRIM(zs)
+  END-IF.
+  STOP RUN.
+
