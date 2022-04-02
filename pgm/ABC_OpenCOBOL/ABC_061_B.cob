@@ -1,0 +1,33 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(2).
+01 M          PIC 9(2).
+01 a          PIC 9(2).
+01 b          PIC 9(2).
+01 i          PIC 9(18).
+01 len        PIC 9(10).
+01 ln         PIC X(5).
+01 ln2        PIC X(10).
+01 town1.
+   03 town11 OCCURS 50.
+      05 town PIC 9(2) VALUE 0.
+01 zs         PIC Z(2)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N M.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL M < i
+    ACCEPT ln2
+    UNSTRING ln2 DELIMITED BY SPACE INTO a b
+    ADD 1 TO town(a)
+    ADD 1 TO town(b)
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    MOVE town(i) TO zs
+    DISPLAY FUNCTION TRIM(zs)
+  END-PERFORM.
+  STOP RUN.
+
