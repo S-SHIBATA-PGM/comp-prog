@@ -1,0 +1,27 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 E          PIC X(50).
+01 O          PIC X(50).
+01 ans        PIC X(100).
+01 i          PIC 9(2).
+01 len        PIC 9(2).
+
+PROCEDURE DIVISION.
+    ACCEPT O.
+    ACCEPT E.
+    COMPUTE len = FUNCTION STORED-CHAR-LENGTH(O).
+    PERFORM VARYING i FROM 1 BY 1 UNTIL len < i
+        STRING
+            ans(1:FUNCTION STORED-CHAR-LENGTH(ans))
+            O(i:1)
+            E(i:1)
+            INTO ans
+        END-STRING
+    END-PERFORM.
+
+    DISPLAY FUNCTION TRIM(ans).
+    STOP RUN.
+
