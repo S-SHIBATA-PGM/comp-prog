@@ -1,0 +1,31 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 N          PIC 9(3).
+01 S1.
+   03 S       PIC X(1) OCCURS 100.
+01 i          PIC 9(3).
+01 mx         PIC S9(3).
+01 tmp        PIC S9(3).
+01 zs         PIC -(3)9.
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  ACCEPT S1.
+  MOVE ZERO TO mx.
+  MOVE ZERO TO tmp.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    IF S(i) = 'I' THEN
+      ADD 1 TO tmp
+    ELSE
+      SUBTRACT 1 FROM tmp
+    END-IF
+    COMPUTE mx = FUNCTION MAX(mx, tmp)
+  END-PERFORM.
+  MOVE mx TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
