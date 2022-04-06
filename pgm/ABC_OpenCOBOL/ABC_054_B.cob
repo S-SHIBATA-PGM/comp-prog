@@ -1,0 +1,55 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A1.
+   03 A11 OCCURS 50 DEPENDING ON N.
+      05 A    PIC X(50).
+01 B1.
+   03 B11 OCCURS 50 DEPENDING ON M.
+      05 B    PIC X(50).
+01 N          PIC 9(10).
+01 M          PIC 9(10).
+01 flg        PIC 9(1).
+01 i          PIC 9(10) VALUE 1 COMP.
+01 j          PIC 9(10) VALUE 1 COMP.
+01 k          PIC 9(10) VALUE 1 COMP.
+01 ln         PIC X(400).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N M.
+  PERFORM N TIMES
+    ACCEPT A(i)
+    ADD 1 TO i
+  END-PERFORM.
+  MOVE 1 TO i.
+  PERFORM M TIMES
+    ACCEPT B(i)
+    ADD 1 TO i
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i + M - 1
+    PERFORM VARYING j FROM 1 BY 1 UNTIL N < j + M - 1
+      MOVE ZERO TO flg
+      PERFORM VARYING k FROM 1 BY 1 UNTIL M < k
+        IF A(i + k - 1)(j : M) NOT = B(k)
+          MOVE 1 TO flg
+          EXIT PERFORM
+        END-IF
+      END-PERFORM
+      IF flg = ZERO THEN
+        EXIT PERFORM
+      END-IF
+    END-PERFORM
+    IF flg = ZERO THEN
+      EXIT PERFORM
+    END-IF
+  END-PERFORM
+  IF flg = ZERO THEN
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
+
