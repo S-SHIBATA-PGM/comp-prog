@@ -1,0 +1,75 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+ENVIRONMENT DIVISION.
+INPUT-OUTPUT SECTION.
+FILE-CONTROL.
+SELECT SYSIN ASSIGN TO KEYBOARD ORGANIZATION LINE SEQUENTIAL.
+
+DATA DIVISION.
+FILE SECTION.
+FD SYSIN.
+01 INDATA     PIC X(100000).
+
+WORKING-STORAGE SECTION.
+01 S          PIC X(100000).
+01 bklen      PIC 9(6).
+01 d          PIC X(5) VALUE "dream".
+01 dlen       PIC 9(1).
+01 dr         PIC X(7) VALUE "dreamer".
+01 drlen      PIC 9(1).
+01 e          PIC X(5) VALUE "erase".
+01 elen       PIC 9(1).
+01 er         PIC X(6) VALUE "eraser".
+01 erlen      PIC 9(1).
+01 flg        PIC 9(1) VALUE ZERO.
+01 len        PIC 9(6).
+01 word       PIC X(7).
+01 wordlen    PIC 9(1).
+
+PROCEDURE DIVISION.
+  OPEN INPUT SYSIN.
+  READ SYSIN INTO S.
+  CLOSE SYSIN.
+  COMPUTE drlen = FUNCTION STORED-CHAR-LENGTH(dr).
+  COMPUTE erlen = FUNCTION STORED-CHAR-LENGTH(er).
+  COMPUTE dlen = FUNCTION STORED-CHAR-LENGTH(d).
+  COMPUTE elen = FUNCTION STORED-CHAR-LENGTH(e).
+  COMPUTE len = FUNCTION STORED-CHAR-LENGTH(S).
+  MOVE ZERO TO bklen.
+  PERFORM UNTIL flg NOT = ZERO
+    IF len = ZERO THEN
+      MOVE 1 TO flg
+    END-IF
+    IF len = bklen THEN
+      EXIT PERFORM
+    END-IF
+    MOVE len TO bklen
+    MOVE dr TO word
+    MOVE drlen TO wordlen
+    PERFORM ERASEWORD
+    MOVE er TO word
+    MOVE erlen TO wordlen
+    PERFORM ERASEWORD
+    MOVE d TO word
+    MOVE dlen TO wordlen
+    PERFORM ERASEWORD
+    MOVE e TO word
+    MOVE elen TO wordlen
+    PERFORM ERASEWORD
+  END-PERFORM.
+  IF flg = 1 THEN
+    DISPLAY "YES"
+  ELSE
+    DISPLAY "NO"
+  END-IF.
+  STOP RUN.
+
+ERASEWORD SECTION.
+  IF ZERO <= len - wordlen THEN
+    IF S(len - wordlen + 1:wordlen) = word THEN
+      MOVE ALL SPACE TO S(len - wordlen + 1:wordlen)
+    END-IF
+  END-IF.
+  COMPUTE len = FUNCTION STORED-CHAR-LENGTH(S).
+
