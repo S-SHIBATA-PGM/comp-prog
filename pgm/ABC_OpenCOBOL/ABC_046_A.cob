@@ -1,0 +1,30 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 a          PIC 9(3).
+01 b          PIC 9(3).
+01 c          PIC 9(3).
+01 cnt1.
+   03 cnt     PIC 9(3) OCCURS 100 VALUE ZERO.
+01 i          PIC 9(3).
+01 ln         PIC X(11).
+01 sm         PIC 9(1).
+01 zs         PIC Z(2).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO a b c.
+  ADD 1 TO cnt(a).
+  ADD 1 TO cnt(b).
+  ADD 1 TO cnt(c).
+  PERFORM VARYING i FROM 1 BY 1 UNTIL 100 < i
+    IF ZERO < cnt(i) THEN
+      ADD 1 TO sm
+    END-IF
+  END-PERFORM.
+  MOVE sm TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
