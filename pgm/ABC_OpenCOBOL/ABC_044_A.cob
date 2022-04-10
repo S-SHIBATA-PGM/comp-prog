@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 K          PIC 9(5).
+01 N          PIC 9(5).
+01 X          PIC 9(5).
+01 Y          PIC 9(5).
+01 minK       PIC 9(5).
+01 tmp        PIC 9(9).
+01 zs         PIC Z(10).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  ACCEPT K.
+  ACCEPT X.
+  ACCEPT Y.
+  COMPUTE minK = FUNCTION MIN(N, K).
+  COMPUTE tmp = X * minK + Y * (N - minK).
+  MOVE tmp TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+

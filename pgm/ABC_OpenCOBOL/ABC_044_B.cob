@@ -1,0 +1,41 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ln         PIC X(30).
+01 a.
+   03 anum    BINARY-CHAR.
+01 chr.
+   03 num     BINARY-CHAR.
+01 cnt1.
+   03 cnt11 OCCURS 26.
+      05 cnt  PIC 9(3) VALUE ZERO.
+01 flg        PIC X(1) VALUE ZERO.
+01 i          PIC 9(3).
+01 len        PIC 9(3).
+01 tmp        PIC 9(1).
+01 w          PIC X(100).
+
+PROCEDURE DIVISION.
+  ACCEPT w.
+  COMPUTE len = FUNCTION STORED-CHAR-LENGTH(w).
+  MOVE 'a' TO a.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL len < i
+    MOVE w(i:1) TO chr
+    ADD 1 TO cnt(num - anum + 1)
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL 26 < i
+    COMPUTE tmp = FUNCTION MOD(cnt(i), 2)
+    IF ZERO < tmp THEN
+      MOVE 1 TO flg
+      EXIT PERFORM
+    END-IF
+  END-PERFORM.
+  IF flg = ZERO THEN
+    DISPLAY "Yes"
+  ELSE
+    DISPLAY "No"
+  END-IF.
+  STOP RUN.
+
