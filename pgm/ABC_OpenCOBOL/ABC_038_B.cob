@@ -1,0 +1,41 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 H1         PIC 9(6).
+01 H2         PIC 9(6).
+01 W1         PIC 9(6).
+01 W2         PIC 9(6).
+01 flg        PIC 9(1).
+01 ln         PIC X(13).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO H1 W1.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO H2 W2.
+  MOVE ZERO TO flg.
+  EVALUATE H1
+    WHEN H2
+      DISPLAY "YES"
+      MOVE 1 TO flg
+    WHEN W2
+      DISPLAY "YES"
+      MOVE 1 TO flg
+  END-EVALUATE.
+  IF ZERO = flg THEN
+    EVALUATE W1
+      WHEN H2
+        DISPLAY "YES"
+        MOVE 1 TO flg
+      WHEN W2
+        DISPLAY "YES"
+        MOVE 1 TO flg
+    END-EVALUATE
+  END-IF.
+  IF ZERO = flg THEN
+    DISPLAY "NO"
+  END-IF.
+  STOP RUN.
+
