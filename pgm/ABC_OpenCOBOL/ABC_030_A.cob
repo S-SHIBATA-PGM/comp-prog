@@ -1,0 +1,29 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 C          PIC 9(10).
+01 D          PIC 9(10).
+01 bd         PIC 9(10)V9(10).
+01 dd         PIC 9(10)V9(10).
+01 ln         PIC X(30).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO A B C D.
+  COMPUTE bd = B / A.
+  COMPUTE dd = D / C.
+  IF bd = dd THEN
+    DISPLAY "DRAW"
+  ELSE
+    IF bd < dd THEN
+      DISPLAY "AOKI"
+    ELSE
+      DISPLAY "TAKAHASHI"
+    END-IF
+  END-IF.
+  STOP RUN.
+
