@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  IF N <= 59 THEN
+    DISPLAY "Bad"
+  ELSE
+    IF N <= 89 THEN
+      DISPLAY "Good"
+    ELSE
+      IF N <=99 THEN
+        DISPLAY "Great"
+      ELSE
+        DISPLAY "Perfect"
+      END-IF
+    END-IF
+  END-IF.
+
