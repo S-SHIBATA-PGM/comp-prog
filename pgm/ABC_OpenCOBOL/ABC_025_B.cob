@@ -28,7 +28,6 @@ PROCEDURE DIVISION.
         MOVE B TO d
       END-IF
     END-IF
-
     IF "West" = s THEN
       MULTIPLY d BY -1 GIVING d
     END-IF
