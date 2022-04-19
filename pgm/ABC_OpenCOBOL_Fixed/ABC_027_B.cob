@@ -49,7 +49,7 @@
 000049       *> 人口計算
 000050       ADD a(nw) TO pp
 000051       MOVE 1 TO nx
-000052       COMPUTE num = nw - st + 1
+000052       COMPUTE num = (nw - 1) - st + 1
 000053       DIVIDE pp BY num GIVING dpp REMAINDER rpp
 000054       *> 人口が目的の数と同じ数になっているか
 000055       *> 割り切れること
@@ -59,7 +59,7 @@
 000059           *> 不要
 000060           MOVE ZERO TO nx
 000061           MOVE ZERO TO pp
-000062           COMPUTE st = nw + 1
+000062           COMPUTE st = (nw - 1) + 1
 000063         END-IF
 000064       END-IF
 000065       ADD 1 TO nw

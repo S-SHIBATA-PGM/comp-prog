@@ -49,7 +49,7 @@ PROCEDURE DIVISION.
       *> 人口計算
       ADD a(nw) TO pp
       MOVE 1 TO nx
-      COMPUTE num = nw - st + 1
+      COMPUTE num = (nw - 1) - st + 1
       DIVIDE pp BY num GIVING dpp REMAINDER rpp
       *> 人口が目的の数と同じ数になっているか
       *> 割り切れること
@@ -59,7 +59,7 @@ PROCEDURE DIVISION.
           *> 不要
           MOVE ZERO TO nx
           MOVE ZERO TO pp
-          COMPUTE st = nw + 1
+          COMPUTE st = (nw - 1) + 1
         END-IF
       END-IF
       ADD 1 TO nw
