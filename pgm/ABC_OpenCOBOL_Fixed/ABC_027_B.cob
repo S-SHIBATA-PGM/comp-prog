@@ -1,0 +1,73 @@
+000001 IDENTIFICATION DIVISION.
+000002 PROGRAM-ID. ABC_027_B.
+000003 
+000004 DATA DIVISION.
+000005 WORKING-STORAGE SECTION.
+000006 01 N          PIC 9(10).
+000007 01 a1.
+000008    03 a11 OCCURS 100 DEPENDING ON N.
+000009       05 a    PIC 9(10).
+000010 01 avg        PIC 9(10).
+000011 01 cur        PIC 9(10) VALUE 1 COMP.
+000012 01 cnt        PIC 9(10) VALUE ZERO.
+000013 01 dpp        PIC 9(10).
+000014 01 i          PIC 9(10) VALUE 1 COMP.
+000015 01 j          PIC 9(10) COMP.
+000016 01 ln         PIC X(400).
+000017 01 len        PIC 9(10) COMP.
+000018 01 maxlen     PIC 9(10) VALUE 100 COMP.
+000019 01 num        PIC 9(10).
+000020 01 nw         PIC 9(10) VALUE 1.
+000021 01 nx         PIC 9(1) VALUE ZERO.
+000022 01 pp         PIC 9(10) VALUE ZERO.
+000023 01 r          PIC 9(10).
+000024 01 rpp        PIC 9(10).
+000025 01 st         PIC 9(10) VALUE ZERO.
+000026 01 sm         PIC 9(10).
+000027 01 zs         PIC Z(9)9.
+000028 
+000029 PROCEDURE DIVISION.
+000030   ACCEPT N.
+000031   ACCEPT ln.
+000032   MOVE N TO maxlen.
+000033   PERFORM maxlen TIMES
+000034     PERFORM VARYING j FROM cur BY 1 UNTIL ln(j:1) = SPACE
+000035     END-PERFORM
+000036     COMPUTE len = j - cur
+000037     MOVE ln(cur:len) TO a(i)
+000038     ADD a(i) TO sm
+000039     COMPUTE cur = j + 1
+000040     ADD 1 TO i
+000041   END-PERFORM.
+000042   DIVIDE sm BY N GIVING avg REMAINDER r.
+000043   IF r = ZERO THEN
+000044     PERFORM WITH TEST AFTER UNTIL N < nw
+000045       *> 前の島との架橋工事
+000046       IF nx = 1 THEN
+000047         ADD 1 TO cnt
+000048       END-IF
+000049       *> 人口計算
+000050       ADD a(nw) TO pp
+000051       MOVE 1 TO nx
+000052       COMPUTE num = nw - st + 1
+000053       DIVIDE pp BY num GIVING dpp REMAINDER rpp
+000054       *> 人口が目的の数と同じ数になっているか
+000055       *> 割り切れること
+000056       IF rpp = ZERO THEN
+000057         IF dpp = avg THEN
+000058           *> 次の島との架橋工事
+000059           *> 不要
+000060           MOVE ZERO TO nx
+000061           MOVE ZERO TO pp
+000062           COMPUTE st = nw + 1
+000063         END-IF
+000064       END-IF
+000065       ADD 1 TO nw
+000066     END-PERFORM
+000067     MOVE cnt TO zs
+000068     DISPLAY FUNCTION TRIM(zs)
+000069   ELSE
+000070     DISPLAY -1
+000071   END-IF.
+000072   STOP RUN.
+

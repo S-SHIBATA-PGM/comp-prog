@@ -1,0 +1,26 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 l1         PIC 9(10).
+01 l2         PIC 9(10).
+01 l3         PIC 9(10).
+01 ln         PIC X(30).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO l1 l2 l3.
+  IF l1 = l2 THEN
+    MOVE l3 TO zs
+  ELSE
+    IF l2 = l3 THEN
+      MOVE l1 TO zs
+    ELSE
+      MOVE l2 TO zs
+    END-IF
+  END-IF.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
