@@ -1,0 +1,28 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 C          PIC 9(10).
+01 K          PIC 9(10).
+01 S          PIC 9(10).
+01 T          PIC 9(10).
+01 ans        PIC 9(10).
+01 ln         PIC X(30).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO A B C K.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO S T.
+  COMPUTE ans = S * A + T * B.
+  IF K <= S + T THEN
+    COMPUTE ans = ans - C * (S + T)
+  END-IF.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
