@@ -1,0 +1,32 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10) VALUE ZERO.
+01 N          PIC 9(10).
+01 T          PIC 9(10).
+01 i          PIC 9(10) VALUE 1 COMP.
+01 ln         PIC X(30).
+01 pre        PIC S9(10) VALUE -1.
+01 tt         PIC 9(10) VALUE ZERO.
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO N T.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ACCEPT A
+    *> 最初はドアが閉じている
+    IF pre < ZERO THEN
+      MOVE A TO pre
+    END-IF
+    ADD FUNCTION MIN(T A - pre) TO tt
+    MOVE A TO pre
+  END-PERFORM.
+  *> 最後のドアが閉じる
+  ADD T TO tt
+  MOVE tt TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
