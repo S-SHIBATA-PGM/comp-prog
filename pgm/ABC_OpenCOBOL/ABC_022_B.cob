@@ -4,35 +4,21 @@ PROGRAM-ID. PROGRAM_ID.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 A1.
-   03 A       PIC 9(10) VALUE ZERO OCCURS 100000 INDEXED BY XA.
+   03 A       PIC 9(1) VALUE ZERO OCCURS 100000.
 01 N          PIC 9(10).
 01 cnt        PIC 9(10) VALUE ZERO COMP.
 01 cur        PIC 9(10).
-01 flg        PIC 9(1).
 01 i          PIC 9(10) VALUE 1 COMP.
-01 ix         PIC 9(10) VALUE 1 COMP.
-01 len        PIC 9(10) COMP.
-01 ln         PIC X(400).
 01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT N.
   PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
     ACCEPT cur
-    MOVE ZERO TO flg
-    SET XA TO 1
-    SEARCH A VARYING XA
-      AT END
-        CONTINUE
-      WHEN A(XA) = ZERO
-        MOVE ZERO TO flg
-      WHEN A(XA) = cur
-        MOVE 1 TO flg
-        ADD 1 TO cnt
-    END-SEARCH
-    IF ZERO = flg
-      MOVE cur TO A(ix)
-      ADD 1 TO ix
+    IF 1 = A(cur) THEN
+      ADD 1 TO cnt
+    ELSE
+      MOVE 1 TO A(cur)
     END-IF
   END-PERFORM.
   MOVE cnt TO zs.
