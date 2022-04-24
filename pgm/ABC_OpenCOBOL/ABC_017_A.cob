@@ -1,0 +1,25 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 e          PIC 9(10).
+01 ln         PIC X(400).
+01 num        PIC 9(10) VALUE ZERO.
+01 s          PIC 9(10).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO s e.
+  COMPUTE num = num + s / 10 * e.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO s e.
+  COMPUTE num = num + s / 10 * e.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO s e.
+  COMPUTE num = num + s / 10 * e.
+  MOVE num TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
