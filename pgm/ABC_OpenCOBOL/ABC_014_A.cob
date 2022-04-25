@@ -1,0 +1,25 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 a          PIC 9(10).
+01 ans        PIC 9(10).
+01 b          PIC 9(10).
+01 d          PIC 9(10).
+01 r          PIC 9(10).
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT a.
+  ACCEPT b.
+  DIVIDE a BY b GIVING d REMAINDER r.
+  IF ZERO = r THEN
+    MOVE ZERO TO ans
+  ELSE
+    COMPUTE ans = b - r
+  END-IF.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
