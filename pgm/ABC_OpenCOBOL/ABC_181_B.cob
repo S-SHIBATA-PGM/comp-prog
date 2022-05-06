@@ -1,0 +1,26 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 N          PIC 9(10).
+01 ans        BINARY-DOUBLE VALUE ZERO.
+01 i          PIC 9(10).
+01 ln         PIC X(30).
+01 zs         PIC Z(19)9.
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ACCEPT ln
+    UNSTRING ln DELIMITED BY SPACE INTO A B
+    COMPUTE ans = ans + B * (B + 1)
+    COMPUTE ans = ans - A * (A - 1)
+  END-PERFORM.
+  DIVIDE ans BY 2 GIVING ans.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
