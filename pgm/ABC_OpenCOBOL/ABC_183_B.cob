@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Gx         PIC S9(10).
+01 Gy         PIC S9(10).
+01 Sx         PIC S9(10).
+01 Sy         PIC S9(10).
+01 ans        PIC -(9)9.9(10).
+01 ln         PIC X(40).
+01 x          PIC S9(10).
+01 y          PIC S9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO Sx Sy Gx Gy.
+  COMPUTE Gy = -1 * Gy.
+  SUBTRACT Gx FROM Sx GIVING x.
+  SUBTRACT Gy FROM Sy GIVING y.
+  COMPUTE ans = Sx - x * Sy / y.
+  DISPLAY FUNCTION TRIM(ans).
+  STOP RUN.
+
