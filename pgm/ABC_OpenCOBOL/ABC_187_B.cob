@@ -1,0 +1,37 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N         PIC 9(9).
+01 ans       PIC 9(9) COMP.
+01 i         PIC 9(9) COMP.
+01 j         PIC 9(9) COMP.
+01 ln        PIC X(30).
+01 scale     PIC 9(9) VALUE 1.
+01 slope     FLOAT-LONG.
+01 x1.
+   03 x      PIC S9(4) OCCURS 1000 DEPENDING N.
+01 y1.
+   03 y      PIC S9(4) OCCURS 1000 DEPENDING N.
+01 zs        PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ACCEPT ln
+    UNSTRING ln DELIMITED BY SPACE INTO x(i) y(i)
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ADD 1 TO i GIVING j
+    PERFORM VARYING j FROM j BY 1 UNTIL N < j
+      COMPUTE slope = (y(j) - y(i)) / (x(j) - x(i))
+      IF -scale <= slope AND slope <= scale THEN
+        ADD 1 TO ans
+      END-IF
+    END-PERFORM
+  END-PERFORM.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
