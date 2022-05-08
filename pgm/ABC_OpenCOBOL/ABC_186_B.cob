@@ -1,0 +1,35 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 H          PIC 9(10).
+01 W          PIC 9(10).
+01 ans        PIC Z(9)9.
+01 cur        PIC S9(10).
+01 i          PIC 9(10) COMP.
+01 j          PIC 9(10) COMP.
+01 ln         PIC X(400).
+01 mn         PIC 9(10) VALUE 1000000007.
+01 pt         PIC 9(10).
+01 sm         PIC 9(10) VALUE ZERO.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED BY SPACE INTO H W.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL H < i
+    ACCEPT ln
+    MOVE 1 TO pt
+    PERFORM VARYING j FROM 1 BY 1 UNTIL W < j
+      UNSTRING ln DELIMITED BY SPACE INTO A WITH POINTER pt
+      IF A < mn THEN
+        MOVE A TO mn
+      END-IF
+      ADD A TO sm
+    END-PERFORM
+  END-PERFORM.
+  COMPUTE ans = sm - H * W * mn.
+  DISPLAY FUNCTION TRIM(ans).
+  STOP RUN.
+
