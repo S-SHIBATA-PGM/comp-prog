@@ -1,0 +1,28 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A         PIC 9(10).
+01 B         PIC 9(10).
+01 C         PIC 9(1).
+01 ln        PIC X(30).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO A B C.
+  IF ZERO = C THEN
+    IF B < A THEN
+      DISPLAY "Takahashi"
+    ELSE
+      DISPLAY "Aoki"
+    END-IF
+  ELSE
+    IF A < B THEN
+      DISPLAY "Aoki"
+    ELSE
+      DISPLAY "Takahashi"
+    END-IF
+  END-IF.
+  STOP RUN.
+
