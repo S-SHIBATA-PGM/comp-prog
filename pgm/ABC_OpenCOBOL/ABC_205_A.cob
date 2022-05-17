@@ -5,7 +5,7 @@ DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 A          PIC 9(10).
 01 B          PIC 9(10).
-01 ans        PIC Z(9)9.9(1).
+01 ans        PIC Z(9)9.9(2).
 01 ln         PIC X(30).
 
 PROCEDURE DIVISION.
