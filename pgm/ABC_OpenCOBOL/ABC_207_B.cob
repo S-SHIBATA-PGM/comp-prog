@@ -1,0 +1,25 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 C          PIC 9(10).
+01 D          PIC 9(10).
+01 ans        PIC -(9)9.
+01 dv         PIC 9(10).
+01 dvr        PIC 9(10).
+01 ln         PIC X(30).
+01 rm         PIC 9(10).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO A B C D.
+  COMPUTE dvr = C * D - B.
+  DIVIDE A BY dvr GIVING dv REMAINDER rm.
+  IF ZERO < rm ADD 1 TO dv.
+  IF C * D <= B MOVE -1 TO ans ELSE MOVE dv TO ans.
+  DISPLAY FUNCTION TRIM(ans).
+  STOP RUN.
+
