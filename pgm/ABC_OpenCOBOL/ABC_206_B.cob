@@ -14,7 +14,7 @@ PROCEDURE DIVISION.
   COMPUTE saving = FUNCTION SQRT(1 + 8 * N) - 1.
   DIVIDE saving BY 2 GIVING d REMAINDER r.
   IF 0 < r ADD 1 TO d.
-  MOVE d TO zs
+  MOVE d TO zs.
   DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
 
