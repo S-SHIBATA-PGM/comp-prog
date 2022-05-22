@@ -37,7 +37,7 @@ PROCEDURE DIVISION.
   *> 外部データ
   *> 実行単位中の複数のプログラムで使用する定数を設定
   CALL "SET_EXTERNAL".
-  *> 2進数 対応表 0 ? 15
+  *> 2進数 対応表 FROM 0 TO 15
   CALL "B_TABLE".
   *> 10進数 を 16進数 に変換
   CALL "DCM_TO_HEX" USING BY CONTENT VAL_A
@@ -73,7 +73,7 @@ WORKING-STORAGE SECTION.
     01 NUM_X   EXTERNAL PIC 9(1).
     01 OCT     EXTERNAL PIC 9(1).
 
-*> 16進数 対応表 0 ? 15
+*> 16進数 対応表 FROM 0 TO 15
     01 H_TBL1 EXTERNAL.
         03 H_TBL11 OCCURS 16.
             05 H_TBL PIC X(1).
@@ -94,7 +94,7 @@ PROCEDURE DIVISION.
 END PROGRAM SET_EXTERNAL.
 
 PROGRAM-ID. B_TABLE.
-*> 2進数 対応表 0 ? 15
+*> 2進数 対応表 FROM 0 TO 15
 *> 0001
 *> 0010
 *> 中略
@@ -124,13 +124,13 @@ WORKING-STORAGE SECTION.
     01 len     PIC 9(1).
     01 idx     PIC 9(2).
 
-*> 2進数 対応表 0 ? 15
+*> 2進数 対応表 FROM 0 TO 15
     01 B_TBL1 EXTERNAL.
         03 B_TBL11 OCCURS 16.
             05 B_TBL PIC X(4).
 
 PROCEDURE DIVISION.
-*> 0 ? 15
+*> FROM 0 TO 15
     PERFORM VARYING i FROM 0 BY 1 UNTIL HXD <= i
 
         MOVE i TO q
@@ -249,12 +249,12 @@ WORKING-STORAGE SECTION.
     01 q       PIC 9(10).
     01 r       PIC 9(2).
 
-*> 2進数 対応表 0 ? 15
+*> 2進数 対応表 FROM 0 TO 15
     01 B_TBL1 EXTERNAL.
         03 B_TBL11 OCCURS 16.
             05 B_TBL PIC X(4).
 
-*> 16進数 対応表 0 ? 15
+*> 16進数 対応表 FROM 0 TO 15
     01 H_TBL1 EXTERNAL.
         03 H_TBL11 OCCURS 16.
             05 H_TBL PIC X(1).
@@ -342,12 +342,12 @@ WORKING-STORAGE SECTION.
     01 q       PIC 9(10).
     01 r       PIC 9(2).
 
-*> 2進数 対応表 0 ? 15
+*> 2進数 対応表 FROM 0 TO 15
     01 B_TBL1 EXTERNAL.
         03 B_TBL11 OCCURS 16.
             05 B_TBL PIC X(4).
 
-*> 16進数 対応表 0 ? 15
+*> 16進数 対応表 FROM 0 TO 15
     01 H_TBL1 EXTERNAL.
         03 H_TBL11 OCCURS 16.
             05 H_TBL PIC X(1).
