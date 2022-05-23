@@ -1,0 +1,31 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 S1.
+   03 S       PIC X(3) OCCURS 3 INDEXED IXS.
+01 contests1.
+   03 contests PIC X(3) OCCURS 4.
+01 flg        PIC 9(1).
+01 i          PIC 9(10).
+
+PROCEDURE DIVISION.
+  MOVE "ABC" TO contests(1).
+  MOVE "ARC" TO contests(2).
+  MOVE "AGC" TO contests(3).
+  MOVE "AHC" TO contests(4).
+  ACCEPT S(1).
+  ACCEPT S(2).
+  ACCEPT S(3).
+  PERFORM VARYING i FROM 1 BY 1 UNTIL 4 < i
+    MOVE ZERO TO flg
+    SET IXS TO 1
+    SEARCH S
+      WHEN contests(i) = S(IXS)
+        MOVE 1 TO flg
+    END-SEARCH
+    IF ZERO = flg DISPLAY FUNCTION TRIM(contests(i)) EXIT PERFORM
+  END-PERFORM.
+  STOP RUN.
+
