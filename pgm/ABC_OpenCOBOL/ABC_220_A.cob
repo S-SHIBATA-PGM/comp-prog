@@ -1,0 +1,24 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A         PIC 9(10).
+01 B         PIC 9(10).
+01 C         PIC 9(10).
+01 d         PIC 9(10).
+01 ln        PIC X(30).
+01 r         PIC 9(10).
+01 zs        PIC -(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO A B C.
+  DIVIDE A BY C GIVING d REMAINDER r.
+  IF ZERO = r MOVE A TO zs
+  ELSE IF A <= A + C - r AND A + C - r <= B
+    COMPUTE zs = A + C - r
+  ELSE MOVE -1 TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
