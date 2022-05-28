@@ -1,0 +1,27 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC 9(10).
+01 a          PIC 9(10).
+01 b          PIC 9(10).
+01 grp1.
+   03 grp     PIC 9(10) VALUE ZERO OCCURS 100000 DEPENDING N.
+01 i          PIC 9(10) COMP.
+01 ln         PIC X(30).
+01 mx         PIC 9(10) VALUE ZERO.
+
+PROCEDURE DIVISION.
+  ACCEPT N.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N - 1 < i
+    ACCEPT ln
+    UNSTRING ln DELIMITED SPACE INTO a b
+    ADD 1 TO grp(a)
+    ADD 1 TO grp(b)
+    IF mx < grp(a) MOVE grp(a) TO mx END-IF
+    IF mx < grp(b) MOVE grp(b) TO mx END-IF
+  END-PERFORM.
+  IF mx = N - 1 DISPLAY "Yes" ELSE DISPLAY "No".
+  STOP RUN.
+
