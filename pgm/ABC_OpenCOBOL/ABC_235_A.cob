@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 abc        PIC X(3).
+01 cur        PIC X(3).
+01 ans        PIC 9(4) VALUE ZERO.
+01 zs         PIC Z(3)9.
+
+PROCEDURE DIVISION.
+  ACCEPT abc.
+  COMPUTE ans = ans + FUNCTION NUMVAL(abc).
+  STRING abc(2:2) abc(1:1) INTO cur END-STRING.
+  MOVE cur TO abc.
+  COMPUTE ans = ans + FUNCTION NUMVAL(cur).
+  STRING abc(2:2) abc(1:1) INTO cur END-STRING.
+  MOVE cur TO abc.
+  COMPUTE ans = ans + FUNCTION NUMVAL(cur).
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
