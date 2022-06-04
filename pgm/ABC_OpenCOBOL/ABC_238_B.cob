@@ -3,9 +3,9 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 N          PIC 9(10).
 01 A1.
    03 A       PIC 9(10) OCCURS 359 DEPENDING N.
+01 N          PIC 9(10).
 01 cur        PIC 9(10).
 01 fe         PIC 9(10) VALUE 1.
 01 front1.
@@ -13,14 +13,14 @@ WORKING-STORAGE SECTION.
 01 fs         PIC 9(10) VALUE 1.
 01 fsz        PIC 9(10) VALUE 0.
 01 i          PIC 9(10) COMP.
+01 ln         PIC X(1600).
 01 mx         PIC 9(10) VALUE ZERO.
 01 pt         PIC S9(10) VALUE 1.
-01 que1.
-   03 que     PIC 9(10) VALUE ZERO OCCURS 35000.
 01 qe         PIC 9(10) VALUE 1.
 01 qs         PIC 9(10) VALUE 1.
 01 qsz        PIC 9(10) VALUE 0.
-01 ln         PIC X(1600).
+01 que1.
+   03 que     PIC 9(10) VALUE ZERO OCCURS 35000.
 01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
