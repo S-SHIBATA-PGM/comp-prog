@@ -1,0 +1,19 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 ln         PIC X(30).
+01 zsx        PIC Z(9)9.9(12).
+01 zsy        PIC Z(9)9.9(12).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO A B.
+  COMPUTE zsx = A / (A ** 2 + B ** 2) ** 0.5.
+  COMPUTE zsy = B / (A ** 2 + B ** 2) ** 0.5.
+  DISPLAY FUNCTION TRIM(zsx) SPACE FUNCTION TRIM(zsy).
+  STOP RUN.
+
