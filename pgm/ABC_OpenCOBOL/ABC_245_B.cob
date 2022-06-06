@@ -14,8 +14,8 @@ FD SYSIN.
 WORKING-STORAGE SECTION.
 01 N          PIC 9(10).
 01 A          PIC 9(10).
-01 Ary1.
-   03 Ary     PIC 9(1) VALUE ZERO OCCURS 2001.
+01 ary1.
+   03 ary     PIC 9(1) VALUE ZERO OCCURS 2001.
 01 i          PIC 9(10) COMP.
 01 ln         PIC X(30).
 01 pt         PIC S9(10) VALUE 1.
