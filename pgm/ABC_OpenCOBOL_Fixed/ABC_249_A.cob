@@ -1,0 +1,36 @@
+000001 IDENTIFICATION DIVISION.
+000002 PROGRAM-ID. ABC_249_A.
+000003 
+000004 DATA DIVISION.
+000005 WORKING-STORAGE SECTION.
+000006 01 A          PIC 9(10).
+000007 01 B          PIC 9(10).
+000008 01 C          PIC 9(10).
+000009 01 D          PIC 9(10).
+000010 01 E          PIC 9(10).
+000011 01 F          PIC 9(10).
+000012 01 X          PIC 9(10).
+000013 01 aoki       PIC 9(10).
+000014 01 dvr        PIC 9(10).
+000015 01 ln         PIC X(30).
+000016 01 q          PIC 9(10).
+000017 01 r          PIC 9(10).
+000018 01 takahashi  PIC 9(10).
+000019 
+000020 PROCEDURE DIVISION.
+000021   ACCEPT ln.
+000022   UNSTRING ln DELIMITED SPACE INTO A B C D E F X.
+000023   COMPUTE dvr = A + C.
+000024   DIVIDE X BY dvr GIVING q REMAINDER r.
+000025   COMPUTE takahashi = q * A * B.
+000026   IF r <= A COMPUTE takahashi = takahashi + r * B
+000027   ELSE COMPUTE takahashi = takahashi + A * B END-IF.
+000028   COMPUTE dvr = D + F.
+000029   DIVIDE X BY dvr GIVING q REMAINDER r.
+000030   COMPUTE aoki = q * D * E.
+000031   IF r <= D COMPUTE aoki = aoki + r * E
+000032   ELSE COMPUTE aoki = aoki + D * E END-IF.
+000033   IF aoki < takahashi DISPLAY "Takahashi"
+000034   ELSE IF takahashi < aoki DISPLAY "Aoki" ELSE DISPLAY "Draw".
+000035   STOP RUN.
+
