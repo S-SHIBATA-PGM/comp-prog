@@ -3,13 +3,13 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(30).
 01 A          PIC 9(10).
 01 B          PIC 9(10).
+01 ans        PIC X(30).
+01 ln         PIC X(30).
 01 num        PIC 9(10).
 01 qt         PIC 9(10).
 01 rm         PIC 9(10).
-01 ans        PIC X(30).
 01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
@@ -24,3 +24,4 @@ PROCEDURE DIVISION.
     DISPLAY "IMPOSSIBLE"
   END-IF.
   STOP RUN.
+
