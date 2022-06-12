@@ -6,8 +6,8 @@ WORKING-STORAGE SECTION.
 01 A11.
    03 A1      OCCURS 2.
       05 A    PIC 9(10) OCCURS 2.
-01 R          PIC 9(10).
 01 C          PIC 9(10).
+01 R          PIC 9(10).
 01 i          PIC 9(10).
 01 ln         PIC X(30).
 01 zs         PIC Z(9)9.
