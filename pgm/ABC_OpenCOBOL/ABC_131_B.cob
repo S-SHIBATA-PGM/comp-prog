@@ -3,12 +3,12 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(30).
-01 NX         PIC X(30).
-01 LX         PIC X(30).
 01 N          PIC S9(10).
+01 NX         PIC X(30).
 01 L          PIC S9(10).
+01 LX         PIC X(30).
 01 ans        PIC S9(10).
+01 ln         PIC X(30).
 01 zs         PIC -Z(9)9.
 
 *> (N * (L + (L + N - 1))) / 2
@@ -43,3 +43,4 @@ PROCEDURE DIVISION.
     DISPLAY FUNCTION TRIM(zs)
   END-IF.
   STOP RUN.
+
