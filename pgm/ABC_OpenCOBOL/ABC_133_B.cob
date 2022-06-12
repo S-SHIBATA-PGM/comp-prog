@@ -3,28 +3,28 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(400).
-01 maxlen     PIC 9(10) VALUE 100 COMP.
-01 cur        PIC 9(10) VALUE 1 COMP.
-01 i          PIC 9(10) VALUE 1 COMP.
-01 jidx       PIC 9(10) VALUE 1 COMP.
-01 j          PIC 9(10) COMP.
-01 k          PIC 9(10) COMP.
-01 sidx       PIC 9(10) COMP VALUE 1.
-01 eidx       PIC 9(10) COMP.
-01 st         PIC 9(10) COMP.
-01 len        PIC 9(10) COMP.
-01 ans        PIC 9(10) VALUE ZERO.
-01 pre        PIC 9(10)V9(10).
-01 nxt        PIC 9(10)V9(10).
-01 num        PIC 9(10).
-01 zs         PIC Z(9)9.
-01 N          PIC 9(10).
 01 D          PIC 9(10).
+01 N          PIC 9(10).
 01 X1.
    03 X11 OCCURS 100.
      05 X111 OCCURS 100.
         07 X PIC S9(10).
+01 ans        PIC 9(10) VALUE ZERO.
+01 cur        PIC 9(10) VALUE 1 COMP.
+01 eidx       PIC 9(10) COMP.
+01 i          PIC 9(10) VALUE 1 COMP.
+01 j          PIC 9(10) COMP.
+01 jidx       PIC 9(10) VALUE 1 COMP.
+01 k          PIC 9(10) COMP.
+01 len        PIC 9(10) COMP.
+01 ln         PIC X(400).
+01 maxlen     PIC 9(10) VALUE 100 COMP.
+01 num        PIC 9(10).
+01 nxt        PIC 9(10)V9(10).
+01 pre        PIC 9(10)V9(10).
+01 sidx       PIC 9(10) COMP VALUE 1.
+01 st         PIC 9(10) COMP.
+01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT ln.
@@ -68,3 +68,4 @@ PROCEDURE DIVISION.
   MOVE ans TO zs.
   DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
+
