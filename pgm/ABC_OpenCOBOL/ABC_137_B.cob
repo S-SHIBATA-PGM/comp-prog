@@ -3,15 +3,15 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(30).
 01 K          PIC S9(10).
 01 X          PIC S9(10).
+01 ans        PIC X(30).
+01 ed         PIC S9(10).
 01 i          PIC S9(10).
+01 ln         PIC X(30).
 01 nl         PIC 9(10) VALUE ZERO.
 01 sp         PIC 9(10) VALUE ZERO.
 01 st         PIC S9(10).
-01 ed         PIC S9(10).
-01 ans        PIC X(30).
 01 zs         PIC -Z(9)9.
 
 PROCEDURE DIVISION.
@@ -54,3 +54,4 @@ DISP SECTION.
         DISPLAY ZERO WITH NO ADVANCING
       END-IF
     END-IF.
+
