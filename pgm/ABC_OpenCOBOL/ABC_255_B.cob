@@ -1,0 +1,46 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A1.
+   03 A       PIC 9(10) OCCURS 1000.
+01 K          PIC 9(10).
+01 N          PIC 9(10).
+01 X1.
+   03 X       PIC S9(10) OCCURS 1000.
+01 Y1.
+   03 Y       PIC S9(10) OCCURS 1000.
+01 cur        FLOAT-LONG.
+01 i          PIC 9(10) COMP.
+01 j          PIC 9(10) COMP.
+01 ln         PIC X(5000).
+01 mn         FLOAT-LONG.
+01 mx         FLOAT-LONG VALUE ZERO.
+01 pt         PIC S9(10) VALUE 1.
+01 zs         PIC Z(9)9.9(17).
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO N K.
+  ACCEPT ln.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL K < i
+    UNSTRING ln DELIMITED SPACE INTO A(i) POINTER pt
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    ACCEPT ln
+    UNSTRING ln DELIMITED SPACE INTO X(i) Y(i)
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
+    MOVE 1000000007 TO mn
+    PERFORM VARYING j FROM 1 BY 1 UNTIL K < j
+      COMPUTE cur = ((x(i) - x(A(j))) ** 2
+      + (y(i) - y(A(j))) ** 2) ** 0.5
+      IF cur < mn MOVE cur TO mn
+    END-PERFORM
+    IF mx < mn MOVE mn TO mx
+  END-PERFORM.
+  MOVE mx TO zs.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
