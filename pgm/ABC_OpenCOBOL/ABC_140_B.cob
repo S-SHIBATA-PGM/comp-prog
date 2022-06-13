@@ -3,16 +3,6 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(400).
-01 maxlen     PIC 9(10) VALUE 100 COMP.
-01 cur        PIC 9(10) VALUE 1 COMP.
-01 i          PIC 9(10) VALUE 1 COMP.
-01 j          PIC 9(10) COMP.
-01 len        PIC 9(10) COMP.
-01 ans        PIC 9(10).
-01 zs         PIC Z(9)9.
-01 N          PIC 9(10).
-01 num        PIC 9(10).
 01 A1.
    03 A11 OCCURS 100 DEPENDING ON N.
       05 A    PIC S9(10).
@@ -22,6 +12,16 @@ WORKING-STORAGE SECTION.
 01 C1.
    03 C11 OCCURS 100 DEPENDING ON num.
       05 C    PIC S9(10).
+01 N          PIC 9(10).
+01 ans        PIC 9(10).
+01 cur        PIC 9(10) VALUE 1 COMP.
+01 i          PIC 9(10) VALUE 1 COMP.
+01 j          PIC 9(10) COMP.
+01 len        PIC 9(10) COMP.
+01 ln         PIC X(400).
+01 maxlen     PIC 9(10) VALUE 100 COMP.
+01 num        PIC 9(10).
+01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT N.
@@ -73,3 +73,4 @@ PROCEDURE DIVISION.
   MOVE ans TO zs.
   DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
+
