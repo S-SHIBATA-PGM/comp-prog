@@ -3,9 +3,9 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 S         PIC X(100).
-01 O         PIC X(3) VALUE "RUD".
 01 E         PIC X(3) VALUE "LUD".
+01 O         PIC X(3) VALUE "RUD".
+01 S         PIC X(100).
 01 cnt       PIC 9(10).
 01 flg       PIC 9(1) VALUE 1.
 01 i         PIC 9(10) COMP.
@@ -39,3 +39,4 @@ PROCEDURE DIVISION.
     DISPLAY "No"
   END-IF.
   STOP RUN.
+
