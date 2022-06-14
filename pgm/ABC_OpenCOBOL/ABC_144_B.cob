@@ -4,10 +4,10 @@ PROGRAM-ID. PROGRAM_ID.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 N          PIC 9(10).
+01 ans        PIC X(30).
+01 flg        PIC 9(1) VALUE ZERO.
 01 i          PIC 9(10).
 01 j          PIC 9(10).
-01 flg        PIC 9(1) VALUE ZERO.
-01 ans        PIC X(30).
 01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
@@ -29,3 +29,4 @@ PROCEDURE DIVISION.
     DISPLAY "No"
   END-IF.
   STOP RUN.
+
