@@ -3,16 +3,16 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(400).
-01 maxlen     PIC 9(10) VALUE 100 COMP.
+01 N          PIC 9(10).
+01 S          PIC X(100).
+01 T          PIC X(100).
+01 ans        PIC X(200).
 01 cur        PIC 9(10) VALUE 1 COMP.
 01 i          PIC 9(10) VALUE 1 COMP.
 01 j          PIC 9(10) COMP.
 01 len        PIC 9(10) COMP.
-01 ans        PIC X(200).
-01 N          PIC 9(10).
-01 S          PIC X(100).
-01 T          PIC X(100).
+01 ln         PIC X(400).
+01 maxlen     PIC 9(10) VALUE 100 COMP.
 
 PROCEDURE DIVISION.
   ACCEPT N.
@@ -23,3 +23,4 @@ PROCEDURE DIVISION.
   END-PERFORM.
   DISPLAY FUNCTION TRIM(ans).
   STOP RUN.
+
