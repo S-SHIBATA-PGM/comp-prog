@@ -5,13 +5,14 @@ DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 N              PIC 9(10).
 01 S              PIC X(50).
-01 cnt            PIC 9(10).
 01 ans            PIC Z(9)9.
+01 cnt            PIC 9(10).
 
 PROCEDURE DIVISION.
   ACCEPT N.
   ACCEPT S.
   INSPECT S TALLYING cnt FOR ALL "ABC".
   MOVE cnt TO ans.
-  DISPLAY ans.
+  DISPLAY FUNCTION TRIM(ans).
   STOP RUN.
+
