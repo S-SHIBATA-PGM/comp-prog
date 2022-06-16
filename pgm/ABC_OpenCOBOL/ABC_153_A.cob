@@ -3,16 +3,17 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 LN             PIC X(11).
-01 H              PIC 9(5).
 01 A              PIC 9(5).
+01 H              PIC 9(5).
+01 LN             PIC X(11).
 01 num            PIC 9(5).
-01 ans            PIC Z(4)9.
+01 zs             PIC Z(4)9.
 
 PROCEDURE DIVISION.
   ACCEPT LN.
   UNSTRING LN DELIMITED BY SPACE INTO H A.
   COMPUTE num = (H + (A - 1)) / A.
-  MOVE num TO ans.
-  DISPLAY ans(1:FUNCTION STORED-CHAR-LENGTH(ans)).
+  MOVE num TO zs.
+  DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
+
