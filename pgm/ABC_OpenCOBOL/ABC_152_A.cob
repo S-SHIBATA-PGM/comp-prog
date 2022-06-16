@@ -4,8 +4,8 @@ PROGRAM-ID. PROGRAM_ID.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 LN             PIC X(7).
-01 N              PIC 9(3).
 01 M              PIC 9(3).
+01 N              PIC 9(3).
 01 ans            PIC X(3).
 
 PROCEDURE DIVISION.
@@ -17,3 +17,4 @@ PROCEDURE DIVISION.
       DISPLAY "No"
   END-IF.
   STOP RUN.
+

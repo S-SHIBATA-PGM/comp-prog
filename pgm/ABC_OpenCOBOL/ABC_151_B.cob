@@ -3,19 +3,19 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln             PIC X(400).
-01 maxlen         PIC 9(10) VALUE 100.
+01 Ai             PIC 9(10).
+01 K              PIC 9(10).
+01 M              PIC 9(10).
+01 N              PIC 9(10).
+01 accum          PIC 9(10) VALUE ZERO.
+01 ans            PIC S9(10).
 01 cur            PIC 9(10) VALUE 1.
 01 i              PIC 9(10) VALUE 1.
 01 j              PIC 9(10).
 01 len            PIC 9(10).
-01 ans            PIC S9(10).
+01 ln             PIC X(400).
+01 maxlen         PIC 9(10) VALUE 100.
 01 zs             PIC Z(9)9.
-01 N              PIC 9(10).
-01 K              PIC 9(10).
-01 M              PIC 9(10).
-01 accum          PIC 9(10) VALUE ZERO.
-01 Ai             PIC 9(10).
 
 PROCEDURE DIVISION.
   ACCEPT ln.
@@ -43,3 +43,4 @@ PROCEDURE DIVISION.
       END-IF
   END-IF.
   STOP RUN.
+
