@@ -3,12 +3,12 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
+01 A          PIC 9(2).
+01 B          PIC 9(2).
 01 LN         PIC X(21).
 01 S          PIC X(10).
 01 T          PIC X(10).
 01 U          PIC X(10).
-01 A          PIC 9(2).
-01 B          PIC 9(2).
 01 ZA         PIC Z9.
 01 ZB         PIC Z9.
 
@@ -25,4 +25,5 @@ PROCEDURE DIVISION.
   END-IF.
   MOVE A TO ZA.
   MOVE B TO ZB.
-  DISPLAY ZA ZB.
+  DISPLAY FUNCTION TRIM(ZA) SPACE FUNCTION TRIM(ZB).
+
