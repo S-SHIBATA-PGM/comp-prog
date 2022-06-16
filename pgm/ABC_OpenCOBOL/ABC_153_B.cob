@@ -4,24 +4,24 @@ PROGRAM-ID. PROGRAM_ID.
 ENVIRONMENT DIVISION.
 INPUT-OUTPUT SECTION.
 FILE-CONTROL.
-    SELECT SYSIN ASSIGN TO KEYBOARD ORGANIZATION LINE SEQUENTIAL.
+SELECT SYSIN ASSIGN TO KEYBOARD ORGANIZATION LINE SEQUENTIAL.
 
 DATA DIVISION.
 FILE SECTION.
 FD SYSIN.
-    01 INDATA     PIC X(600000).
+01 INDATA     PIC X(600000).
+
 WORKING-STORAGE SECTION.
+01 A              PIC 9(5).
+01 H              PIC 9(10).
 01 LN             PIC X(600000).
-01 maxlen         PIC 9(6) VALUE 100000.
+01 N              PIC 9(6).
+01 accum          PIC 9(10).
 01 cur            PIC 9(10) VALUE 1.
 01 i              PIC 9(18) VALUE 1.
 01 j              PIC 9(18).
 01 len            PIC 9(10).
-01 H              PIC 9(10).
-01 N              PIC 9(6).
-01 A              PIC 9(5).
-01 accum          PIC 9(10).
-01 ans            PIC X(3).
+01 maxlen         PIC 9(6) VALUE 100000.
 
 PROCEDURE DIVISION.
   ACCEPT LN.
@@ -43,3 +43,4 @@ PROCEDURE DIVISION.
   ELSE
       DISPLAY "No"
   END-IF.
+
