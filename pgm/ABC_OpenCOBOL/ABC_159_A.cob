@@ -3,14 +3,17 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 LN             PIC X(30).
-01 N              PIC 9(10).
-01 M              PIC 9(10).
-01 zs             PIC Z(9)9.
+01 M          PIC 9(10).
+01 N          PIC 9(10).
+01 ans        PIC 9(10).
+01 ln         PIC X(30).
+01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
-  ACCEPT LN.
-  UNSTRING LN DELIMITED BY SPACE INTO N M.
-  COMPUTE zs = N * (N - 1) / 2 + M * (M - 1) / 2.
-  DISPLAY zs.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO N M.
+  COMPUTE ans = N * (N - 1) / 2 + M * (M - 1) / 2.
+  MOVE ans TO zs.
+  DISPLAY FUNCTION TRIM(zs).
   STOP RUN.
+
