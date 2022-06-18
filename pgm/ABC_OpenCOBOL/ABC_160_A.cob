@@ -3,13 +3,14 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 S              PIC X(30).
+01 S          PIC X(30).
 
 PROCEDURE DIVISION.
   ACCEPT S.
   IF S(3:1) = S(4:1) AND S(5:1) = S(6:1)
-      DISPLAY "Yes"
+    DISPLAY "Yes"
   ELSE
-      DISPLAY "No"
+    DISPLAY "No"
   END-IF.
   STOP RUN.
+
