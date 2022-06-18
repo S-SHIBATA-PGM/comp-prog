@@ -6,12 +6,12 @@ WORKING-STORAGE SECTION.
 01 A            PIC 9(1).
 01 B            PIC 9(1).
 01 C            PIC 9(1).
-01 LN           PIC X(5).
 01 flg          PIC 9(1) VALUE ZERO.
+01 ln           PIC X(5).
 
 PROCEDURE DIVISION.
-    ACCEPT LN.
-    UNSTRING LN DELIMITED SPACE INTO A B C.
+    ACCEPT ln.
+    UNSTRING ln DELIMITED SPACE INTO A B C.
     IF A = B AND B NOT = C
         MOVE 1 TO flg
     END-IF.
