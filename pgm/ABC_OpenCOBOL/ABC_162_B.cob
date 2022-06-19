@@ -4,14 +4,14 @@ PROGRAM-ID. PROGRAM_ID.
 DATA DIVISION.
 WORKING-STORAGE SECTION.
 01 N          PIC 9(10).
-01 qt         PIC 9(19).
-01 dvd        PIC 9(10).
+01 accum      PIC 9(19).
 01 c          PIC 9(19).
 01 c1         PIC 9(19).
 01 c3         PIC 9(19).
 01 c5         PIC 9(19).
 01 c15        PIC 9(19).
-01 accum      PIC 9(19).
+01 dvd        PIC 9(10).
+01 qt         PIC 9(19).
 01 zs         PIC Z(18)9.
 
 PROCEDURE DIVISION.
@@ -36,3 +36,4 @@ PROCEDURE DIVISION.
 CALC SECTION.
   DIVIDE N BY dvd GIVING qt.
   COMPUTE c = (dvd + (qt * dvd)) * qt / 2.
+
