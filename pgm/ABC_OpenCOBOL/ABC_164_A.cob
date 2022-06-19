@@ -3,13 +3,13 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 S              PIC 9(10).
-01 W              PIC 9(10).
-01 ln             PIC X(30).
+01 S          PIC 9(10).
+01 W          PIC 9(10).
+01 ln         PIC X(30).
 
 PROCEDURE DIVISION.
   ACCEPT ln.
-  UNSTRING ln DELIMITED BY SPACE INTO S W.
+  UNSTRING ln DELIMITED SPACE INTO S W.
   IF W < S
     DISPLAY "safe"
   ELSE
