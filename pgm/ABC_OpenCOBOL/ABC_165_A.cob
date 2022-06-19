@@ -3,20 +3,21 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln             PIC X(30).
-01 A              PIC 9(10).
-01 B              PIC 9(10).
-01 K              PIC 9(10).
-01 Q              PIC 9(10).
+01 A          PIC 9(10).
+01 B          PIC 9(10).
+01 K          PIC 9(10).
+01 ln         PIC X(30).
+01 q          PIC 9(10).
 
 PROCEDURE DIVISION.
   ACCEPT K.
   ACCEPT ln.
   UNSTRING ln DELIMITED BY SPACE INTO A B.
-  DIVIDE B BY K GIVING Q.
-  IF A <= Q * K
-      DISPLAY "OK"
+  DIVIDE B BY K GIVING q.
+  IF A <= q * K
+    DISPLAY "OK"
   ELSE
-      DISPLAY "NG"
+    DISPLAY "NG"
   END-IF.
   STOP RUN.
+
