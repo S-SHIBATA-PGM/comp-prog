@@ -3,10 +3,10 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln         PIC X(30).
 01 N          PIC 9(10).
 01 Q          PIC 9(10).
 01 R          PIC 9(10).
+01 ln         PIC X(30).
 
 PROCEDURE DIVISION.
   ACCEPT ln.
