@@ -3,20 +3,21 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 ln             PIC X(30).
-01 N              PIC 9(10).
-01 Q              PIC 9(10).
-01 R              PIC 9(10).
+01 ln         PIC X(30).
+01 N          PIC 9(10).
+01 Q          PIC 9(10).
+01 R          PIC 9(10).
 
 PROCEDURE DIVISION.
   ACCEPT ln.
-  UNSTRING ln DELIMITED BY SPACE INTO N.
+  UNSTRING ln DELIMITED SPACE INTO N.
   DIVIDE N BY 10 GIVING Q REMAINDER R.
   IF R = 2 OR 4 OR 5 OR 7 OR 9
-      DISPLAY "hon"
+    DISPLAY "hon"
   ELSE IF R = 0 OR 1 OR 6 OR 8
-      DISPLAY "pon"
+    DISPLAY "pon"
   ELSE
-      DISPLAY "bon"
+    DISPLAY "bon"
   END-IF.
   STOP RUN.
+
