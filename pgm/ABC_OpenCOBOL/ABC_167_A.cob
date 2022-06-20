@@ -3,16 +3,16 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 S              PIC X(11).
-01 T              PIC X(11).
+01 S          PIC X(11).
+01 T          PIC X(11).
 
 PROCEDURE DIVISION.
   ACCEPT S.
   ACCEPT T.
-
   IF S = T(1 : FUNCTION STORED-CHAR-LENGTH(T) - 1)
-      DISPLAY "Yes"
+    DISPLAY "Yes"
   ELSE
-      DISPLAY "No"
+    DISPLAY "No"
   END-IF.
   STOP RUN.
+
