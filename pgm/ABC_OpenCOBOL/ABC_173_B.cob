@@ -3,19 +3,19 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 i          PIC 9(10) VALUE 1 COMP.
-01 N          PIC 9(10).
-01 num        PIC 9(10) VALUE 4.
-01 ans        PIC X(12).
-01 zs         PIC Z(9)9.
-01 S          PIC X(3).
 01 C1.
    03 C11 OCCURS 4 DEPENDING num.
       05 C    PIC 9(10) VALUE 0 COMP.
+01 N          PIC 9(10).
+01 S          PIC X(3).
+01 ans        PIC X(12).
+01 i          PIC 9(10) VALUE 1 COMP.
 01 j1         PIC X(12) VALUE "AC WA TLERE".
 01 REDEFINES j1.
   03 j        PIC X(3) OCCURS 4 INDEXED BY ix.
 01 mul        PIC X(3) VALUE " x ".
+01 num        PIC 9(10) VALUE 4.
+01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
   ACCEPT N.
@@ -39,3 +39,4 @@ PROCEDURE DIVISION.
     DISPLAY FUNCTION TRIM(ans)
   END-PERFORM.
   STOP RUN.
+
