@@ -1,0 +1,46 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 A          PIC 9(10).
+01 K          PIC 9(10).
+01 L          PIC 9(10).
+01 N          PIC 9(10).
+01 Q          PIC 9(10).
+01 i          PIC 9(10) COMP.
+01 ln         PIC X(4000).
+01 pieces1.
+   03 pieces  PIC 9(10) VALUE ZERO OCCURS 200 DEPENDING K.
+01 pt         PIC S9(10).
+01 squares1.
+   03 squares PIC 9(1) VALUE ZERO OCCURS 200 DEPENDING N.
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT ln.
+  UNSTRING ln DELIMITED SPACE INTO N K Q.
+  MOVE 1 TO pt.
+  ACCEPT ln.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL K < i
+    UNSTRING ln DELIMITED SPACE INTO A POINTER pt
+    MOVE 1 TO squares(A)
+    MOVE A TO pieces(i)
+  END-PERFORM.
+  MOVE 1 TO pt.
+  ACCEPT ln.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL Q < i
+    UNSTRING ln DELIMITED SPACE INTO L POINTER pt
+    IF pieces(L) + 1 <= N AND ZERO = squares(pieces(L) + 1)
+      MOVE 1 TO squares(pieces(L) + 1)
+      MOVE ZERO TO squares(pieces(L))
+      ADD 1 TO pieces(L)
+  END-PERFORM.
+  PERFORM VARYING i FROM 1 BY 1 UNTIL K < i
+    MOVE pieces(i) TO zs
+    DISPLAY FUNCTION TRIM(zs) WITH NO ADVANCING
+    DISPLAY SPACE WITH NO ADVANCING
+  END-PERFORM.
+  DISPLAY SPACE.
+  STOP RUN.
+
