@@ -3,8 +3,8 @@ PROGRAM-ID. PROGRAM_ID.
 
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 K          PIC 9(10).
 01 HH         PIC 9(2) VALUE 21.
+01 K          PIC 9(10).
 01 MM         PIC 9(2) VALUE ZERO.
 01 q          PIC 9(10).
 01 r          PIC 9(10).
