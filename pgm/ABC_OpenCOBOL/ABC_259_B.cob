@@ -8,7 +8,6 @@ WORKING-STORAGE SECTION.
 01 d          PIC 9(10).
 01 ln         PIC X(30).
 01 offset     FLOAT-LONG.
-01 diff       FLOAT-LONG.
 01 pi         FLOAT-LONG VALUE 3.141592653.
 01 zx         PIC -(9)9.9(18).
 01 zy         PIC -(9)9.9(18).
