@@ -8,22 +8,21 @@
 000008 01 d          PIC 9(10).
 000009 01 ln         PIC X(30).
 000010 01 offset     FLOAT-LONG.
-000011 01 diff       FLOAT-LONG.
-000012 01 pi         FLOAT-LONG VALUE 3.141592653.
-000013 01 zx         PIC -(9)9.9(18).
-000014 01 zy         PIC -(9)9.9(18).
-000015 
-000016 PROCEDURE DIVISION.
-000017   ACCEPT ln.
-000018   UNSTRING ln DELIMITED SPACE INTO a b d.
-000019   IF ZERO <= b AND ZERO = a COMPUTE offset = 0.5 * pi
-000020   ELSE IF b < ZERO AND ZERO = a COMPUTE offset = 1.5 * pi
-000021   ELSE COMPUTE offset = FUNCTION ATAN(b / FUNCTION ABS(a)).
-000022   IF a < ZERO COMPUTE offset = pi - offset.
-000023   COMPUTE zx = ((a ** 2 + b ** 2) ** 0.5)
-000024   * FUNCTION COS(offset + d * pi / 180).
-000025   COMPUTE zy = ((a ** 2 + b ** 2) ** 0.5)
-000026   * FUNCTION SIN(offset + d * pi / 180).
-000027   DISPLAY FUNCTION TRIM(zx) SPACE FUNCTION TRIM(zy).
-000028   STOP RUN.
+000011 01 pi         FLOAT-LONG VALUE 3.141592653.
+000012 01 zx         PIC -(9)9.9(18).
+000013 01 zy         PIC -(9)9.9(18).
+000014 
+000015 PROCEDURE DIVISION.
+000016   ACCEPT ln.
+000017   UNSTRING ln DELIMITED SPACE INTO a b d.
+000018   IF ZERO <= b AND ZERO = a COMPUTE offset = 0.5 * pi
+000019   ELSE IF b < ZERO AND ZERO = a COMPUTE offset = 1.5 * pi
+000020   ELSE COMPUTE offset = FUNCTION ATAN(b / FUNCTION ABS(a)).
+000021   IF a < ZERO COMPUTE offset = pi - offset.
+000022   COMPUTE zx = ((a ** 2 + b ** 2) ** 0.5)
+000023   * FUNCTION COS(offset + d * pi / 180).
+000024   COMPUTE zy = ((a ** 2 + b ** 2) ** 0.5)
+000025   * FUNCTION SIN(offset + d * pi / 180).
+000026   DISPLAY FUNCTION TRIM(zx) SPACE FUNCTION TRIM(zy).
+000027   STOP RUN.
 
