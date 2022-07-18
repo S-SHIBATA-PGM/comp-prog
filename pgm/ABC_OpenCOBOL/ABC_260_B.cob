@@ -8,6 +8,9 @@ WORKING-STORAGE SECTION.
 01 Y          PIC 9(10).
 01 Z          PIC 9(10).
 01 cnt        PIC 9(10) COMP.
+01 i          PIC 9(10) COMP.
+01 ln         PIC X(4000).
+01 pt         PIC S9(10).
 01 score1.
    03 score OCCURS 1000 DEPENDING N.
       05 num  PIC 9(10).
@@ -15,9 +18,6 @@ WORKING-STORAGE SECTION.
       05 B    PIC 9(10).
       05 AB   PIC 9(10).
       05 pass PIC 9(1) VALUE ZERO.
-01 i          PIC 9(10) COMP.
-01 ln         PIC X(4000).
-01 pt         PIC S9(10).
 01 zs         PIC Z(9)9.
 
 PROCEDURE DIVISION.
@@ -58,7 +58,6 @@ PROCEDURE DIVISION.
   PERFORM VARYING i FROM 1 BY 1 UNTIL N < i
     IF X + Y + Z <= cnt EXIT PERFORM END-IF
     IF pass(i) = 1 MOVE num(i) TO zs DISPLAY FUNCTION TRIM(zs)
-    ADD 1 TO cnt
   END-PERFORM.
   STOP RUN.
 
