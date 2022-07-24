@@ -6,7 +6,7 @@ WORKING-STORAGE SECTION.
 01 A1.
    03 A       PIC X(1000) OCCURS 1000 DEPENDING N.
 01 N          PIC 9(10).
-01 flg        PIC 9(10) VALUE ZERO.
+01 flg        PIC 9(1) VALUE ZERO.
 01 i          PIC 9(10) COMP.
 01 j          PIC 9(10) COMP.
 
