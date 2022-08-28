@@ -1,0 +1,41 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PROGRAM_ID.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 N          PIC S9(10)V9(11) VALUE ZERO.
+01 i          PIC S9(10).
+01 idx        PIC S9(10)V9(11) VALUE 0.0000000001.
+01 num        PIC S9(10)V9(11) VALUE 0.0998244353.
+01 q          BINARY-DOUBLE UNSIGNED.
+01 r          PIC 9(10)V9(11).
+01 s          PIC X(20).
+01 scale      PIC 9(11) VALUE 10000000000.
+01 zs         PIC Z(9)9.
+
+PROCEDURE DIVISION.
+  ACCEPT s.
+  PERFORM VARYING i FROM 20 BY -1 UNTIL i <= ZERO
+    IF "-" NOT = s(i:1) AND SPACE NOT = s(i:1)
+      COMPUTE N = N + FUNCTION NUMVAL(s(i:1)) * idx
+      COMPUTE idx = 10 * idx
+    ELSE
+      IF "-" = S(i:1)
+        COMPUTE N = -1 * N
+      END-IF
+    END-IF
+  END-PERFORM.
+  IF ZERO <= N
+    DIVIDE N BY num GIVING q REMAINDER r
+    COMPUTE zs = r * scale
+  ELSE
+    DIVIDE N BY num GIVING q REMAINDER r
+    COMPUTE N = N + q * num
+    PERFORM UNTIL ZERO <= N
+      ADD num TO N
+    END-PERFORM
+    COMPUTE zs = N * scale
+  END-IF.
+  DISPLAY FUNCTION TRIM(zs).
+  STOP RUN.
+
