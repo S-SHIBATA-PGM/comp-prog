@@ -1,0 +1,6 @@
+library(stringr)
+con <- file("stdin", "r")
+S <- scan(con, what = character(), n = 1)
+close(con)
+cat(str_replace_all(S,"[^2]+",""))
+cat("\n")
