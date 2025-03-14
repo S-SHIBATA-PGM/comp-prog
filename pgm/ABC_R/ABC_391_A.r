@@ -1,6 +1,5 @@
-library(stringr)
 con <- file("stdin", "r")
-D <- readLines(con) |> str_split(pattern = "") |> unlist()
+D <- readLines(con) |> strsplit(split = "") |> unlist()
 close(con)
 NEWS <- c("N", "E", "W", "S")
 SWEN <- c("S", "W", "E", "N")
