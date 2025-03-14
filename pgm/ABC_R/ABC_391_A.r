@@ -3,9 +3,9 @@ D <- readLines(con) |> strsplit(split = "") |> unlist()
 close(con)
 NEWS <- c("N", "E", "W", "S")
 SWEN <- c("S", "W", "E", "N")
-v <- c()
-for (d in D) {
-    v <- c(v, SWEN[NEWS == d])
+v <- c(SWEN[NEWS == D[1]])
+if (length(D) == 2) {
+    v <- c(v, SWEN[NEWS == D[2]])
 }
-v |> paste(collapse="") |> cat()
+v |> paste(collapse = "") |> cat()
 cat("\n")
