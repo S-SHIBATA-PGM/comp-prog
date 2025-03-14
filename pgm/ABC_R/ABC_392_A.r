@@ -3,8 +3,8 @@ A <- scan(con, what = numeric(), n = 3)
 close(con)
 Yes <- "Yes"
 No <- "No"
-A <- sort(A)
-if (A[3] == A[1] * A[2]) {
+B <- sort(A)
+if (B[1] * B[2] == B[3]) {
     cat(Yes)
 } else {
     cat(No)
