@@ -1,4 +1,3 @@
-library(glue)
 library(stringr)
 con <- file("stdin", "r")
 D <- readLines(con) |> str_split(pattern = "") |> unlist()
@@ -9,5 +8,5 @@ v <- c()
 for (d in D) {
     v <- c(v, SWEN[NEWS == d])
 }
-v |> glue_collapse() |> cat()
+v |> paste(collapse="") |> cat()
 cat("\n")
