@@ -1,0 +1,5 @@
+con <- file(description = "stdin", open = "r")
+S <- scan(file = con, what = character(), n = 1) |> strsplit(split = "") |> unlist()
+close(con)
+cat(as.integer(S[1]) * as.integer(S[3]))
+cat("\n")
