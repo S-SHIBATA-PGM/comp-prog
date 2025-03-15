@@ -1,0 +1,5 @@
+con <- file(description = "stdin", open = "r")
+AB <- scan(file = con, what = integer(), n = 2)
+close(con)
+cat((AB[1] + AB[2])^2)
+cat("\n")
