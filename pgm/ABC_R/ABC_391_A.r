@@ -1,6 +1,5 @@
 con <- file("stdin", "r")
-D <- readLines(con) |> strsplit(split = "") |> unlist()
-close(con)
+D <- scan(con, what = character()) |> strsplit(split = "") |> unlist()
 NEWS <- c("N", "E", "W", "S")
 SWEN <- c("S", "W", "E", "N")
 v <- c(SWEN[NEWS == D[1]])
