@@ -1,4 +1,4 @@
-con <- file("stdin", "r")
+con <- file(description = "stdin", open = "r")
 D <- scan(file = con, what = character()) |> strsplit(split = "") |> unlist()
 close(con)
 NEWS <- new.env()
