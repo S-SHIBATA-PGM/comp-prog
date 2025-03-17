@@ -4,9 +4,9 @@ import java.util.*;
 // import java.util.Map.*;
 import java.util.stream.*;
 
-class RGB {
-    String key;
-    int value;
+class RGB implements Comparable<RGB> {
+    private String key;
+    private int value;
 
     public RGB (String key, int value) {
         this.key = key;
@@ -19,6 +19,11 @@ class RGB {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public int compareTo (RGB r) {
+        return this.value - r.value;
     }
 }
 public class Main {
@@ -34,8 +39,8 @@ public class Main {
         final List<RGB> rgb = RGB.stream()
                                   .filter (p -> !C.equals (p.getKey()))
                                   .collect (Collectors.toList());
-        rgb.sort ((a, b) -> a.value - b.value);
-        System.out.println (rgb.get (0).value);
+        Collections.sort (rgb);
+        System.out.println (rgb.get (0).getValue());
         return;
     }
 }
