@@ -1,0 +1,7 @@
+con <- file(description = "stdin", open = "r")
+N <- readLines(con = con, n = 1) |> strsplit(split = "") |> unlist()
+close(con)
+cat(N[c(2, 3, 1)], sep = "")
+cat(" ")
+cat(N[c(3, 1, 2)], sep = "")
+cat("\n")
