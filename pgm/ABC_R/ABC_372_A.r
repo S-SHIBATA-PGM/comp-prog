@@ -4,6 +4,6 @@ S <- readLines(con = con, n = 1) |>
     unlist()
 close(con)
 dot <- "."
-brank <- ""
-replace(S, S == dot, brank) |>
+empty <- ""
+replace(S, S == dot, empty) |>
     cat("\n", sep = "")
