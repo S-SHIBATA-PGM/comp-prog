@@ -15,7 +15,7 @@ public class Main {
         final int ng = 316;
         final int zero = 0;
         final int num = Integer.parseInt (S.substring (3, 6));
-        if (num <= end && ng != num && zero != num) {
+        if (num <= end && num != ng && num != zero) {
             System.out.println (Yes);
         } else {
             System.out.println (No);
