@@ -8,13 +8,13 @@ Set-Variable -Name three -Value '3' -Option Constant
 $cnt = @{ $one = [int]$zero; $two = [int]$zero; $three = [int]$zero; }
 foreach ($n in $N) {
     if ($n -eq $one) {
-        $cnt[$one]++;
+        $cnt[$one]++
     }
     elseif ($n -eq $two) {
-        $cnt[$two]++;
+        $cnt[$two]++
     }
     elseif ($n -eq $three) {
-        $cnt[$three]++;
+        $cnt[$three]++
     }
 }
 $condition =
