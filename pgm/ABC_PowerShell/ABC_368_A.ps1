@@ -1,4 +1,4 @@
-[int] $N, $K = [Console]::ReadLine().Split(" ")
+[int] $N, [int] $K = [Console]::ReadLine().Split(" ")
 $A = New-Object int[] $N
 [int[]] $A = [Console]::ReadLine().Split(" ")
 [string] $sp = "";
