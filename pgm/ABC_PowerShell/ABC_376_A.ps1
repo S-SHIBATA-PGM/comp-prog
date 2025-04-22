@@ -1,4 +1,4 @@
-[int] $N, $C = [Console]::ReadLine().Split(" ")
+[int] $N, [int] $C = [Console]::ReadLine().Split(" ")
 [int[]] $T = [Console]::ReadLine().Split(" ")
 [int] $pre = - $C
 [int] $Candy = 0
