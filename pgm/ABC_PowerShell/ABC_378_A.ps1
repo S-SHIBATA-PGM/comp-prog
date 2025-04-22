@@ -1,4 +1,4 @@
-[string] $A1, $A2, $A3, $A4 = [Console]::ReadLine().Split(" ")
+[string] $A1, [string] $A2, [string] $A3, [string] $A4 = [Console]::ReadLine().Split(" ")
 Set-Variable -Name zero -Value 0 -Option Constant
 Set-Variable -Name one -Value "1" -Option Constant
 Set-Variable -Name two -Value "2" -Option Constant
