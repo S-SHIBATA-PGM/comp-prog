@@ -1,6 +1,6 @@
 [int] $N, [int] $K = [Console]::ReadLine().Split(" ")
-$A = New-Object int[] $N
-[int[]] $A = [Console]::ReadLine().Split(" ")
+[int[]] $A = New-Object int[] $N
+$A = [Console]::ReadLine().Split(" ")
 [string] $sp = "";
 for ([int] $i = $N - $K; $i -lt $N; $i++) {
     Write-Host -NoNewLine $sp
