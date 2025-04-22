@@ -16,17 +16,17 @@ using ll = int64_t;
 int main() {
     int N, K;
     cin >> N >> K;
-    int T[N];
+    int A[N];
     REP (i, N) {
-        cin >> T[i];
+        cin >> A[i];
     }
-    string s = "";
+    string sp = "";
     FOR (i, N - K, N) {
-        cout << s << T[i];
-        s = " ";
+        cout << sp << A[i];
+        sp = " ";
     }
     FOR (i, 0, N - K) {
-        cout << s << T[i];
+        cout << sp << A[i];
     }
     cout << endl;
     return 0;
