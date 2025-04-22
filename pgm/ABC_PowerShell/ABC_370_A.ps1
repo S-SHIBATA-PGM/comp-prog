@@ -1,4 +1,4 @@
-[int] $L, $R = [Console]::ReadLine().Split(" ")
+[int] $L, [int] $R = [Console]::ReadLine().Split(" ")
 Set-Variable -Name zero -Value 0 -Option Constant
 Set-Variable -Name one -Value 1 -Option Constant
 Set-Variable -Name Yes -Value "Yes" -Option Constant
