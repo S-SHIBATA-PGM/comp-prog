@@ -29,7 +29,7 @@ int main() {
             cout << No << endl;
             return 0;
         } else if (S[i] == sweet) {
-            cnt = 1;
+            cnt++;
         } else {
             cnt = 0;
         }
