@@ -1,3 +1,4 @@
+// Ref ABC 362 A
 #include <bits/stdc++.h>
 
 #define __STDC_FORMAT_MACROS
