@@ -39,21 +39,14 @@ int main() {
     const string Green = "Green";
     const string Blue = "Blue";
 
-    struct RGB rgb;
     vector<RGB> vec;
-    rgb.key = Red;
-    rgb.value = R;
-    vec.push_back (rgb);
-    rgb.key = Green;
-    rgb.value = G;
-    vec.push_back (rgb);
-    rgb.key = Blue;
-    rgb.value = B;
-    vec.push_back (rgb);
+    vec.push_back (RGB (Red, R));
+    vec.push_back (RGB (Green, G));
+    vec.push_back (RGB (Blue, B));
 
     vector<RGB> v;
 
-    copy_if (vec.begin(), vec.end(), std::back_inserter (v),
+    copy_if (vec.begin(), vec.end(), back_inserter (v),
              [&C] (const RGB& r) { return r.key != C; });
 
     ALL (sort, v);
