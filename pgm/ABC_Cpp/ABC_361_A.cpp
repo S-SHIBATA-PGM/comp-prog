@@ -16,9 +16,9 @@ using ll = int64_t;
 int main() {
     int N, K, X;
     cin >> N >> K >> X;
-    vector<int> A (N);
+    vector<int> A;
     REP (i, N) {
-        cin >> A[i];
+        cin >> A.emplace_back();
     }
     auto itr = A.begin();
     A.insert (itr + K, X);
