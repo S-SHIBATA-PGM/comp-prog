@@ -1,6 +1,6 @@
 [int] $N = [Console]::ReadLine()
 [string[]] $S = New-Object string[] $N
-[string] $line > $null
+[string] $line = ""
 for ([int] $i = 0; $null -ne ($line = [Console]::ReadLine()); $i++) {
     $S[$i] = $line
 }
