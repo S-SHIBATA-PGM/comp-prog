@@ -21,6 +21,6 @@ int main() {
         cin >> S.emplace_back();
     }
     const string Takahashi = "Takahashi";
-    cout << count (S.begin(), S.end(), Takahashi) << endl;
+    cout << ALL (count, S, Takahashi) << endl;
     return 0;
 }
