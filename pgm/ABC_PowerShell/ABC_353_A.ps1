@@ -1,13 +1,7 @@
-[Console]::ReadLine() > $null
+[int] $N = [Console]::ReadLine()
 [int[]] $H = [Console]::ReadLine().Split(" ")
 Set-Variable -Name no -Value -1 -Option Constant
-[int] $idx = $no
-foreach ($hight in $H) {
-    if ($hight -gt $H[0]) {
-        $idx = $H.IndexOf($hight);
-        break
-    }
-}
-$condition = $idx -eq $no
-&({ Write-Host $no }, { Write-Host ($idx + 1) })[ !$condition ]
+[int[]] $idx = @(2..$N) | Where-Object { $H[0] -lt $H[$_ - 1] }
+$idx += $no
+Write-Host $idx[0]
 exit 0
