@@ -17,18 +17,12 @@ W <- ncol(Nine)
 break_flg <- FALSE
 ans <- "No"
 for (y in seq_len(nrow(Nine))) {
-    if (break_flg) {
-        break
-    }
+    if (break_flg) break
     for (x in seq_len(ncol(Nine))) {
-        if (break_flg) {
-            break
-        }
+        if (break_flg) break
         if (Nine[y, x] == A) {
             for (k in 1:drn) {
-                if (break_flg) {
-                    break
-                }
+                if (break_flg) break
                 ny <- y + dy[k]
                 nx <- x + dx[k]
                 if (ny <= 0 || H < ny || nx <= 0 || W < nx) next
