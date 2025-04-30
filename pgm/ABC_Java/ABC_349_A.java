@@ -8,7 +8,7 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        Integer.parseInt (reader.readLine());
+        reader.readLine();
         final int[] A = Arrays.stream (reader.readLine().split (" "))
                             .mapToInt (Integer::parseInt)
                             .toArray();
