@@ -1,0 +1,1 @@
+([Console]::ReadLine() -split "\.")[-1]
