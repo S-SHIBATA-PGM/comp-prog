@@ -14,4 +14,4 @@ if ($flg) {
 else {
     Write-Host $No
 }
-exit 0
+exit 
