@@ -1,0 +1,5 @@
+Set-Variable -Name two -Value 2 -Option Constant
+$N = [int][Console]::ReadLine()
+("3.1415926535897932384626433832795028841971693993751"`
+    + "058209749445923078164062862089986280348253421170679").SubString(0, $N + $two);
+exit 0
