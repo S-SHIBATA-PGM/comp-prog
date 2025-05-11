@@ -1,17 +1,11 @@
 con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
-S <- strsplit(arr[1], split = " ")[[1]] |>
-    as.integer()
 Yes <- "Yes"
 No <- "No"
-lower <- 100
-upper <- 675
-multiple <- 25
-len <- length(S)
-if (sum(S == sort(S)) == len
-    && sum(lower <= S & S <= upper) == len
-    && sum(S %% 25 == 0) == len) {
+S <- strsplit(arr[1], split = " ")[[1]] |>
+    as.integer()
+if (all(S == sort(S) & S >= 100 & S <= 675 & S %% 25 == 0)) {
     Yes |>
         cat("\n", sep = "")
 } else {
