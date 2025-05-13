@@ -19,8 +19,10 @@ int main() {
     string S;
     cin >> S;
     const int two = 2;
-    for (char c : S) {
-        cout << string (two, c);
+    REP (i, N) {
+        REP (j, two) {
+            cout << S.at (i);
+        }
     }
     cout << endl;
     return 0;
