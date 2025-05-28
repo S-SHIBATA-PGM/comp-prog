@@ -11,10 +11,8 @@ Class Main
         Dim N As Integer = Integer.Parse(Console.ReadLine())
         Const hyphen As Char = "-"c
         Const equal As Char = "="c
-        Dim cTimes As Integer = 2 - N Mod 2
-        Dim lrTimes As Integer = CType((N - cTimes) / 2, Integer)
-        Dim lr As String = StrDup(lrTimes, hyphen)
-        Dim c As String = StrDup(cTimes, equal)
+        Dim lr As String = StrDup(CType((N - 2 + N Mod 2) / 2, Integer), hyphen)
+        Dim c As String = StrDup(CType(2 - N Mod 2, Integer), equal)
         Console.WriteLine(lr & c & lr)
         Return
     End Sub
