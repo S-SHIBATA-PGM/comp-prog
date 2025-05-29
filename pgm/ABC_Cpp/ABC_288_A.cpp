@@ -14,12 +14,11 @@ using namespace std;
 using ll = int64_t;
 
 int main() {
+    cin.tie (0);
+    ios::sync_with_stdio (false);
+    cin.ignore (numeric_limits<streamsize>::max(), '\n');
     int A, B;
-    string line;
-    getline (cin, line);
-    while (getline (cin, line)) {
-        stringstream ss (line);
-        ss >> A >> B;
+    while (cin >> A >> B) {
         cout << A + B << endl;
     }
     return 0;
