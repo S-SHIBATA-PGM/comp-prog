@@ -6,3 +6,4 @@ $i = $R - 1
     $i++
 }
 Write-Host $A
+exit 0
