@@ -8,7 +8,7 @@ Imports System.Text.RegularExpressions
 
 Class Main
     Public Shared Sub Main()
-        Dim N As String = Console.readLine()
+        Dim N As String = Console.ReadLine()
         Console.WriteLine(
             Regex.Replace(N, "[^2]+", ""))
         Return
