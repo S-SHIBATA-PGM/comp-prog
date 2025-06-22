@@ -76,6 +76,8 @@ void get_day_of_week_by_code() {
         // strftime:
         // timeptrポインタが指す日付時間情報をformatポインタが指す書式に編集した
         // 結果の文字列をsで指定されたポインタが指す領域に格納する。
+        // int charsize = sizeof "YYYY/mm/dd(xxx)HH:MM:SS";
+        // char local_str[charsize];
         // strftime (local_str, charsize, "%Y/%m/%d(%A)%H:%M:%S", timeinfo);
 
         // 変換指定子 [%u]
@@ -86,7 +88,7 @@ void get_day_of_week_by_code() {
         int charsize_u = sizeof "x";
         char local_str_u[charsize_u];
         strftime (local_str_u, charsize_u, "%u", timeinfo);
-        // cout << "ロケールの簡略化されていない曜日の名前: " << local_str_u
+        // cout << "暦週の中の日の序数を表す10進数: " << local_str_u
         //      << endl;
 
         // 変換指定子 [%A]
