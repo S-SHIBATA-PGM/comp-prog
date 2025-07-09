@@ -34,7 +34,7 @@ int main() {
     chrono::hh_mm_ss<chrono::seconds> time =
         chrono::hh_mm_ss<chrono::seconds> (duration);
 
-    // std::tm 構造体に変換
+    // tm 構造体に変換
     // count() は chrono::duration の値を整数として取り出す関数
     tm tm {};
     tm.tm_hour = static_cast<int> (time.hours().count());
