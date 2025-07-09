@@ -49,7 +49,6 @@ int main() {
     // hh:mm (max 5 char)
     int charsize_R = sizeof "hh:mm";
     char local_str_R[charsize_R];
-    // strftime (local_str_R, charsize_R, "%R", &tm);
     strftime (local_str_R, charsize_R, "%R", &tm);
 
     cout << local_str_R << endl;
