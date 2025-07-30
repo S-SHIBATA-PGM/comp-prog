@@ -2,7 +2,7 @@
 ' Imports System.Collections.Generic
 ' Imports System.Globalization
 ' Imports System.IO
-Imports System.Linq
+' Imports System.Linq
 ' Imports System.Text
 ' Imports System.Text.RegularExpressions
 
@@ -21,7 +21,14 @@ Class Main
         Dim X As Integer = Integer.Parse(arr(two))
         A.Insert(K, X)
         Console.WriteLine(
-            String.Join(space, A.Select(Function(i As Integer) i.ToString())))
+            String.Join(
+                space,
+                Array.ConvertAll(
+                    A.ToArray(),
+                    Function(i As Integer) i.ToString()
+                )
+            )
+        )
         Return
     End Sub
 End Class
