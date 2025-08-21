@@ -1,0 +1,27 @@
+import java.io.*;
+// import java.math.*;
+// import java.util.*;
+// import java.util.Map.*;
+// import java.util.stream.*;
+
+public class Main {
+    public static void main (String[] args) throws Exception {
+        BufferedReader reader =
+            new BufferedReader (new InputStreamReader (System.in));
+        final String[] arr = reader.readLine().split (" ");
+        final int one = 1;
+        final int two = 2;
+        final int zero = 0;
+        final String Takahashi = "Takahashi";
+        final String Aoki = "Aoki";
+        final int A = Integer.parseInt (arr[zero]);
+        final int B = Integer.parseInt (arr[one]);
+        final int C = Integer.parseInt (arr[two]);
+        if (C == zero) {
+            System.out.println (A <= B ? Aoki : Takahashi);
+        } else {
+            System.out.println (B <= A ? Takahashi : Aoki);
+        }
+        return;
+    }
+}
