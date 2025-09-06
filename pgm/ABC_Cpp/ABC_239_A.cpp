@@ -31,4 +31,5 @@ int main() {
     char text[size];
     snprintf (text, std::size (text), fmt.c_str(), value);
     cout << text << endl;
+    return 0;
 }
