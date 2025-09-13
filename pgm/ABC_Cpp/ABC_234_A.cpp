@@ -13,8 +13,8 @@
 using namespace std;
 using ll = int64_t;
 
-double f (double x) {
-    return (pow (x, 2) + 2 * x + 3);
+double f (int x) {
+    return pow (x, 2) + 2 * x + 3;
 }
 
 int main() {
