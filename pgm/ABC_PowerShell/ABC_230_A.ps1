@@ -14,4 +14,4 @@ if ($N -ge $missing) {
 }
 $fmt = $braceL + $zero + $colon + $d + $digit.ToString() + $braceR
 Write-Host([String]::Concat($AGC, $fmt -f $value))
-exit 
+exit 0
