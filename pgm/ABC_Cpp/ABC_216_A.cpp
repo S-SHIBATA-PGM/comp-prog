@@ -27,7 +27,7 @@ int main() {
     long unsigned int l = str.length(), sl = dot.length();
     long unsigned int pos = 0, prev = 0;
     vector<string> arr;
-    for (; pos < l && (pos = (int)str.find (dot, pos)) != string::npos;
+    for (; pos < l && (pos = str.find (dot, pos)) != string::npos;
          prev = (pos += sl)) {
         arr.emplace_back (str, prev, pos - prev);
     }
