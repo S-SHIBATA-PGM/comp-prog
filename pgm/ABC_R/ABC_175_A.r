@@ -10,7 +10,7 @@ num <- zero
 ans <- zero
 for (c in S) {
     if (c == RAINY) {
-        num = num + one
+        num <- num + one
     } else {
         ans <- max(ans, num)
         num <- zero
