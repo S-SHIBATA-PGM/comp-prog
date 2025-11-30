@@ -16,9 +16,9 @@ Class Main
         Dim max As Integer = P.Max()
         Dim cnt As Integer = P.Count(Function(a) a = max)
         If P(zero) <> max OrElse (P(zero) = max AndAlso cnt > one) Then
-          Console.WriteLine(max - P(zero) + one)
+            Console.WriteLine(max - P(zero) + one)
         Else
-          Console.WriteLine(zero)
+            Console.WriteLine(zero)
         End If
         Return
     End Sub
