@@ -23,9 +23,9 @@ N(two, zero) = seven
 N(two, one) = eight
 N(two, two) = nine
 ' 右、左
-Const drn As Integer = two - one
-Dim dy(drn) As Integer
-Dim dx(drn) As Integer
+Const drn As Integer = two
+Dim dy(drn - one) As Integer
+Dim dx(drn - one) As Integer
 dy(zero) = zero
 dy(one) = zero
 dx(zero) = one
