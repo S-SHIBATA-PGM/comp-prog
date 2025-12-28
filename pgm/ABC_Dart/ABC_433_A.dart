@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  var [int X, int Y, int Z] = stdin
+  final [int X, int Y, int Z] = stdin
       .readLineSync()!
       .split(" ")
       .map(int.parse)
