@@ -8,8 +8,7 @@ one <- 1
 zero <- 0
 blank <- ""
 N <- arr[one]
-if (regexpr(seven, N) |>
-        as.integer() > zero) {
+if (grepl(pattern = seven, x = N)) {
     Yes |>
         cat("\n", sep = blank)
 } else {
