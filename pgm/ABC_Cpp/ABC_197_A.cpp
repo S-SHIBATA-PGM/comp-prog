@@ -18,6 +18,6 @@ int main() {
     cin >> S;
     const int one = 1;
     const int zero = 0;
-    cout << S.substr (one).append (S.substr (zero, one)) << endl;
+    cout << S.substr (one).append ({S[zero]}) << endl;
     return 0;
 }
