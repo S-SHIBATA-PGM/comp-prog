@@ -18,6 +18,7 @@ int main() {
     cin >> M >> H;
     const string Yes = "Yes";
     const string No = "No";
-    cout << (H % M == 0 ? Yes : No) << endl;
+    const int zero = 0;
+    cout << (H % M == zero ? Yes : No) << endl;
     return 0;
 }
