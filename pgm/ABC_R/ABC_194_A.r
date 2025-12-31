@@ -10,8 +10,8 @@ one <- 1
 two <- 2
 three <- 3
 four <- 4
-space <- " "
 blank <- ""
+space <- " "
 A <- strsplit(arr[one], split = space)[[one]][one] |>
     as.integer()
 B <- strsplit(arr[one], split = space)[[one]][two] |>
