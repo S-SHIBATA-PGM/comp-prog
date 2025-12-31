@@ -10,9 +10,10 @@ one <- 1
 two <- 2
 three <- 3
 four <- 4
-A <- strsplit(arr[one], split = " ")[[one]][one] |>
+space <- " "
+A <- strsplit(arr[one], split = space)[[one]][one] |>
     as.integer()
-B <- strsplit(arr[one], split = " ")[[one]][two] |>
+B <- strsplit(arr[one], split = space)[[one]][two] |>
     as.integer()
 AB <- A + B
 if (solid15 <= AB && fat8 <= B) {
