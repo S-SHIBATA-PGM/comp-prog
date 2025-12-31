@@ -18,6 +18,7 @@ int main() {
     cin >> A >> B;
     const int solid15 = 15;
     const int solid10 = 10;
+    const int solid3 = 3;
     const int fat8 = 8;
     const int fat3 = 3;
     const int one = 1;
@@ -29,7 +30,7 @@ int main() {
         cout << one << endl;
     } else if (solid10 <= AB && fat3 <= B) {
         cout << two << endl;
-    } else if (fat3 <= AB) {
+    } else if (solid3 <= AB) {
         cout << three << endl;
     } else {
         cout << four << endl;
