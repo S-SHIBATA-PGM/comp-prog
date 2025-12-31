@@ -11,6 +11,7 @@ two <- 2
 three <- 3
 four <- 4
 space <- " "
+blank <- ""
 A <- strsplit(arr[one], split = space)[[one]][one] |>
     as.integer()
 B <- strsplit(arr[one], split = space)[[one]][two] |>
@@ -18,15 +19,15 @@ B <- strsplit(arr[one], split = space)[[one]][two] |>
 AB <- A + B
 if (solid15 <= AB && fat8 <= B) {
     one |>
-        cat("\n", sep = "")
+        cat("\n", sep = blank)
 } else if (solid10 <= AB && fat3 <= B) {
     two |>
-        cat("\n", sep = "")
+        cat("\n", sep = blank)
 } else if (solid3 <= AB) {
     three |>
-        cat("\n", sep = "")
+        cat("\n", sep = blank)
 } else {
     four |>
-        cat("\n", sep = "")
+        cat("\n", sep = blank)
 }
 q("no")
