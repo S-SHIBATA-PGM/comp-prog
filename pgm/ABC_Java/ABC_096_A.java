@@ -13,7 +13,7 @@ public class Main {
         final int zero = 0;
         final int a = Integer.parseInt (arr[zero]);
         final int b = Integer.parseInt (arr[one]);
-        System.out.println (a <= b ? a : a - 1);
+        System.out.println (a <= b ? a : a - one);
         System.exit (0);
     }
 }
