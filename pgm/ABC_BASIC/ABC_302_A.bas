@@ -1,4 +1,4 @@
-#include "crt/math.bi"
+'#include "crt/math.bi"
 
 '#define min(a, b) iif((a) < (b), (a), (b))
 '#define max(a, b) iif((a) > (b), (a), (b))
