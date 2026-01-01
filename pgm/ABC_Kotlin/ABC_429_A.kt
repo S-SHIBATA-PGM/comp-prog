@@ -7,7 +7,7 @@ const val space: String = " "
 
 fun main() {
     val (N: Int, M: Int) = readln().split(space).map { it.toInt() }
-    for (i in zero until N) {
+    for (i: Int in zero until N) {
         if (i < M) {
             println(OK)
         } else {
