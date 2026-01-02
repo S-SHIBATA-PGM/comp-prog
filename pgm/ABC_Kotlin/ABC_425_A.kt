@@ -1,9 +1,9 @@
 import kotlin.math.*
 
-const val zero: Int = 0
 const val one: Int = 1
 const val three: Int = 3
 const val oneMinus: Int = -1
+const val zero: Int = 0
 
 fun main() {
     val N: Int = readln().toInt()
