@@ -10,8 +10,8 @@ void main() {
   }
   final (int X, String Y) = ((arr) =>
       (int.parse(arr[0]), arr[1]))(stdin.readLineSync()!.split(' '));
-  const String Yes = "Yes";
-  const String No = "No";
+  const String Yes = 'Yes';
+  const String No = 'No';
   const int one = 1;
   if (S[X - one] == Y) {
     print(Yes);
