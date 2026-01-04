@@ -12,7 +12,7 @@ fun main() {
     for (i: Int in zero until N) {
         S.add(readln())
     }
-    val (X: Int, Y: String) = { arr: List<String> -> arr[0].toInt() to arr[1] }(readln().split(space))
+    val (X: Int, Y: String) = { arr: List<String> -> arr[zero].toInt() to arr[one] }(readln().split(space))
     if (S[X - one] == Y) {
         println(Yes)
     } else {
