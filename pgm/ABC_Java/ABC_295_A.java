@@ -19,14 +19,10 @@ public class Main {
         final String Yes = "Yes";
         final String No = "No";
         String[] keyword = new String[] {and, not, that, the, you};
-        System.out.println (
-            Arrays.stream (W).anyMatch (
-                w
-                -> keyword[0].equals (w) || keyword[1].equals (w) ||
-                       keyword[2].equals (w) || keyword[3].equals (w) ||
-                       keyword[4].equals (w))
-                ? Yes
-                : No);
+        System.out.println (Arrays.stream (W).anyMatch (
+                                w -> Arrays.asList (keyword).contains (w))
+                                ? Yes
+                                : No);
         return;
     }
 }
