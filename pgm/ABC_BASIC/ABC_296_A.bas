@@ -14,7 +14,7 @@ Const Yes As String = "Yes"
 Const No As String = "No"
 Const zero As Integer = 0
 If InStr(S, M & M) = zero AndAlso InStr(S, F & F) = zero Then
-    Print "Yes"
+    Print Yes
 Else
-    Print "No"
+    Print No
 End If
