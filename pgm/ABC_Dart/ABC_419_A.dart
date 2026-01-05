@@ -1,4 +1,4 @@
-// import 'dart:collection';
+import 'dart:collection';
 import 'dart:io';
 // import 'dart:math';
 
@@ -11,11 +11,9 @@ void main() {
   final String FFF = 'FFF';
   final String MMM = 'MMM';
   final String Unknown = 'Unknown';
-  final Map<String, String> Language = Map.unmodifiable({
-    red: SSS,
-    blue: FFF,
-    green: MMM,
-  });
+  final Map<String, String> Language = Map.unmodifiable(
+    HashMap<String, String>.from({red: SSS, blue: FFF, green: MMM}),
+  );
   print(Language.containsKey(S) ? Language[S] : Unknown);
   exit(0);
 }
