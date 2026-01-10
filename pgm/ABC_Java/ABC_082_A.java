@@ -11,7 +11,7 @@ public class Main {
             new BufferedReader (new InputStreamReader (System.in));
         final String[] arr = reader.readLine().split (" ");
         final int one = 1;
-        final double two = 2d;
+        final double two = 2D;
         final int zero = 0;
         final double a = Double.parseDouble (arr[zero]);
         final double b = Double.parseDouble (arr[one]);
