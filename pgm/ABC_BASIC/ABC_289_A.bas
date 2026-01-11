@@ -6,8 +6,8 @@
 
 Dim As String s
 Input s
-Const one As Integer = 1
-Const zero As Integer = 0
+Const one As Integer = 1&
+Const zero As Integer = 0&
 For i As Integer = zero To Len(s) - one
     s[i] = s[i] Xor one
 Next
