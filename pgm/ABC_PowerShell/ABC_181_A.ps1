@@ -1,8 +1,8 @@
 $N = [int][Console]::ReadLine()
 Set-Variable -Name "White" -Value "White" -Option Constant
 Set-Variable -Name "Black" -Value "Black" -Option Constant
-Set-Variable -Name "two" -Value 2 -Option Constant
-Set-Variable -Name "zero" -Value 0 -Option Constant
+Set-Variable -Name "two" -Value 2U -Option Constant
+Set-Variable -Name "zero" -Value 0U -Option Constant
 if ($N % $two -eq $zero) {
     Write-Host $White
 }
