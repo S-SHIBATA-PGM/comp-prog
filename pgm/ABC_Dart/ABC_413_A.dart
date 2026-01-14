@@ -3,7 +3,7 @@ import 'dart:io';
 // import 'dart:math';
 
 void main() {
-  final [int N, int M] = stdin
+  final [int _, int M] = stdin
       .readLineSync()!
       .split(' ')
       .map(int.parse)
