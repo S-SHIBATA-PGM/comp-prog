@@ -7,8 +7,8 @@ const val No: String = "No"
 const val space: String = " "
 
 fun main() {
-    val (N: Int, M: Int) = readln().split(space).map { it.toInt() }
-    var A: List<Int> = readln().split(space).map { it.toInt() }
+    val (_: Int, M: Int) = readln().split(space).map { it.toInt() }
+    val A: List<Int> = readln().split(space).map { it.toInt() }
     if (A.sum() <= M) {
         println(Yes)
     } else {
