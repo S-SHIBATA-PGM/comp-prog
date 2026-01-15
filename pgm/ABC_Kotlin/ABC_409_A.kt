@@ -5,7 +5,6 @@
 const val circle: String = "o"
 const val Yes: String = "Yes"
 const val No: String = "No"
-const val blank: String = ""
 const val zero: Int = 0
 
 fun main() {
