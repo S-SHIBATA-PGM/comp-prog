@@ -9,7 +9,7 @@ Input N
 Const one As Integer = 1&
 Const zero As Integer = 0&
 Const blank As String = ""
-Dim As String ln
+Dim As String ln = blank
 Input ln
 Dim X(N - one) As String
 Dim i As Integer = zero
