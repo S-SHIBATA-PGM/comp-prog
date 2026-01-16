@@ -15,3 +15,4 @@ If a * two = b OrElse a * two + one = b Then
 Else
     Print No
 EndIf
+End 0
