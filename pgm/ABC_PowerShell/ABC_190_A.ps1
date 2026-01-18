@@ -1,5 +1,5 @@
 $A, $B, $C = [int[]][Console]::ReadLine().Split()
-Set-Variable -Name zero -Value 0U -Option Constant
+Set-Variable -Name zero -Value ([uint32]0) -Option Constant
 Set-Variable -Name Takahashi -Value "Takahashi" -Option Constant
 Set-Variable -Name Aoki -Value "Aoki" -Option Constant
 if ($C -eq $zero) {
