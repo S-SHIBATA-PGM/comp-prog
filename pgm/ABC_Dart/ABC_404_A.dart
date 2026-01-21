@@ -9,7 +9,7 @@ void main() {
   for (int i = a; i <= z; i++) {
     if (!S.codeUnits.contains(i)) {
       print(String.fromCharCode(i));
-      return;
+      break;
     }
   }
   exit(0);
