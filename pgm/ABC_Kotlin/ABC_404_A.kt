@@ -6,7 +6,7 @@ const val a: Char = 'a'
 const val z: Char = 'z'
 
 fun main() {
-    val S = readln()
+    val S: String = readln()
     for (c in a..z) {
         if (c !in S) {
             println(c)
