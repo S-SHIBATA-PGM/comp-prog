@@ -8,10 +8,6 @@ void main() {
   final int twoHundredNinetyNine = 299;
   final String Success = "Success";
   final String Failure = "Failure";
-  if (twoHundred <= S && S <= twoHundredNinetyNine) {
-    print(Success);
-  } else {
-    print(Failure);
-  }
+  print(twoHundred <= S && S <= twoHundredNinetyNine ? Success : Failure);
   exit(0);
 }
