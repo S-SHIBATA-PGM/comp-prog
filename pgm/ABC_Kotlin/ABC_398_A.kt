@@ -2,8 +2,8 @@
 
 // import kotlin.math.*
 
-const val hyphen = "-"
-const val equal = "="
+const val hyphen: String = "-"
+const val equal: String = "="
 
 fun main() {
     val N: Int = readln().toInt()
