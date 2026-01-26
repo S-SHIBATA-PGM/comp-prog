@@ -7,4 +7,5 @@ void main() {
   final String S = stdin.readLineSync()!;
   final String T = stdin.readLineSync()!;
   print(Iterable<int>.generate(S.length).where((i) => S[i] != T[i]).length);
+  exit(0);
 }
