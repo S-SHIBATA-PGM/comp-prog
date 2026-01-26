@@ -8,4 +8,5 @@ void main() {
   final int no = -1;
   final int zero = 0;
   print(fourHundred % A == zero ? fourHundred ~/ A : no);
+  exit(0);
 }
