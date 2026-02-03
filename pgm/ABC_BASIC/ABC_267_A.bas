@@ -1,5 +1,10 @@
 #include "crt.bi"
-#include "vbcompat.bi"
+' #include once "crt/math.bi"
+' #include once "pcre.bi"
+#include once "vbcompat.bi"
+
+' #define Min(a, b) IIf((a) < (b), (a), (b))
+' #define Max(a, b) IIf((a) > (b), (a), (b))
 
 Const SaturdayName As String = "Saturday"
 Const A As String = "%A"
