@@ -3,7 +3,7 @@ import 'dart:io';
 // import 'dart:math';
 
 void main() {
-  final List<int> A = stdin.readLineSync()!.split(" ").map(int.parse).toList();
+  final List<int> A = stdin.readLineSync()!.split(' ').map(int.parse).toList();
   A.sort();
   const String Yes = 'Yes';
   const String No = 'No';
