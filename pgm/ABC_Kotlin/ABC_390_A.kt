@@ -17,7 +17,7 @@ fun main() {
         val keep = list[i]
         list[i] = list[i + one]
         list[i + one] = keep
-        if (list.zipWithNext().all { it.first <= it.second }) {
+        if (list.zipWithNext().all { it.first < it.second }) {
             println(Yes)
         } else {
             println(No)
