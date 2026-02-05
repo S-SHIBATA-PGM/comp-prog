@@ -7,3 +7,4 @@ if ($N -ge $ten) {
 else {
     Write-Host ($R + $hundred * ($ten - $N))
 }
+exit 0
