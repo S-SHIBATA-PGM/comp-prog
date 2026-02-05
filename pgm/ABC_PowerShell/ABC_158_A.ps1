@@ -8,3 +8,4 @@ if (($S.ToCharArray() | Select-Object -Unique).Count -eq $one) {
 else {
     Write-Host $Yes
 }
+exit 0
