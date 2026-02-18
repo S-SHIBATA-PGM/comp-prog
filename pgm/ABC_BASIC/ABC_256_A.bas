@@ -8,5 +8,6 @@
 
 Dim As Integer N
 Input N
-Print Str(2 ^ N)
+Const two As Integer = 2&
+Print Str(two ^ N)
 End 0
