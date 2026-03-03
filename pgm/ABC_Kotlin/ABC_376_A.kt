@@ -7,7 +7,7 @@ const val zero: Int = 0
 const val space: String = " "
 
 fun main() {
-    val (N: Int, C: Int) = readln().split(space).map { it.toInt() }
+    val (_: Int, C: Int) = readln().split(space).map { it.toInt() }
     val T: List<Int> = readln().split(space).map { it.toInt() }
     var pre:Int = -C
     var Candy:Int = zero
