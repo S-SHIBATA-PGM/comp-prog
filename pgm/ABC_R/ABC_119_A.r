@@ -4,7 +4,7 @@ close(con)
 boundary_date <- "2019/04/30"
 Heisei <- "Heisei"
 TBD <- "TBD"
-one <- 1
+one <- 1L
 blank <- ""
 S <- arr[one]
 if (S <= boundary_date) {
