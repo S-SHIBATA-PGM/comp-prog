@@ -1,10 +1,10 @@
 con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
-one <- 1
-twenty_third <- 23
-twenty_fourth <- 24
-twenty_fifth <- 25
+one <- 1L
+twenty_third <- 23L
+twenty_fourth <- 24L
+twenty_fifth <- 25L
 christmas <- "Christmas"
 christmas_eve <- "Christmas Eve"
 christmas_eve_eve <- "Christmas Eve Eve"
