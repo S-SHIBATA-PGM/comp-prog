@@ -18,7 +18,7 @@ int main() {
     cin >> a >> b >> c >> d;
     const string Yes = "Yes";
     const string No = "No";
-    auto diff = [] (int x, int y) { return max (x, y) - min (x, y); };
+    auto diff = [] (int x, int y) { return abs (x - y); };
     cout << (diff (a, c) <= d || (diff (a, b) <= d && diff (b, c) <= d) ? Yes
                                                                         : No)
          << endl;
