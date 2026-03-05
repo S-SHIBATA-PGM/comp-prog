@@ -1,8 +1,8 @@
 con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
-one <- 1
-two <- 2
+one <- 1L
+two <- 2L
 space <- " "
 blank <- ""
 H <- strsplit(arr[one], split = space)[[one]][one] |>
