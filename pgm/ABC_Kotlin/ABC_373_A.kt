@@ -6,7 +6,7 @@ const val one: Int = 1
 const val zero: Int = 0
 
 fun main() {
-    var line: String? = null
+    var line: String?
     var i: Int = one
     var cnt: Int = zero
     while (readlnOrNull().also { line = it } != null) {
