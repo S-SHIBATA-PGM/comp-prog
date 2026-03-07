@@ -10,7 +10,7 @@ fun main() {
     if (readln().endsWith(san)) {
         println(Yes)
     } else {
-       println(No)
+        println(No)
     }
     kotlin.system.exitProcess(0)
 }
