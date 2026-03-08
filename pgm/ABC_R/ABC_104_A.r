@@ -4,6 +4,7 @@ close(con)
 ABC <- "ABC"
 ARC <- "ARC"
 AGC <- "AGC"
+contest <- "contest"
 blank <- ""
 one_thousand_two_hundred <- 1200L
 two_thousand_eight_hundred <- 2800L
@@ -16,8 +17,8 @@ Rating <- data.frame(
     contest = c(ABC, ARC),
     stringsAsFactors = FALSE
 )
-if (nrow(Rating[Rating$threshold > R, ]) > zero) {
-    Rating[Rating$threshold > R, ]$contest[one] |>
+if (length(Rating[Rating$threshold > R, contest]) > zero) {
+    Rating[Rating$threshold > R, contest][one] |>
         cat("\n", sep = blank)
 } else {
     AGC |>
