@@ -8,3 +8,4 @@ Write-Host (
         Where-Object { $S[$_] -ceq $T[$_] }
     ).Count
 )
+exit 0
