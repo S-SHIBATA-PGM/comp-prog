@@ -24,7 +24,7 @@ For i As Integer = zero To Len(S) - one
         Exit For
     ElseIf i + cZero = cEight Then
         Print Chr(one + cEight)
-        End 0
+        Exit For
     End If
 Next
 End 0
