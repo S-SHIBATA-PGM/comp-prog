@@ -1,7 +1,3 @@
-// import java.time.*
-
-// import kotlin.math.*
-
 const val GT: String = ">"
 const val A: String = "A"
 const val B: String = "B"
@@ -34,4 +30,5 @@ fun main() {
     rankABC(S[one], A, C, abc)
     rankABC(S[two], B, C, abc)
     println(abc[one])
+    kotlin.system.exitProcess(0)
 }
