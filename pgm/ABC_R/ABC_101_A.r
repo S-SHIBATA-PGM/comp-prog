@@ -9,9 +9,9 @@ S <- arr[one]
 cnt <- zero
 for (i in one:nchar(S)) {
     if (substr(S, start = i, stop = i) == plus) {
-        cnt = cnt + one
+        cnt <- cnt + one
     } else {
-        cnt = cnt - one
+        cnt <- cnt - one
     }
 }
 cnt |>
