@@ -18,7 +18,6 @@ int main() {
     cin >> A >> B;
     const string Yay = "Yay!";
     const string no = ":(";
-    const char plus = '+';
     const int eight = 8;
     cout << (A <= eight && B <= eight ? Yay : no) << endl;
     return 0;
