@@ -6,9 +6,9 @@
 ' #define Min(a, b) IIf((a) < (b), (a), (b))
 ' #define Max(a, b) IIf((a) > (b), (a), (b))
 
-Const ten As Integer = 10&
+Const nine As Integer = 9&
 Const zero As Integer = 0&
-Dim As Integer a(ten)
+Dim As Integer a(nine)
 For i As Integer = LBound(a) To UBound(a)
     Input a(i)
 Next
