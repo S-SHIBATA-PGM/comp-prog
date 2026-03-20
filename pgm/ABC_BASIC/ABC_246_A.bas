@@ -6,10 +6,10 @@
 ' #define Min(a, b) IIf((a) < (b), (a), (b))
 ' #define Max(a, b) IIf((a) > (b), (a), (b))
 
-Const one As Integer = 1
-Const two As Integer = 2
-Const three As Integer = 3
-Const zero As Integer = 0
+Const one As Integer = 1&
+Const two As Integer = 2&
+Const three As Integer = 3&
+Const zero As Integer = 0&
 Dim As Integer x(three), y(three)
 For i As Integer = LBound(x) To UBound(x)
     Input x(i), y(i)
