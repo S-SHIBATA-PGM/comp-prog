@@ -20,7 +20,7 @@ Class Main
             Console.WriteLine(year)
         ElseIf Y Mod four = zero AndAlso Y Mod hundred <> zero Then
             Console.WriteLine(leapYear)
-        ElseIf Y Mod Hundred = zero AndAlso Y Mod fourHundred <> zero Then
+        ElseIf Y Mod hundred = zero AndAlso Y Mod fourHundred <> zero Then
             Console.WriteLine(year)
         Else
             Console.WriteLine(leapYear)
