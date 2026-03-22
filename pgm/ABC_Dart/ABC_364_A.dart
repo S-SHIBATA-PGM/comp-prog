@@ -10,22 +10,18 @@ void main() {
   const String sweet = "sweet";
   const String blank = "";
   const int one = 1;
+  const int two = 2;
   const int zero = 0;
   final List<String> S = List<String>.filled(N, blank, growable: false);
   for (int i = zero; i < N; i++) {
     S[i] = stdin.readLineSync()!;
   }
-  int cnt = zero;
-  for (int i = zero; i < S.length; i++) {
-    if (i != N - one && cnt == one && S[i] == sweet) {
-      print(No);
-      exit(0);
-    } else if (S[i] == sweet) {
-      cnt++;
-    } else {
-      cnt = zero;
-    }
+  if (Iterable<int>.generate(N - two).any((i) {
+    return S[i] == sweet && S[i + one] == sweet;
+  })) {
+    print(No);
+  } else {
+    print(Yes);
   }
-  print(Yes);
   exit(0);
 }
