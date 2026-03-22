@@ -19,7 +19,7 @@ fun main() {
     for (i in zero until S.size) {
         if (i != N - 1 && cnt == one && S[i] == sweet) {
             println(No)
-            return
+            kotlin.system.exitProcess(0)
         } else if (S[i] == sweet) {
             cnt++
         } else {
