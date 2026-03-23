@@ -18,6 +18,6 @@ int main() {
     cin >> S;
     const string year2017 = "2017";
     const string year2018 = "2018";
-    cout << S.replace (S.find (year2017), year2017.length(), year2018) << endl;
+    cout << S.replace (S.find (year2017), year2017.size(), year2018) << endl;
     return 0;
 }
