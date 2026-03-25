@@ -31,8 +31,8 @@ class FastScanner {
   int nextInt() {
     int res = zero;
     int byte = stdin.readByteSync();
-    // 数字以外 (空白、改行など) をスキップ
     while (byte != -one && byte < codeZero) {
+      // 数字以外 (空白、改行など) をスキップ
       byte = stdin.readByteSync();
     }
     if (byte == -one) {
