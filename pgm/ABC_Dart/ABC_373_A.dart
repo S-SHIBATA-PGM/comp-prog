@@ -9,8 +9,8 @@ void main() {
   int i = one;
   int cnt = zero;
   while ((line = stdin.readLineSync()) != null) {
-    String s = line!;
-    if (s.length == i) {
+    String S = line!;
+    if (S.length == i) {
       cnt++;
     }
     i++;
