@@ -11,7 +11,7 @@ const val space: String = " "
 const val zero: Int = 0
 
 fun main() {
-    val (N: Int, M: Int) = readln().split(space).map { it.toInt() }
+    val (_: Int, M: Int) = readln().split(space).map { it.toInt() }
     val H: IntArray = readln().split(space).map { it.toInt() }.toIntArray()
     var cnt: Int = zero
     var sum: Int = zero
