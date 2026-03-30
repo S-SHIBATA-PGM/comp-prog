@@ -8,11 +8,12 @@
 // import kotlin.math.*
 
 const val space: String = " "
+const val one: Int = 1
 
 fun main() {
     val (N: Int, L: Int, R: Int) = readln().split(space).map { it.toInt() }
-    val A: IntArray = IntArray(N) { i: Int -> i + 1 }
-    A.reverse(L - 1, R)
+    val A: IntArray = IntArray(N) { i: Int -> i + one }
+    A.reverse(L - one, R)
     println(A.joinToString(space))
     kotlin.system.exitProcess(0)
 }
