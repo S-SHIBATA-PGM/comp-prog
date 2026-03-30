@@ -22,7 +22,7 @@ void reverseArray(Int32List arr, int start, int end) {
   int i = start;
   int j = end - one;
   while (i < j) {
-    final keep = arr[i];
+    final int keep = arr[i];
     arr[i] = arr[j];
     arr[j] = keep;
     i++;
