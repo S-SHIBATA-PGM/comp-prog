@@ -8,3 +8,4 @@ if ($S -cle $boundaryDate) {
 else {
     Write-Host $TBD
 }
+exit 0
