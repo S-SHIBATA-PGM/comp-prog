@@ -12,6 +12,7 @@ public class Main {
         final int A = Integer.parseInt (reader.readLine());
         final int B = Integer.parseInt (reader.readLine());
         final int C = Integer.parseInt (reader.readLine());
+        reader.close();
         final String strA = "A";
         final String strB = "B";
         final String strC = "C";
