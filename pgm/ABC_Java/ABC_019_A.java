@@ -12,10 +12,9 @@ public class Main {
         final int[] abc = Arrays.stream (reader.readLine().split (" "))
                               .mapToInt (Integer::parseInt)
                               .toArray();
-        final int one = 1;
         final int two = 2;
         Arrays.sort (abc);
-        System.out.println (abc[(abc.length + one) / two - one]);
+        System.out.println (abc[abc.length / two]);
         System.exit (0);
     }
 }
