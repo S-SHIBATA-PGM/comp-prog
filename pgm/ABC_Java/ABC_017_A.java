@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
     public static void main (String[] args) {
         Scanner sc = new Scanner (System.in);
-        double tenthsBase = 10.0D;
+        final double tenthsBase = 10.0D;
         double sum = 0;
         while (sc.hasNextInt()) {
             int s = sc.nextInt();
