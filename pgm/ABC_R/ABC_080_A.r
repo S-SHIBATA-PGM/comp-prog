@@ -12,6 +12,6 @@ A <- strsplit(arr[one], split = space)[[one]][two] |>
     as.integer()
 B <- strsplit(arr[one], split = space)[[one]][three] |>
     as.integer()
-min (A * N, B) |>
+min(A * N, B) |>
     cat("\n", sep = blank)
 q("no")
