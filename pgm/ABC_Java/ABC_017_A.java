@@ -6,10 +6,11 @@ import java.util.*;
 // import java.util.stream.*;
 
 public class Main {
-    public static void main (String[] args) {
+    public static void main (String[] args) throws Exception {
         Scanner sc = new Scanner (System.in);
         final double tenthsBase = 10.0D;
-        double sum = 0;
+        final double zero = 0D;
+        double sum = zero;
         while (sc.hasNextInt()) {
             int s = sc.nextInt();
             int e = sc.nextInt();
@@ -17,5 +18,6 @@ public class Main {
         }
         sc.close();
         System.out.println ((int)sum);
+        System.exit (0);
     }
 }
