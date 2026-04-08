@@ -15,7 +15,10 @@ void main() {
   const String space = ' ';
   const int zero = 0;
   print(
-    A.where((a) => a % K == zero).map((a) => (a ~/ K).toString()).join(space),
+    A
+        .where((int a) => a % K == zero)
+        .map((int a) => (a ~/ K).toString())
+        .join(space),
   );
   exit(0);
 }
