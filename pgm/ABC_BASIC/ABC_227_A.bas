@@ -8,7 +8,7 @@
 
 Dim As Integer N, K, A
 Input N, K, A
-Const one As Integer = 1
+Const one As Integer = 1&
 If (K + A - one) Mod N Then
     Print Str((K + A - one) Mod N)
 Else
