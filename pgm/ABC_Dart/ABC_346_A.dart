@@ -11,7 +11,7 @@ void main() {
   const String space = ' ';
   const int one = 1;
   print(
-    Iterable<int>.generate(A.length - one, (i) {
+    Iterable<int>.generate(A.length - one, (int i) {
       return A[i] * A[i + one];
     }).join(space),
   );
