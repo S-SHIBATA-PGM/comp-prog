@@ -14,7 +14,7 @@ void main() {
   const int one = 1;
   if (S.startsWith(lt) &&
       S.endsWith(gt) &&
-      S.substring(one, S.length - one).split(blank).every((c) => c == eq)) {
+      S.substring(one, S.length - one).split(blank).every((s) => s == eq)) {
     print(Yes);
   } else {
     print(No);
