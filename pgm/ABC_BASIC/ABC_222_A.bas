@@ -10,6 +10,6 @@
 Dim As Integer N
 Input N
 Const sZero As String = "0"
-Const four As Integer = 4
+Const four As Integer = 4&
 Print Format(N, String(four, sZero))
 End 0
