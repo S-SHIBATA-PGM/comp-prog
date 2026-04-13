@@ -9,3 +9,4 @@ $hash = @{
 Write-Host (
     [regex]::Replace($n, "[$sOne$sNine]", { $hash[$args[$zero].Value] })
 )
+exit 0
