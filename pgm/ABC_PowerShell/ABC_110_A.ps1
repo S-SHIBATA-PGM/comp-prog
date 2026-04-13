@@ -5,3 +5,4 @@ Set-Variable -Name "ten" -value ([int]10)
 Set-Variable -Name "zero" -value ([int]0)
 $abc = $abc | Sort-Object -Descending
 Write-Host ($ten * $abc[$zero] + $abc[$one] + $abc[$two])
+exit 0
