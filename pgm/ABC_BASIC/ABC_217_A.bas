@@ -13,8 +13,8 @@ Const Yes As String = "Yes"
 Const No As String = "No"
 Const one As Integer = 1&
 Dim As String S, T
-S = Left(str1, Instr(str1, " ") - one)
-T = Mid(str1, Instr(str1, " ") + one)
+S = Left(str1, Instr(str1, Space(one)) - one)
+T = Mid(str1, Instr(str1, Space(one)) + one)
 If S < T Then
     Print Yes
 Else
