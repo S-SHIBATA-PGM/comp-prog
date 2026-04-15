@@ -1,7 +1,7 @@
-$A, $B = [int[]][Console]::ReadLine().Split()
+$A, $B = [uint32[]][Console]::ReadLine().Split()
 Set-Variable -Name "Yes" -value ([string]"Yes")
 Set-Variable -Name "No" -value ([string]"No")
-Set-Variable -Name "two" -value ([int]2)
+Set-Variable -Name "two" -value ([uint32]2)
 if ($A * $B % $two) {
     Write-Host $Yes
 }
