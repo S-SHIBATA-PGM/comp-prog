@@ -5,14 +5,14 @@ Set-Variable -Name "AGC" -value ([string]"AGC")
 Set-Variable -Name "oneThousandTwoHundred" -value ([uint32]1200)
 Set-Variable -Name "twoThousandEightHundred" -value ([uint32]2800)
 Set-Variable -Name "one" -value ([uint32]1)
-$Rating = @(
+$rating = @(
     [PSCustomObject]@{ threshold = $oneThousandTwoHundred; contest = $ABC }
     [PSCustomObject]@{ threshold = $twoThousandEightHundred; contest = $ARC }
 )
-if ($Rating |
+if ($rating |
     Where-Object { $_.threshold -gt $R } |
     Select-Object -First $one) {
-    Write-Host ($Rating |
+    Write-Host ($rating |
         Where-Object { $_.threshold -gt $R } |
         Select-Object -First $one).contest
 }
