@@ -11,11 +11,12 @@ public class Main {
             new BufferedReader (new InputStreamReader (System.in));
         final int N = Integer.parseInt (reader.readLine());
         reader.close();
+        final int one = 1;
         final int fiveThousand = 5000;
         // (N * (1 + N)) / 2 * 10000 / N
         // (1 + N) / 2 * 10000
         // (1 + N) * 5000
-        System.out.println ((1 + N) * fiveThousand);
+        System.out.println ((one + N) * fiveThousand);
         System.exit (0);
     }
 }
