@@ -5,9 +5,9 @@ Possible <- "Possible"
 Impossible <- "Impossible"
 blank <- ""
 space <- " "
-one <- 1
-two <- 2
-three <- 3
+one <- 1L
+two <- 2L
+three <- 3L
 A <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][one] |>
     as.integer()
 B <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
