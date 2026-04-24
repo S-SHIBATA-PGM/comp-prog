@@ -3,8 +3,8 @@ arr <- readLines(con = con)
 close(con)
 blank <- ""
 space <- " "
-one <- 1
-two <- 2
+one <- 1L
+two <- 2L
 abc <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]] |>
     as.integer() |>
     sort()
