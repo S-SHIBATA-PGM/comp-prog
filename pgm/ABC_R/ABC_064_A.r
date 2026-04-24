@@ -5,8 +5,8 @@ YES <- "YES"
 NO <- "NO"
 blank <- ""
 space <- " "
-one <- 1
-four <- 4
+one <- 1L
+four <- 4L
 rgb <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]]
 if (rgb |>
         paste0(collapse = blank)  |>
