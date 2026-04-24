@@ -4,9 +4,9 @@ close(con)
 error <- "error"
 blank <- ""
 space <- " "
-one <- 1
-two <- 2
-ten <- 10
+one <- 1L
+two <- 2L
+ten <- 10L
 A <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][one] |>
     as.integer()
 B <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
