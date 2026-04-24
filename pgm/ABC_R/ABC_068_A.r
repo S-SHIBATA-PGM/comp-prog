@@ -3,7 +3,7 @@ arr <- readLines(con = con)
 close(con)
 ABC <- "ABC"
 blank <- ""
-one <- 1
+one <- 1L
 N <- arr[one]
 paste0(ABC, N) |>
     cat("\n", sep = blank)
