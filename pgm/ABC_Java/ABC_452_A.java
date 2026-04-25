@@ -11,10 +11,6 @@ public class Main {
             new BufferedReader (new InputStreamReader (System.in));
         final String[] arr = reader.readLine().split (" ");
         reader.close();
-        final int one = 1;
-        final int zero = 0;
-        final int M = Integer.parseInt (arr[zero]);
-        final int D = Integer.parseInt (arr[one]);
         final String Yes = "Yes";
         final String No = "No";
         final int M1 = 1;
@@ -26,6 +22,10 @@ public class Main {
         final int D5 = 5;
         final int D7 = 7;
         final int D9 = 9;
+        final int one = 1;
+        final int zero = 0;
+        final int M = Integer.parseInt (arr[zero]);
+        final int D = Integer.parseInt (arr[one]);
         Set<Gosekku> g = new HashSet<>();
         g.add (new Gosekku (M1, D7));
         g.add (new Gosekku (M3, D3));
