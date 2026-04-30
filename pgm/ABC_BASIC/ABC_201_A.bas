@@ -26,7 +26,7 @@ For i As Integer = LBound(A) To UBound(A)
     Next
 Next
 Dim As Boolean exitFlg = False
-For i As Integer = LBound(A) + one To UBound(A) - 1
+For i As Integer = LBound(A) + one To UBound(A) - one
     If exitFlg Then
         Exit For
     End If
