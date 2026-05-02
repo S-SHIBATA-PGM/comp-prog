@@ -8,6 +8,6 @@ two_hundred <- 200L
 eight_hundred <- 800L
 N <- arr[one] |>
   as.integer()
-(eight_hundred * N - two_hundred * floor(N / 15)) |>
+(eight_hundred * N - two_hundred * floor(N / fifteen)) |>
   cat("\n", sep = blank)
 q("no")
