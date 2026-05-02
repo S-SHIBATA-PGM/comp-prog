@@ -18,7 +18,7 @@ const val zero: Int = 0
 
 fun main() {
     readln()
-    val A = readln().split(space).map { it.toInt() }.toIntArray()
+    val A: IntArray = readln().split(space).map { it.toInt() }.toIntArray()
     if (A.all { it == A[zero] }) {
         println(Yes)
     } else {
