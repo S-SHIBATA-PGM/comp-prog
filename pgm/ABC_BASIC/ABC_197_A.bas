@@ -14,7 +14,7 @@ Const two As Integer = 2&
 Const zero As Integer = 0&
 Dim As UByte keep = S[zero]
 For i As Integer = zero To Len(S) - two
-    S[i] = S[i + 1]
+    S[i] = S[i + one]
 Next
 S[Len(S) - one] = keep
 Print S
