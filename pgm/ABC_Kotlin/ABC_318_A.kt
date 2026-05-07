@@ -1,0 +1,29 @@
+// import java.io.BufferedOutputStream
+// import java.io.BufferedReader
+// import java.io.DataInputStream
+// import java.io.FileInputStream
+// import java.io.IOException
+// import java.io.InputStreamReader
+// import java.io.PrintWriter
+// import java.lang.StringBuilder
+// import java.time.*
+// import java.util.StringTokenizer
+
+// import kotlin.math.*
+
+const val space: String = " "
+
+fun main() {
+    val (N: Int, M: Int, P: Int) = readln().split(space).map { it.toInt() }
+    var num: Int = 0
+    var day: Int = 0
+    while (day < N) {
+        day = M + num * P
+        if (day > N) {
+            break
+        }
+        num++
+    }
+    println(num)
+    kotlin.system.exitProcess(0)
+}
