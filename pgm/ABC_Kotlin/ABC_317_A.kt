@@ -15,7 +15,7 @@ const val space: String = " "
 const val one: Int = 1
 
 fun main() {
-    val (N: Int, H: Int, X: Int) = readln().split(space).map { it.toInt() }
+    val (_: Int, H: Int, X: Int) = readln().split(space).map { it.toInt() }
     val P: IntArray = readln().split(space).map { it.toInt() }.toIntArray()
     println(P.indexOfFirst { H + it >= X } + one)
     kotlin.system.exitProcess(0)
