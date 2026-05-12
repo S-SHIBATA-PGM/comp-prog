@@ -6,6 +6,7 @@
 
 #define Min(a, b) iif((a) < (b), (a), (b))
 #define Max(a, b) iif((a) > (b), (a), (b))
+
 Dim As Integer X, Y
 Input X, Y
 Const Yes As String = "Yes"
