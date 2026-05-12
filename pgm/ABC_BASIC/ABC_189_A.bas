@@ -1,8 +1,11 @@
-' #include "crt/math.bi"
+' #include once "crt.bi"
+' #include once "crt/limits.bi"
+' #include once "crt/math.bi"
 ' #include once "pcre.bi"
+' #include once "vbcompat.bi"
 
-' #define min(a, b) iif((a) < (b), (a), (b))
-' #define max(a, b) iif((a) > (b), (a), (b))
+' #define Min(a, b) iif((a) < (b), (a), (b))
+' #define Max(a, b) iif((a) > (b), (a), (b))
 
 Dim As String C
 Input C
