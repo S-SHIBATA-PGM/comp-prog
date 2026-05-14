@@ -15,7 +15,7 @@ const val space: String = " "
 const val zero: Int = 0
 
 fun main() {
-    val (N: Int, P: Int, Q: Int) = readln().split(space).map { it.toInt() }
+    val (_: Int, P: Int, Q: Int) = readln().split(space).map { it.toInt() }
     val D: IntArray = readln().split(space).map { it.toInt() }.toIntArray()
     val price: Int = Q + (D.minOrNull() ?: zero)
     println(min(P, price))
