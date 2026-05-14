@@ -4,7 +4,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 void main() {
-  final [int N, int P, int Q] = stdin
+  final [int _, int P, int Q] = stdin
       .readLineSync()!
       .split(' ')
       .map(int.parse)
