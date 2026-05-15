@@ -5,9 +5,10 @@
 
 #define FOR(i, a, b) for (int i = (a); i < (b); ++i)
 #define REP(i, n) FOR (i, 0, n)
+
 #define ALL(f, x, ...)                                                         \
     ([&] (decltype ((x)) ALL) {                                                \
-        return (f)(begin (ALL), end (ALL), ##__VA_ARGS__);                     \
+        return f (begin (ALL), end (ALL), ##__VA_ARGS__);                      \
     }) (x)
 
 using namespace std;
@@ -19,8 +20,7 @@ int main() {
     const string SAME = "SAME";
     const string DIFFERENT = "DIFFERENT";
     const int one = 1;
-    cout << (unordered_set<char> (N.begin(), N.end()).size() == one ? SAME
-                                                                    : DIFFERENT)
+    cout << (ALL (unordered_set<char>, N).size() == one ? SAME : DIFFERENT)
          << endl;
     return 0;
 }
