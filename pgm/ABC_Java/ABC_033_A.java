@@ -9,12 +9,12 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        final String S = reader.readLine();
+        final String N = reader.readLine();
         final String SAME = "SAME";
         final String DIFFERENT = "DIFFERENT";
         final int one = 1;
         System.out.println (
-            S.chars().boxed().collect (Collectors.toSet()).size() == one
+            N.chars().boxed().collect (Collectors.toSet()).size() == one
                 ? SAME
                 : DIFFERENT);
         System.exit (0);
