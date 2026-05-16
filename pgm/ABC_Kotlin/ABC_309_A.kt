@@ -49,4 +49,5 @@ fun main() {
         }
     }
     println(adjacent)
+    kotlin.system.exitProcess(0)
 }
