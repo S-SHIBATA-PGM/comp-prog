@@ -1,4 +1,4 @@
-$x = [int][Console]::ReadLine()
-Set-Variable -Name "zero" -Value 0 -Option Constant
+$x = [int32][Console]::ReadLine()
+Set-Variable -Name "zero" -Value ([int32]0) -Option Constant
 Write-Host ([Math]::Max($zero, $x))
 exit 0
