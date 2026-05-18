@@ -2,8 +2,8 @@ con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
 blank <- ""
-one <- 1
-two <- 2
+one <- 1L
+two <- 2L
 s <- arr[one]
 i <- arr[two] |>
   as.integer()
