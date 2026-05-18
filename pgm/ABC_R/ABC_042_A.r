@@ -5,9 +5,9 @@ YES <- "YES"
 NO <- "NO"
 blank <- ""
 space <- " "
-one <- 1
-go <- 5
-shichi <- 7
+one <- 1L
+go <- 5L
+shichi <- 7L
 ABC <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]]
 if (identical(sort(ABC), c(go, go, shichi) |>
       as.character())) {
