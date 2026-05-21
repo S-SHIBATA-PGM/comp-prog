@@ -9,9 +9,9 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        int[] ABC = Arrays.stream (reader.readLine().split (" "))
-                        .mapToInt (Integer::parseInt)
-                        .toArray();
+        final int[] ABC = Arrays.stream (reader.readLine().split (" "))
+                              .mapToInt (Integer::parseInt)
+                              .toArray();
         reader.close();
         System.out.println (Arrays.stream (ABC)
                                 .boxed()
