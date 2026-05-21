@@ -9,7 +9,7 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        String[] arr = reader.readLine().split (" ");
+        final String[] arr = reader.readLine().split (" ");
         reader.close();
         final String OK = "OK";
         final String too = "Too Many Requests";
