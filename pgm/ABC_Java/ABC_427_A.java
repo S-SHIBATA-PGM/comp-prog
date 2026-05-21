@@ -9,7 +9,7 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        String S = reader.readLine();
+        final String S = reader.readLine();
         reader.close();
         final int one = 1;
         final int two = 2;
