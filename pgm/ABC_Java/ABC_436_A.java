@@ -9,8 +9,8 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        int N = Integer.parseInt (reader.readLine());
-        String S = reader.readLine();
+        final int N = Integer.parseInt (reader.readLine());
+        final String S = reader.readLine();
         reader.close();
         final String o = "o";
         System.out.println (o.repeat (N - S.length()).concat (S));
