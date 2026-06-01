@@ -5,3 +5,4 @@ Write-Host ( -join (
         ForEach-Object { $_.Substring($zero, $one).ToUpper() }
     )
 )
+exit 0
