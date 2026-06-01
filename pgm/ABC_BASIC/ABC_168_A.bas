@@ -14,16 +14,16 @@ Input N
 Const hon As String = "hon"
 Const pon As String = "pon"
 Const bon As String = "bon"
-Dim one As UInteger = 1U
-Dim two As UInteger = 2U
-Dim four As UInteger = 4U
-Dim five As UInteger = 5U
-Dim six As UInteger = 6U
-Dim seven As UInteger = 7U
-Dim eight As UInteger = 8U
-Dim nine As UInteger = 9U
-Dim ten As UInteger = 10U
-Dim zero As UInteger = 0U
+Const one As UInteger = 1U
+Const two As UInteger = 2U
+Const four As UInteger = 4U
+Const five As UInteger = 5U
+Const six As UInteger = 6U
+Const seven As UInteger = 7U
+Const eight As UInteger = 8U
+Const nine As UInteger = 9U
+Const ten As UInteger = 10U
+Const zero As UInteger = 0U
 Dim As UInteger onesDigit = CUInt(N Mod ten)
 Select Case onesDigit
     Case two, four, five, seven, nine
