@@ -9,10 +9,10 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        int A = Integer.parseInt (reader.readLine());
-        int B = Integer.parseInt (reader.readLine());
+        int a = Integer.parseInt (reader.readLine());
+        int b = Integer.parseInt (reader.readLine());
         reader.close();
-        System.out.println ((B - A % B) % B);
+        System.out.println ((b - a % b) % b);
         System.exit (0);
     }
 }
