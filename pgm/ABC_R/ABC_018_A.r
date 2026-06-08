@@ -25,5 +25,5 @@ mame <- mame[sort_index <- order(-mame$point, -xtfrm(mame$abc)), ]
 mame$rank <- one:nrow(mame)
 mame <- mame[order(mame$abc), ]
 mame$rank |>
-   cat(sep = "\n")
+  cat(sep = "\n")
 q("no")
