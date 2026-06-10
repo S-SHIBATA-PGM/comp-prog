@@ -13,8 +13,8 @@ public class Main {
         reader.close();
         final int one = 1;
         final int zero = 0;
-        BigDecimal A = new BigDecimal (arr[zero]);
-        BigDecimal B = new BigDecimal (arr[one]);
+        final BigDecimal A = new BigDecimal (arr[zero]);
+        final BigDecimal B = new BigDecimal (arr[one]);
         System.out.println (A.divide (B, 0, RoundingMode.HALF_UP));
         System.exit (0);
     }
