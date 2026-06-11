@@ -17,8 +17,8 @@ public class Main {
         final int three = 3;
         final int zero = 0;
         System.out.println (
-            String.valueOf (N).indexOf (cThree) > zero || N % three == 0 ? YES
-                                                                         : NO);
+            String.valueOf (N).indexOf (cThree) >= zero || N % three == 0 ? YES
+                                                                          : NO);
         System.exit (0);
     }
 }
