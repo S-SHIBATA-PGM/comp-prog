@@ -7,7 +7,7 @@
 
 ' #define Ceil(x) (-Int(-(x)))
 ' #define Min(a, b) iif((a) < (b), (a), (b))
-' #define Max(a, b) iif((a) > (b), (a
+' #define Max(a, b) iif((a) > (b), (a), (b))
 
 Dim As String S
 Input S
