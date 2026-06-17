@@ -12,7 +12,7 @@
 
 // import kotlin.math.*
 
-const val a:String = "a"
+const val a: String = "a"
 const val one: Int = 1
 
 fun main() {
