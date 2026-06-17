@@ -17,3 +17,4 @@ if (identical(sort(ABC), c(go, go, shichi) |>
   NO |>
     cat("\n", sep = blank)
 }
+q("no")
