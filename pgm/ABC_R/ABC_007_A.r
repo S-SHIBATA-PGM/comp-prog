@@ -2,7 +2,7 @@ con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
 blank <- ""
-one <- 1
+one <- 1L
 n <- arr[one] |>
   as.integer()
 (n - one) |>
