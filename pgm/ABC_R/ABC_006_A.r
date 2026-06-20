@@ -10,10 +10,10 @@ three <- 3L
 N <- arr[one] |>
   as.integer()
 if (grepl(pattern = s_three, x = N, fixed = TRUE) || !(N %% three)) {
-  YES |> 
+  YES |>
     cat("\n", sep = blank)
 } else {
-  NO |> 
+  NO |>
     cat("\n", sep = blank)
 }
 q("no")
