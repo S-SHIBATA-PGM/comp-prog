@@ -1,8 +1,8 @@
 con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
-Yes <- "Yes";
-No <- "No";
+Yes <- "Yes"
+No <- "No"
 blank <- ""
 space <- " "
 one <- 1L
