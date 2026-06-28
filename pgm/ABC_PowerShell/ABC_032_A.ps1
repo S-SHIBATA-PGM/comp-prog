@@ -30,3 +30,4 @@ $n = [int64][Console]::ReadLine()
 Set-Variable -Name "one" -value ([int64]1) -Option Constant
 $lcm = [int64](Get-Lcm -a $a -b $b)
 Write-Host ([int64]([Math]::Truncate(($lcm + $n - $one) / $lcm) * $lcm))
+exit 0
