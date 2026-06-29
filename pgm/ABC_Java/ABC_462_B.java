@@ -28,10 +28,9 @@ public class Main {
         }
         reader.close();
         for (List<Integer> row : data) {
-            String elm =
-                row.stream()
-                    .map (String::valueOf)
-                    .collect (java.util.stream.Collectors.joining (sp));
+            String elm = row.stream()
+                             .map (String::valueOf)
+                             .collect (Collectors.joining (sp));
             System.out.println (row.isEmpty() ? sZero : row.size() + sp + elm);
         }
         System.exit (0);
