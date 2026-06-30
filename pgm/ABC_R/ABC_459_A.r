@@ -3,7 +3,6 @@ arr <- readLines(con = con)
 close(con)
 HelloWorld <- "HelloWorld"
 blank <- ""
-space <- " "
 one <- 1L
 X <- arr[one] |>
   as.integer()
