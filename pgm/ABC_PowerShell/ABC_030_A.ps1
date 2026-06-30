@@ -1,7 +1,7 @@
 $A, $B, $C, $D = [uint32[]][Console]::ReadLine().Split()
-Set-Variable -Name TAKAHASHI -value ([string]"TAKAHASHI")
-Set-Variable -Name AOKI -value ([string]"AOKI")
-Set-Variable -Name DRAW -value ([string]"DRAW")
+Set-Variable -Name TAKAHASHI -value ([string]"TAKAHASHI") -Option Constant
+Set-Variable -Name AOKI -value ([string]"AOKI") -Option Constant
+Set-Variable -Name DRAW -value ([string]"DRAW") -Option Constant
 if ($B * $C -gt $A * $D) {
     Write-Host $TAKAHASHI
 }
