@@ -16,9 +16,6 @@ import kotlin.math.*
 const val Takahashi: String = "Takahashi"
 const val Aoki: String = "Aoki"
 const val Draw: String = "Draw"
-const val space: String = " "
-const val one: Int = 1
-const val two: Int = 2
 
 fun main() {
     val scanner: Scanner = Scanner(System.`in`)
