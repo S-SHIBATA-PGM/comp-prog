@@ -6,9 +6,9 @@ using System;
 // using System.Text;
 // using System.Text.RegularExpressions
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         string[] arr = Console.ReadLine().Split();
         const string Yes = "Yes";
