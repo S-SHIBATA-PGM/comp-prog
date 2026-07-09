@@ -9,11 +9,10 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        final int N = Integer.parseInt (reader.readLine());
+        int N = Integer.parseInt (reader.readLine());
         reader.close();
         final int one = 1;
-        final int two = 2;
-        System.out.println ((one << N) - two * N);
+        System.out.println ((one << N) - (N << one));
         System.exit (0);
     }
 }
