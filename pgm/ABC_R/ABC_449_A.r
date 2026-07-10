@@ -5,8 +5,8 @@ dot <- "."
 percent <- "%"
 f <- "f"
 blank <- ""
-one <- 1
-fifteen <- 15
+one <- 1L
+fifteen <- 15L
 d_two <- 2.0
 fmt <- paste0(percent, dot, fifteen, f)
 D <- arr[one] |>
