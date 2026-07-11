@@ -13,7 +13,6 @@ void main() {
   const String T = "T";
   const String F = "F";
   const String M = "M";
-  const String space = " ";
   const int zero = 0;
   int v = V;
   String turn = T;
