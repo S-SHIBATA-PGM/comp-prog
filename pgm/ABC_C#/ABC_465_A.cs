@@ -20,6 +20,6 @@ class Program
         int A = int.Parse(arr[zero]);
         int B = int.Parse(arr[one]);
         Console.WriteLine(three * A > two * B ? Yes : No);
-        return;
+        Environment.Exit(0);
     }
 }
