@@ -14,9 +14,9 @@ M <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
   as.integer()
 if (M <= ceiling(N / two)) {
   Yes |>
-    cat("\n", sep = blank);
+    cat("\n", sep = blank)
 } else {
   No |>
-    cat("\n", sep = blank);
+    cat("\n", sep = blank)
 }
 q("no")
