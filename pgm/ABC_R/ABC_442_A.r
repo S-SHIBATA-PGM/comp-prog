@@ -8,7 +8,7 @@ pipe <- "|"
 yn <- "\n"
 one <- 1L
 zero <- 0L
-pattern = paste0(c_i, pipe, c_j)
+pattern <- paste0(c_i, pipe, c_j)
 S <- arr[one]
 pos <- gregexpr(pattern = pattern, text = S, fixed = FALSE)
 if (pos[[one]][one] == -one) {
