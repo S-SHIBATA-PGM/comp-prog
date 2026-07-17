@@ -12,7 +12,6 @@ class Program
     {
         string S = Console.ReadLine();
         int N = int.Parse(Console.ReadLine());
-        const int one = 1;
         const int two = 2;
         Console.WriteLine(S.Substring(N, S.Length - (N * two)));
         Environment.Exit(0);
