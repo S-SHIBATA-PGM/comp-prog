@@ -18,7 +18,7 @@ const val space: String = " "
 const val one: Int = 1
 
 fun main() {
-    val S: CharArray = readln().toCharArray()
+    val S: MutableList<String> = readln().map { it.toString() }.toMutableList()
     val (a: Int, b: Int) = readln().split(space).map { it.toInt() }
     val keep = S[a - one]
     S[a - one] = S[b - one]
