@@ -6,7 +6,7 @@ space <- " "
 yn <- "\n"
 one <- 1L
 two <- 2L
-seven <- 7
+seven <- 7L
 D <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][one] |>
   as.integer()
 f <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
