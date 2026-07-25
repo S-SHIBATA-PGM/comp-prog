@@ -13,7 +13,7 @@
 
 // import kotlin.math.*
 
-const val divisor: Double = 100.0;
+const val divisor: Double = 100.0
 
 fun main() {
     val D: Double = readln().toDouble()
