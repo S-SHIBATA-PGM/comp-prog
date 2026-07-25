@@ -16,6 +16,6 @@ class Program
         const string West = "West";
         long cnt = S.Count(c => c == cE);
         Console.WriteLine(cnt > S.Length - cnt ? East : West);
-        return;
+        Environment.Exit(0);
     }
 }
