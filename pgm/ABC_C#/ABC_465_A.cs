@@ -4,7 +4,7 @@ using System;
 // using System.IO;
 // using System.Linq;
 // using System.Text;
-// using System.Text.RegularExpressions
+// using System.Text.RegularExpressions;
 
 class Program
 {
@@ -20,6 +20,6 @@ class Program
         int A = int.Parse(arr[zero]);
         int B = int.Parse(arr[one]);
         Console.WriteLine(three * A > two * B ? Yes : No);
-        Environment.Exit(0);
+        return;
     }
 }
