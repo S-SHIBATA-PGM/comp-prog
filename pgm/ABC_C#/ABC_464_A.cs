@@ -4,7 +4,7 @@ using System;
 // using System.IO;
 using System.Linq;
 // using System.Text;
-// using System.Text.RegularExpressions
+// using System.Text.RegularExpressions;
 
 class Program
 {
@@ -16,6 +16,6 @@ class Program
         const string West = "West";
         long cnt = S.Count(c => c == cE);
         Console.WriteLine(cnt > S.Length - cnt ? East : West);
-        Environment.Exit(0);
+        return;
     }
 }
