@@ -24,6 +24,7 @@ int main() {
     constexpr int one = 1;
     constexpr int two = 2;
     constexpr int eight = 8;
+    constexpr int nine = 9;
     int world = S[zero] - cZero;
     int stage = S[two] - cZero;
     if (stage == eight) {
