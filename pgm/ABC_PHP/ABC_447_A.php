@@ -8,5 +8,5 @@ const space = ' ';
 const one = 1;
 const two = 2;
 [$N, $M] = array_map('intval', explode(space, trim($line)));
-echo ($M <= intdiv(($N + one), two) ? Yes : No). PHP_EOL;
+echo ($M <= intdiv($N + one, two) ? Yes : No). PHP_EOL;
 exit(0);
