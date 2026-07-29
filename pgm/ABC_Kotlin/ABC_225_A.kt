@@ -21,7 +21,7 @@ fun main() {
     val S: String = readln()
     val len: Int = S.length
     val cnt: Collection<Int> = S.groupingBy { it }.eachCount().values
-    val divisor: Long = cnt.fold(one) { accum, cnt -> accum * cnt.factorial() }
+    val divisor: Long = cnt.fold(one) { accum, i -> accum * i.factorial() }
     println(len.factorial() / divisor)
     kotlin.system.exitProcess(0)
 }
