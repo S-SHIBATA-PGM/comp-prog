@@ -22,7 +22,7 @@ int main() {
     constexpr string_view too = "Too Many Requests";
     constexpr string_view yn = "\n";
     constexpr int zero = 0;
-    for (int i = zero; i < N; i++) {
+    REP (i, N) {
         if (i < M) {
             cout << OK << yn;
         } else {
