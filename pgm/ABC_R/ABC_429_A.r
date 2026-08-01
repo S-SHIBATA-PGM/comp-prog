@@ -1,8 +1,8 @@
 con <- file(description = "stdin", open = "r")
 arr <- readLines(con = con)
 close(con)
-OK <- "OK";
-Too <- "Too Many Requests";
+OK <- "OK"
+Too <- "Too Many Requests"
 space <- " "
 yn <- "\n"
 one <- 1L
