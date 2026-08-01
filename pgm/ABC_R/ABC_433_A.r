@@ -6,10 +6,10 @@ No <- "No"
 blank <- ""
 space <- " "
 yn <- "\n"
-one <- 1
-two <- 2
-three <- 3
-zero <- 0
+one <- 1L
+two <- 2L
+three <- 3L
+zero <- 0L
 X <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][one] |>
   as.integer()
 Y <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
