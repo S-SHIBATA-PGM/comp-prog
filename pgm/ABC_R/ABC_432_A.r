@@ -4,7 +4,7 @@ close(con)
 blank <- ""
 space <- " "
 yn <- "\n"
-one <- 1
+one <- 1L
 abc <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]] |>
   as.integer() |>
   sort(decreasing = TRUE) |>

@@ -4,8 +4,8 @@ close(con)
 blank <- ""
 space <- " "
 yn <- "\n"
-one <- 1
-two <- 2
+one <- 1L
+two <- 2L
 H <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][one] |>
   as.integer()
 B <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]][two] |>
