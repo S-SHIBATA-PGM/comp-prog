@@ -13,8 +13,8 @@
 
 // import kotlin.math.*
 
-const val er: String = "er";
-const val ist: String = "ist";
+const val er: String = "er"
+const val ist: String = "ist"
 
 fun main() {
     val S: String = readln()
