@@ -5,7 +5,7 @@ blank <- ""
 space <- " "
 yn <- "\n"
 one <- 1L
-abc <- strsplit(x = arr[one], split = space, fixed = TRUE)[[one]] |>
+strsplit(x = arr[one], split = space, fixed = TRUE)[[one]] |>
   as.integer() |>
   sort(decreasing = TRUE) |>
   paste(collapse = blank) |>
