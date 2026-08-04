@@ -5,7 +5,7 @@ import 'dart:io';
 // import 'dart:typed_data';
 
 void main() {
-  var [int N, int K, int A] = stdin
+  final [int N, int K, int A] = stdin
       .readLineSync()!
       .split(' ')
       .map(int.parse)
