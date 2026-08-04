@@ -5,7 +5,11 @@ import 'dart:math';
 // import 'dart:typed_data';
 
 void main() {
-  var [int A, int B] = stdin.readLineSync()!.split(' ').map(int.parse).toList();
+  final [int A, int B] = stdin
+      .readLineSync()!
+      .split(' ')
+      .map(int.parse)
+      .toList();
   const int thirtyTwo = 32;
   print(pow(thirtyTwo, A - B));
   exit(0);
