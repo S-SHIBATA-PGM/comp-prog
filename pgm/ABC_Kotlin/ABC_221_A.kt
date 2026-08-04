@@ -17,7 +17,7 @@ const val space: String = " "
 const val thirtyTwo: Double = 32.0
 
 fun main() {
-    var (A: Double, B: Double) = readln().split(space).map { it.toDouble() }
+    val (A: Double, B: Double) = readln().split(space).map { it.toDouble() }
     println(thirtyTwo.pow(A - B).toInt())
     kotlin.system.exitProcess(0)
 }
