@@ -26,7 +26,7 @@ public class Main {
             if (deq.isEmpty()) {
                 tall[i] = -one;
             } else {
-                tall[i] = deq.peek() + 1; // 1-indexed に変換
+                tall[i] = deq.peek() + 1;
             }
             deq.push (i);
             out.println (tall[i]);
