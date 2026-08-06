@@ -6,7 +6,7 @@ import 'dart:io';
 
 void main() {
   final int X = int.parse(stdin.readLineSync()!);
-  const String expert = "expert";
+  const String expert = 'expert';
   final List<int> rank = [40, 70, 90];
   final int? next = rank.cast<int?>().firstWhere(
     (r) => r! > X,
