@@ -5,5 +5,5 @@ fclose($stream);
 const space = ' ';
 const twelve = 12;
 [$A, $B] = array_map('intval', explode(space, trim($line)));
-echo $A * twelve + $B . PHP_EOL;
+echo twelve * $A + $B . PHP_EOL;
 exit(0);
