@@ -4,9 +4,9 @@ close(con)
 Yes <- "Yes"
 No <- "No"
 tea <- "tea"
-blank   <- ""
-yn      <- "\n"
-two     <- 2L
+blank <- ""
+yn <- "\n"
+two <- 2L
 S <- arr[two]
 if (endsWith(x = S, suffix = tea)) {
   Yes |>
