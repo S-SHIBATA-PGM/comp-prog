@@ -18,7 +18,7 @@ const val WA: String = "WA"
 const val hello: String = "Hello,World!"
 
 fun main() {
-    val S = readln()
+    val S: String = readln()
     if (S == hello) {
         println(AC)
     } else {
