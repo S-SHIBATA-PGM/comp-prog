@@ -1,6 +1,7 @@
 <?php
 $stream = fopen('php://stdin', 'r');
 $line = fgets($stream);
+fclose($stream);
 const blank = '';
 const one = 1;
 const two = 2;
