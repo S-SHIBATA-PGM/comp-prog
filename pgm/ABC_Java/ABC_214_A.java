@@ -16,7 +16,7 @@ public class Main {
         final int eight = 8;
         final int oneHundredTwentySix = 126;
         final int twoHundredTwelve = 212;
-        TreeMap<Integer, Integer> m = new TreeMap<>();
+        final TreeMap<Integer, Integer> m = new TreeMap<>();
         m.put (one, four);
         m.put (oneHundredTwentySix, six);
         m.put (twoHundredTwelve, eight);
