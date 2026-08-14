@@ -20,7 +20,6 @@ import java.math.RoundingMode
 const val space: String = " "
 const val digit: Int = 7
 const val three: Int = 3
-const val zero: Int = 0
 
 fun main() {
     val (A: BigDecimal, B: BigDecimal) = readln().split(space).map { it.toBigDecimal() }
