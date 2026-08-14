@@ -21,7 +21,7 @@ const val space: String = " "
 const val zero: Int = 0
 
 fun main() {
-    val (A, B) = readln().split(space).map { it.toInt() }
+    val (A: Int, B: Int) = readln().split(space).map { it.toInt() }
     if (A > zero && B > zero) {
         println(Alloy)
     } else if (A == zero) {
