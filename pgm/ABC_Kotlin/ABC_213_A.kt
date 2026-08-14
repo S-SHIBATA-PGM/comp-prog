@@ -17,7 +17,7 @@
 const val space: String = " "
 
 fun main() {
-    val (A, B) = readln().split(space).map { it.toInt() }
+    val (A: Int, B: Int) = readln().split(space).map { it.toInt() }
     println(A xor B)
     kotlin.system.exitProcess(0)
 }
