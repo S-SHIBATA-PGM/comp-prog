@@ -21,12 +21,13 @@ const val two: Int = 2
 const val six: Int = 6
 
 fun main() {
-    val (X, Y) = readln().split(dot).map { it.toInt() }
-    val sign: String = when {
-        Y <= two -> minus
-        Y <= six -> blank
-        else -> plus
-    }
+    val (X: Int, Y: Int) = readln().split(dot).map { it.toInt() }
+    val sign: String =
+            when {
+                Y <= two -> minus
+                Y <= six -> blank
+                else -> plus
+            }
     println("$X$sign")
     kotlin.system.exitProcess(0)
 }
