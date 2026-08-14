@@ -5,7 +5,7 @@ fclose($stream);
 const one = 1;
 const two = 2;
 const zero = 0;
-$N = trim($line);
+$N = (int) trim($line);
 $cubes = zero;
 for ($i = one; $i <= $N; $i++) {
     $cube = $i * $i * $i;
