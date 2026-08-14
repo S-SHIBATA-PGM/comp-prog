@@ -19,8 +19,8 @@ const val circle: Char = 'o'
 const val one: Int = 1
 
 fun main() {
-    val N = readln().toInt()
-    val S = readln()
+    val N: Int = readln().toInt()
+    val S: String = readln()
     if (S[N - one] == circle) {
         println(Yes)
     } else {
