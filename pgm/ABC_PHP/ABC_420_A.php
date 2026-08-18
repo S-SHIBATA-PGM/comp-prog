@@ -1,0 +1,20 @@
+<?php
+$stream = fopen('php://stdin', 'r');
+$line = fgets($stream);
+fclose($stream);
+const hyphen = '-';
+const plus = '+';
+const n = 'n';
+const sY = 'Y';
+const month = 'month';
+const blank = '';
+const space = ' ';
+const one = 1;
+const two = 2;
+const zero = 0;
+const md = hyphen . zero . one . hyphen . zero . one;
+[$X, $Y] = array_map('intval', explode(space, trim($line)));
+$dt = new DateTimeImmutable(Date(sY) . md);
+$dt = $dt->modify(plus . ($X + $Y - one) . space . month);
+echo (int) $dt->format(n) . PHP_EOL;
+exit(0);
