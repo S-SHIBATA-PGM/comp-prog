@@ -18,9 +18,9 @@ Set-Variable -Name "D9" -value ([uint32]9) -Option Constant
 [void]$Gosekku.Add([ValueTuple]::Create($M7, $D7))
 [void]$Gosekku.Add([ValueTuple]::Create($M9, $D9))
 if ($Gosekku.Contains([ValueTuple]::Create($M, $D))) {
-    Write-Host "Yes"
+    Write-Host Yes
 }
 else {
-    Write-Host "No"
+    Write-Host No
 }
 exit 0
