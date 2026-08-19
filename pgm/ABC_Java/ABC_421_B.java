@@ -10,6 +10,7 @@ public class Main {
         FastScanner sc = new FastScanner();
         final int X = sc.nextInt();
         final int Y = sc.nextInt();
+        sc.close();
         final int one = 1;
         final int two = 2;
         final int three = 3;
