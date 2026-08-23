@@ -19,13 +19,13 @@ int main() {
     string S;
     cin >> S;
     constexpr string_view yn = "\n";
-    constexpr char cZero = '0';
+    constexpr char c_zero = '0';
     constexpr int zero = 0;
     constexpr int one = 1;
     constexpr int two = 2;
     constexpr int eight = 8;
-    int world = S[zero] - cZero;
-    int stage = S[two] - cZero;
+    int world = S[zero] - c_zero;
+    int stage = S[two] - c_zero;
     if (stage == eight) {
         world++;
         stage = one;
