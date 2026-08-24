@@ -29,6 +29,6 @@ int main() {
     constexpr int zero = 0;
     constexpr int lower[] = {lower1, lower2};
     constexpr int upper[] = {upper1, upper2};
-    cout << (lower[X - 1] <= R && R <= upper[X - 1] ? Yes : No) << yn;
+    cout << (lower[X - one] <= R && R <= upper[X - one] ? Yes : No) << yn;
     return 0;
 }
