@@ -16,3 +16,4 @@ Const one As UInteger = 1U
 Const four As UInteger = 4U
 Mid(S, one, four) = year2018
 Print S
+End 0
