@@ -18,7 +18,7 @@ class Program
         const string SSS = "SSS";
         const string FFF = "FFF";
         const string MMM = "MMM";
-        Dictionary<string, string> language = new Dictionary<string, string>
+        Dictionary<string, string> language = new()
         {
             { red, SSS },
             { blue, FFF },
