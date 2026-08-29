@@ -23,13 +23,13 @@ int main() {
     constexpr string_view No = "No";
     constexpr string_view yn = "\n";
     constexpr char cCircle = 'o';
-    bool found = false;
+    bool is_found = false;
     REP (i, N) {
         if (T[i] == cCircle && A[i] == cCircle) {
-            found = true;
+            is_found = true;
             break;
         }
     }
-    cout << (found ? Yes : No) << yn;
+    cout << (is_found ? Yes : No) << yn;
     return 0;
 }
