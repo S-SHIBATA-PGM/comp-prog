@@ -14,4 +14,4 @@ if (($P -le $X) -and
 else {
     Write-Host $No
 }
-exit $zero
+exit 0
