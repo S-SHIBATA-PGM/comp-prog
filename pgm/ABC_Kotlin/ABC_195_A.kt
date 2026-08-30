@@ -23,7 +23,7 @@ const val zero: Int = 0
 
 fun main() {
     val (M: Int, H: Int) = readln().split(space).map { it.toInt() }
-    if (H % M == 0) {
+    if (H % M == zero) {
         println(Yes)
     } else {
         println(No)
