@@ -38,7 +38,7 @@ public class Main {
         }
         StringBuilder sb = new StringBuilder();
         for (int i = zero; i < Q; i++) {
-            if (i > 0)
+            if (i > zero)
                 sb.append (space);
             sb.append (X[i]);
         }
