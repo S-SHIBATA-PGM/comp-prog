@@ -13,9 +13,9 @@ public class Main {
         final int[] arr = sc.intArray (Q);
         sc.close();
         final String space = " ";
-        final int zero = 0;
         final int one = 1;
         final int two = 2;
+        final int zero = 0;
         int[] box = new int[N + one];
         int[] X = new int[Q];
         for (int i = zero; i < Q; i++) {
