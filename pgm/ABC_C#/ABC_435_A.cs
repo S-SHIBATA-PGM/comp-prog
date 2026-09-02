@@ -11,7 +11,6 @@ class Program
     static void Main()
     {
         int N = int.Parse(Console.ReadLine());
-        string S = Console.ReadLine();
         const int one = 1;
         const int two = 2;
         Console.WriteLine((N + one) * N / two);
