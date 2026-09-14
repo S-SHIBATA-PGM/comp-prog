@@ -21,3 +21,4 @@ If (A Mod three = zero) OrElse (B Mod three = zero) _
 Else
     Print Impossible
 End If
+End 0
