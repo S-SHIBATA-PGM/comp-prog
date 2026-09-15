@@ -17,8 +17,8 @@ class Program
         const int twoHundredNinetyNine = 299;
         Console.WriteLine(
             twoHundred <= S && S <= twoHundredNinetyNine
-                ? Success
-                : Failure);
+            ? Success
+            : Failure);
         Environment.Exit(0);
     }
 }
