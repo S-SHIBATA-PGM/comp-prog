@@ -15,6 +15,6 @@ class Program
         const int fourHundred = 400;
         const int zero = 0;
         Console.WriteLine(fourHundred % A != zero ? -one : fourHundred / A);
-        return;
+        Environment.Exit(0);
     }
 }
