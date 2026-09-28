@@ -9,13 +9,13 @@ public class Main {
     public static void main (String[] args) throws Exception {
         BufferedReader reader =
             new BufferedReader (new InputStreamReader (System.in));
-        final int N = Integer.parseInt (reader.readLine());
+        final int T = Integer.parseInt (reader.readLine());
         final String Yes = "Yes";
         final String No = "No";
         final int zero = 0;
         PrintWriter out =
             new PrintWriter (new BufferedOutputStream (System.out));
-        for (int i = zero; i < N; i++) {
+        for (int i = zero; i < T; i++) {
             StringTokenizer st = new StringTokenizer (reader.readLine());
             final long X1 = Long.parseLong (st.nextToken());
             final long Y1 = Long.parseLong (st.nextToken());
