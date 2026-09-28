@@ -22,6 +22,6 @@ class Program
             }
         }
         Console.WriteLine(cnt);
-        return;
+        Environment.Exit(0);
     }
 }
