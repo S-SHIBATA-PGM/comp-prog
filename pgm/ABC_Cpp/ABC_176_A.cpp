@@ -17,8 +17,6 @@ int main() {
     double N, X;
     int T;
     cin >> N >> X >> T;
-    const string Yes = "Yes";
-    const string No = "No";
     cout << (int)ceil (N / X) * T << endl;
     return 0;
 }
