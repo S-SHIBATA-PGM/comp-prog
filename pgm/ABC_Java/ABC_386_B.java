@@ -24,7 +24,7 @@ public class Main {
                 i += two;
             } else {
                 cnt++;
-                i += 1;
+                i += one;
             }
         }
         System.out.println (cnt);
