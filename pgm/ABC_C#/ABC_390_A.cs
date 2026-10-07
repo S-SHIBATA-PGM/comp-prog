@@ -16,7 +16,7 @@ class Program
         const int one = 1;
         const int zero = 0;
         int len = A.Length;
-        List<int> indice = new();
+        List<int> indice = [];
         for (int i = zero; i < len - one; i++)
         {
             if (A[i] > A[i + one])
