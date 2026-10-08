@@ -11,7 +11,8 @@ three <- 3L
 four <- 4L
 token <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
   Filter(f = nzchar)
-N <- as.integer(token[one])
+N <- token[one] |>
+  as.integer()
 a <- seq(from = two,   by = three, length.out = N)
 b <- seq(from = three, by = three, length.out = N)
 s <- seq(from = four,  by = three, length.out = N)
