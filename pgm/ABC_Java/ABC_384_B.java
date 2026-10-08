@@ -29,6 +29,7 @@ public class Main {
         final int oneThousandSixHundred = 1600;
         final int twoThousandThreeHundredNinetyNine = 2399;
         final int twoThousandSevenHundredNinetyNine = 2799;
+        final int zero = 0;
         Division div1 = new Division();
         div1.addRange (oneThousandSixHundred,
                        twoThousandSevenHundredNinetyNine);
@@ -36,7 +37,7 @@ public class Main {
         div2.addRange (oneThousandTwoHundred,
                        twoThousandThreeHundredNinetyNine);
         int rating = R;
-        for (int i = 0; i < N; i++) {
+        for (int i = zero; i < N; i++) {
             int type = sc.nextInt();
             int perf = sc.nextInt();
             Division curr = (type == one) ? div1 : div2;
