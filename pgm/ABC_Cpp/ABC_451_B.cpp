@@ -20,8 +20,9 @@ int main() {
     cin >> N >> M;
     constexpr string_view yn = "\n";
     constexpr int one = 1;
-    vector<int> A (M, 0);
-    vector<int> B (M, 0);
+    constexpr int zero = 0;
+    vector<int> A (M, zero);
+    vector<int> B (M, zero);
     REP (i, N) {
         int a, b;
         cin >> a >> b;
