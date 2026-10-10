@@ -75,20 +75,6 @@ public class Main {
             if (bytesRead == -1)
                 buffer[0] = -1;
         }
-        public String nextString() throws IOException {
-            byte c = read();
-            while (Character.isWhitespace (c)) {
-                c = read();
-            }
-            StringBuilder builder = new StringBuilder();
-            builder.append ((char)c);
-            c = read();
-            while (!Character.isWhitespace (c)) {
-                builder.append ((char)c);
-                c = read();
-            }
-            return builder.toString();
-        }
         public int nextInt() throws IOException {
             int ret = 0;
             byte c = read();
