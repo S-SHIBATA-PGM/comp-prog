@@ -30,6 +30,6 @@ if (N > 0L) {
     as.integer()
 }
 mx |>
-  cat(sep = space)
-cat(yn, sep = blank)
+  cat(sep = space) |>
+  cat(yn, sep = blank)
 q("no")
