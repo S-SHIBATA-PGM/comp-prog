@@ -10,7 +10,7 @@ class Program
 {
     static void Main()
     {
-        string[] arr = Console.ReadLine().Trim().Split(' ');
+        string[] arr = Console.ReadLine().Split(' ');
         const int one = 1;
         const int two = 2;
         const int zero = 0;
