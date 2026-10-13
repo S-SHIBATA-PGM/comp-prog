@@ -14,7 +14,7 @@ public class Main {
         final int zero = 0;
         long[] q = new long[N + one];
         long[] r = new long[N + one];
-        for (int i = 1; i <= N; i++) {
+        for (int i = one; i <= N; i++) {
             q[i] = sc.nextLong();
             r[i] = sc.nextLong();
         }
