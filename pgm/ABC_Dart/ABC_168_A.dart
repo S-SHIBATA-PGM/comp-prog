@@ -6,9 +6,9 @@ import 'dart:io';
 
 void main() {
   final int N = int.parse(stdin.readLineSync()!);
-  const String hon = "hon";
-  const String pon = "pon";
-  const String bon = "bon";
+  const String hon = 'hon';
+  const String pon = 'pon';
+  const String bon = 'bon';
   const int one = 1;
   const int two = 2;
   const int four = 4;
