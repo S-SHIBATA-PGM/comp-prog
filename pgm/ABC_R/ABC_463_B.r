@@ -10,13 +10,13 @@ yn <- "\n"
 one <- 1L
 two <- 2L
 three <- 3L
-tokens <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
+token <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
   Filter(f = nzchar)
-N <- tokens[one] |>
+N <- token[one] |>
   as.integer()
-X <- tokens[two]
+X <- token[two]
 target <- match(X, LETTERS)
-S <- tokens[three:(three + N - one)]
+S <- token[three:(three + N - one)]
 if (any(substr(S, target, target) == circle)) {
   Yes |>
     cat(yn, sep = blank)
