@@ -8,15 +8,15 @@ blank <- ""
 yn <- "\n"
 one <- 1L
 two <- 2L
-tokens <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
+token <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
   Filter(f = nzchar)
-N <- tokens[one] |>
+N <- token[one] |>
   as.integer()
 a_indice <- two:(two + N - one)
 b_indice <- (two + N):(two + two * N - one)
-A <- tokens[a_indice] |>
+A <- token[a_indice] |>
   as.integer()
-B <- tokens[b_indice] |>
+B <- token[b_indice] |>
   as.integer()
 if (all(B[A] == seq_len(N))) {
   Yes |>
