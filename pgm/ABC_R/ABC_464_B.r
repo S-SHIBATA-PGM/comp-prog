@@ -7,10 +7,10 @@ blank <- ""
 yn <- "\n"
 one <- 1L
 two <- 2L
-tokens <- unlist(strsplit(x = arr[one], split = space, fixed = TRUE)) |>
+token <- unlist(strsplit(x = arr[one], split = space, fixed = TRUE)) |>
   Filter(f = nzchar)
-H <- as.integer(tokens[one])
-W <- as.integer(tokens[two])
+H <- as.integer(token[one])
+W <- as.integer(token[two])
 grid <- arr[two:(H + one)]
 matrix <- do.call(
   what = rbind,
