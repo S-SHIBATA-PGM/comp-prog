@@ -10,8 +10,8 @@ void main() {
       .split(' ')
       .map(int.parse)
       .toList();
-  const String unsafe = "unsafe";
-  const String safe = "safe";
+  const String unsafe = 'unsafe';
+  const String safe = 'safe';
   if (S <= W) {
     print(unsafe);
   } else {
