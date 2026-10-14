@@ -7,9 +7,9 @@ yn <- "\n"
 one <- 1L
 two <- 2L
 zero <- 0L
-tokens <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
+token <- unlist(strsplit(x = arr, split = space, fixed = TRUE)) |>
   Filter(f = nzchar)
-N <- tokens[one] |>
+N <- token[one] |>
   as.integer()
 KA <- arr[two:(N + one)]
 gift <- lapply(KA, function(line) {
