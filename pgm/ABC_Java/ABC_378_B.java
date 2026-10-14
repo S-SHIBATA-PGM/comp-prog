@@ -31,6 +31,7 @@ public class Main {
             }
             sb.append (d + diff).append (yn);
         }
+        sc.close();
         System.out.print (sb.toString());
         System.exit (0);
     }
