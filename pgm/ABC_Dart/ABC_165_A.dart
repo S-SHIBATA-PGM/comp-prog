@@ -11,8 +11,8 @@ void main() {
       .split(' ')
       .map(int.parse)
       .toList();
-  const String OK = "OK";
-  const String NG = "NG";
+  const String OK = 'OK';
+  const String NG = 'NG';
   if (A <= (B ~/ K) * K) {
     print(OK);
   } else {
