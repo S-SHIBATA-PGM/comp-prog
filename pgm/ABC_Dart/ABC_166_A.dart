@@ -6,8 +6,8 @@ import 'dart:io';
 
 void main() {
   final String S = stdin.readLineSync()!;
-  const String ABC = "ABC";
-  const String ARC = "ARC";
+  const String ABC = 'ABC';
+  const String ARC = 'ARC';
   const int zero = 0;
   print(S.compareTo(ABC) == zero ? ARC : ABC);
   exit(0);
