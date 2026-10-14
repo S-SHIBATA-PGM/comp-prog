@@ -7,8 +7,8 @@ import 'dart:io';
 void main() {
   final String S = stdin.readLineSync()!;
   final String T = stdin.readLineSync()!;
-  const String Yes = "Yes";
-  const String No = "No";
+  const String Yes = 'Yes';
+  const String No = 'No';
   print(T.startsWith(S) ? Yes : No);
   exit(0);
 }
