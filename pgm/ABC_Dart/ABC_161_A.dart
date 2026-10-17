@@ -10,7 +10,7 @@ void main() {
       .split(' ')
       .map(int.parse)
       .toList();
-  const String space = " ";
+  const String space = ' ';
   int keep = X;
   X = Y;
   Y = keep;
