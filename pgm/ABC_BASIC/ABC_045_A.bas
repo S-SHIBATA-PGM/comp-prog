@@ -10,9 +10,9 @@
 ' #define Max(a, b) iif((a) > (b), (a), (b))
 
 Dim As UInteger a, b, h
-Const two As UInteger = 2U
 Input a
 Input b
 Input h
+Const two As UInteger = 2U
 Print Str((a + b) * h / two)
 End 0
