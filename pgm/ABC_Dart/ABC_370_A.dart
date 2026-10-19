@@ -13,6 +13,12 @@ void main() {
   const String Invalid = 'Invalid';
   const int one = 1;
   const int zero = 0;
-  print(L == one && R == zero ? Yes : (L == zero && R == one ? No : Invalid));
+  print(
+    L == one && R == zero
+        ? Yes
+        : L == zero && R == one
+        ? No
+        : Invalid,
+  );
   exit(0);
 }
