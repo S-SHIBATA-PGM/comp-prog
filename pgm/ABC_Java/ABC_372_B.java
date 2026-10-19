@@ -20,7 +20,7 @@ public class Main {
             for (int j = zero; j < rem; j++) {
                 A.add (exponent);
             }
-            M /= 3;
+            M /= three;
             exponent++;
         }
         System.out.println (A.size());
