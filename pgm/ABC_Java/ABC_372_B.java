@@ -10,10 +10,10 @@ public class Main {
         FastScanner sc = new FastScanner();
         int M = sc.nextInt();
         sc.close();
-        List<Integer> A = new ArrayList<>();
+        final List<Integer> A = new ArrayList<>();
         final String space = " ";
-        int three = 3;
-        int zero = 0;
+        final int three = 3;
+        final int zero = 0;
         int exponent = zero;
         while (M > zero) {
             int rem = M % three;
