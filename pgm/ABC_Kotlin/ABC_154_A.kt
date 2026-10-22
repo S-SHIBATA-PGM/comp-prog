@@ -19,7 +19,7 @@
 const val space: String = " "
 
 fun main() {
-    val (S: String) = readln().split(space)
+    val (S: String, _) = readln().split(space)
     val (A: Int, B: Int) = readln().split(space).map { it.toInt() }
     val U: String = readln()
     if (S == U) {
