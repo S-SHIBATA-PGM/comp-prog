@@ -6,12 +6,13 @@ Set-Variable -Name "A" -Value ([char]'A') -Option Constant
 Set-Variable -Name "B" -Value ([char]'B') -Option Constant
 Set-Variable -Name "C" -Value ([char]'C') -Option Constant
 Set-Variable -Name "D" -Value ([char]'D') -Option Constant
+Set-Variable -Name "one" -Value ([uint32]1) -Option Constant
 Set-Variable -Name "zero" -Value ([uint32]0) -Option Constant
 $isDiagonal = (
-    ($S1[0] -ceq $A -and $S2[1] -ceq $D) -or 
-    ($S1[0] -ceq $D -and $S2[1] -ceq $A) -or
-    ($S1[1] -ceq $A -and $S2[0] -ceq $D) -or 
-    ($S1[1] -ceq $D -and $S2[0] -ceq $A)
+    ($S1[$zero] -ceq $A -and $S2[$one] -ceq $D) -or 
+    ($S1[$zero] -ceq $D -and $S2[$one] -ceq $A) -or
+    ($S1[$one] -ceq $A -and $S2[$zero] -ceq $D) -or 
+    ($S1[$one] -ceq $D -and $S2[$zero] -ceq $A)
 )
 if ($isDiagonal) {
     Write-Host $No
