@@ -8,3 +8,4 @@ const No = 'No';
 echo (
     $B < $C && ($A < $B || $C < $A) ? Yes : ($C < $A && $A < $B ? Yes : No)
 ) . PHP_EOL;
+exit(0);
