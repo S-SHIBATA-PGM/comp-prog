@@ -7,3 +7,4 @@ const No = 'No';
 const two = 2;
 [$N, $T, $A] = array_map('intval', explode(' ', trim($line)));
 echo (max($T, $A) > intdiv($N, two) ? Yes : No) . PHP_EOL;
+exit(0);
