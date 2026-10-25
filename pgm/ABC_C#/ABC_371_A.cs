@@ -19,7 +19,7 @@ class Program
         const int two = 2;
         const int zero = 0;
 
-        void RankABC(string s, char a, char b, List<char> list)
+        static void RankABC(string s, char a, char b, List<char> list)
         {
             int indexA = list.IndexOf(a);
             int indexB = list.IndexOf(b);
