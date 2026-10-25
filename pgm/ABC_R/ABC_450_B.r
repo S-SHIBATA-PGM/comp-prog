@@ -21,7 +21,6 @@ for (i in seq_len(N - one)) {
     val <- token[token_idx] |>
       as.integer()
     C[i, j] <- val
-    C[j, i] <- val
     token_idx <- token_idx + one
   }
 }
