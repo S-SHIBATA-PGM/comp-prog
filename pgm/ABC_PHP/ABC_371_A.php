@@ -15,7 +15,6 @@ function rankABC(string $s, string $a, string $b, array &$abc): void
 {
     $indexA = array_search($a, $abc, true);
     $indexB = array_search($b, $abc, true);
-
     if ($s === gt) {
         if ($indexA > $indexB) {
             array_splice($abc, $indexA, one);
