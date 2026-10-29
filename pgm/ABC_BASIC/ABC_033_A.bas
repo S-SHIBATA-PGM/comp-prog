@@ -13,8 +13,8 @@ Dim As String N
 Input N
 Const SAME As String = "SAME"
 Const DIFFERENT As String = "DIFFERENT"
-Const one As UInteger = 1
-Const zero As UInteger = 0
+Const one As UInteger = 1U
+Const zero As UInteger = 0U
 Dim As Boolean isSame = True
 Dim As UInteger strLen = Len(N)
 Dim As UByte firstChar = N[zero]
