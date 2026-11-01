@@ -1,12 +1,12 @@
 <?php
 $stream = fopen('php://stdin', 'r');
 $line = fgets($stream);
-[$N, $K, $X] = array_map('intval', explode(' ', $line));
+[$N, $K, $X] = array_map('intval', explode(' ', trim($line)));
 $line = fgets($stream);
 fclose($stream);
 const space = ' ';
 const zero = 0;
-$A = array_map('intval', explode(' ', $line));
+$A = array_map('intval', explode(' ', trim($line)));
 $B = [];
 for ($i = zero; $i <= $N; $i++) {
     if ($i === $K) {
