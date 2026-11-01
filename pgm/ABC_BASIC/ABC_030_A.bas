@@ -21,3 +21,4 @@ ElseIf C * B < A * D Then
 Else
     Print sDRAW
 End If
+End 0
