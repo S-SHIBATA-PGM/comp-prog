@@ -1,7 +1,7 @@
 <?php
 $stream = fopen('php://stdin', 'r');
 $line = fgets($stream);
-[$R, $G, $B] = array_map('intval', explode(' ', $line));
+[$R, $G, $B] = array_map('intval', explode(' ', trim($line)));
 $line = fgets($stream);
 fclose($stream);
 const Red = "Red";
