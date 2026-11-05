@@ -11,8 +11,8 @@ public class Main {
         final int N = sc.nextInt();
         final int A = sc.nextInt();
         final int[] T = sc.intArray (N);
-        final int zero = 0;
         sc.close();
+        final int zero = 0;
         int prev = zero;
         for (int i = zero; i < N; i++) {
             int start = Math.max (T[i], prev);
