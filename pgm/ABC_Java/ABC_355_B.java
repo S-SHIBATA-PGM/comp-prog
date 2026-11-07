@@ -14,6 +14,7 @@ public class Main {
         final String No = "No";
         final int one = 1;
         final int twoHundred = 200;
+        final int zero = 0;
         final int[] A = sc.intArray (N);
         final boolean[] isA = new boolean[twoHundred + one];
         for (int i = 0; i < N; i++) {
@@ -22,16 +23,16 @@ public class Main {
         final int[] B = sc.intArray (M);
         sc.close();
         int[] C = new int[N + M];
-        for (int i = 0; i < N; i++) {
+        for (int i = zero; i < N; i++) {
             C[i] = A[i];
         }
-        for (int i = 0; i < M; i++) {
+        for (int i = zero; i < M; i++) {
             C[N + i] = B[i];
         }
         Arrays.sort (C);
         boolean hasConsecutiveA = false;
-        for (int i = 0; i < C.length - 1; i++) {
-            if (isA[C[i]] && isA[C[i + 1]]) {
+        for (int i = zero; i < C.length - 1; i++) {
+            if (isA[C[i]] && isA[C[i + one]]) {
                 hasConsecutiveA = true;
                 break;
             }
