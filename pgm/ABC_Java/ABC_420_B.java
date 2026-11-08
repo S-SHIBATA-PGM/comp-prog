@@ -18,20 +18,20 @@ public class Main {
         final int zero = 0;
         int[] score = new int[N];
         for (int j = zero; j < M; j++) {
-            int cnt0 = zero;
+            int x = zero;
             for (int i = zero; i < N; i++) {
                 if (S[i].charAt (j) == cZero) {
-                    cnt0++;
+                    x++;
                 }
             }
-            int cnt1 = N - cnt0;
+            int y = N - x;
             for (int i = zero; i < N; i++) {
                 char vote = S[i].charAt (j);
-                if (cnt0 == zero || cnt1 == zero) {
+                if (x == zero || y == zero) {
                     score[i]++;
-                } else if (cnt0 < cnt1 && vote == cZero) {
+                } else if (x < y && vote == cZero) {
                     score[i]++;
-                } else if (cnt1 < cnt0 && vote == cOne) {
+                } else if (y < x && vote == cOne) {
                     score[i]++;
                 }
             }
