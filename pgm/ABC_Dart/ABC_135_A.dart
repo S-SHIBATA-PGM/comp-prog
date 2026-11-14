@@ -11,9 +11,9 @@ void main() {
       .split(' ')
       .map(int.parse)
       .toList();
-  const String IMPOSSIBLE = "IMPOSSIBLE";
+  const String impossible = "IMPOSSIBLE";
   const int two = 2;
   const int zero = 0;
-  print((A + B) % two == zero ? (A + B) ~/ two : IMPOSSIBLE);
+  print((A + B) % two == zero ? (A + B) ~/ two : impossible);
   exit(0);
 }
