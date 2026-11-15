@@ -7,8 +7,8 @@ import 'dart:math';
 
 void main() {
   final int r = int.parse(stdin.readLineSync()!);
-  const double dTwo = 2.0;
   const int three = 3;
+  const double dTwo = 2.0;
   print(three * pow(r.toDouble(), dTwo).toInt());
   exit(0);
 }
