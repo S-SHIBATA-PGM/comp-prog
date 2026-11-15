@@ -22,7 +22,6 @@ int main() {
     constexpr char c_circle = 'o';
     constexpr char c_dot = '.';
     constexpr char c_sharp = '#';
-    constexpr int zero = 0;
     string T;
     int len = S.length();
     bool is_placed = false;
