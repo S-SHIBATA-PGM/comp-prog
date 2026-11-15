@@ -1,7 +1,7 @@
 con <- file(description = "stdin", open = "r")
 token <- scan(file = con, what = integer(), quiet = TRUE)
 close(con)
-blank  <- ""
+blank <- ""
 yn <- "\n"
 one <- 1L
 zero <- 0L
