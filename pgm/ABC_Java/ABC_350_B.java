@@ -12,14 +12,15 @@ public class Main {
         int Q = sc.nextInt();
         int[] T = sc.intArray (Q);
         sc.close();
+        final int one = 1;
         final int zero = 0;
-        boolean[] hasTooth = new boolean[N + 1];
+        boolean[] hasTooth = new boolean[N + one];
         Arrays.fill (hasTooth, true);
         for (int i = zero; i < Q; i++) {
             hasTooth[T[i]] = !hasTooth[T[i]];
         }
-        int cnt = 0;
-        for (int i = 1; i <= N; i++) {
+        int cnt = zero;
+        for (int i = one; i <= N; i++) {
             if (hasTooth[i]) {
                 cnt++;
             }
