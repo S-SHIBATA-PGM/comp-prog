@@ -21,7 +21,7 @@ public class Main {
         for (int i = zero; i < N; i++) {
             int maxDistSq = -one;
             int farthestPoint = -one;
-            for (int j = 0; j < N; j++) {
+            for (int j = zero; j < N; j++) {
                 if (i == j)
                     continue;
                 int dx = X[i] - X[j];
