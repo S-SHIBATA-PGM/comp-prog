@@ -13,8 +13,8 @@ Const YES As String = "YES"
 Const NO As String = "NO"
 Const zero As UInteger = 0U
 If M Mod D = zero Then
-    Print Yes
+    Print YES
 Else
-    Print No
+    Print NO
 End If
 End 0
