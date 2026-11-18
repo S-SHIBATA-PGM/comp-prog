@@ -19,8 +19,8 @@
 
 // import kotlin.math.*
 
-const val Bad = "Bad"
-const val Good = "Good"
+const val Bad: String = "Bad"
+const val Good: String = "Good"
 
 fun main() {
     val S: String = readln()
