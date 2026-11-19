@@ -1,4 +1,4 @@
 $a = [uint32][Console]::ReadLine()
 $b = [uint32][Console]::ReadLine()
-Write-Host (($B - $A % $B) % $B)
+Write-Host (($b - $a % $b) % $b)
 exit 0
