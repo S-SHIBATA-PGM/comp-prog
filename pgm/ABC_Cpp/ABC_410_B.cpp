@@ -23,17 +23,19 @@ int main() {
     constexpr int one = 1;
     constexpr int two = 2;
     constexpr int zero = 0;
-    vector<int> arr (Q);
-    REP (i, Q) {
-        cin >> arr[i];
-    }
-    vector<int> box (N + one, zero);
     vector<int> X (Q);
     REP (i, Q) {
-        int x = arr[i];
+        cin >> X[i];
+    }
+    vector<int> box (N + one, zero);
+    REP (i, Q) {
+        if (i > zero) {
+            cout << space;
+        }
+        int x = X[i];
         if (x >= one) {
             box[x]++;
-            X[i] = x;
+            cout << x;
         } else {
             int min_idx = one;
             int cnt = box[one];
@@ -44,14 +46,8 @@ int main() {
                 }
             }
             box[min_idx]++;
-            X[i] = min_idx;
+            cout << min_idx;
         }
-    }
-    REP (i, Q) {
-        if (i > zero) {
-            cout << space;
-        }
-        cout << X[i];
     }
     cout << yn;
     return 0;
