@@ -27,10 +27,10 @@ public class Main {
                 cnt++;
             }
         }
+        sc.close();
         if (cnt == zero) {
             out.println();
         }
-        sc.close();
         out.flush();
         System.exit (0);
     }
