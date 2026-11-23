@@ -13,7 +13,6 @@ public class Main {
         final int one = 1;
         final int zero = 0;
         PrintWriter out = new PrintWriter (System.out);
-        int cnt = 0;
         for (int i = zero; i < N; i++) {
             StringJoiner sj = new StringJoiner (space);
             for (int j = zero; j < N; j++) {
@@ -22,15 +21,9 @@ public class Main {
                     sj.add (String.valueOf (j + one));
                 }
             }
-            if (sj.length() > zero) {
-                out.println (sj.toString());
-                cnt++;
-            }
+            out.println (sj.toString());
         }
         sc.close();
-        if (cnt == zero) {
-            out.println();
-        }
         out.flush();
         System.exit (0);
     }
