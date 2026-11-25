@@ -24,9 +24,9 @@ const val Yay: String = "Yay!"
 
 fun main() {
     val a: Int = readln().toInt()
-    readln().toInt()
-    readln().toInt()
-    readln().toInt()
+    readln()
+    readln()
+    readln()
     val e: Int = readln().toInt()
     val k: Int = readln().toInt()
     if (e - a <= k) {
