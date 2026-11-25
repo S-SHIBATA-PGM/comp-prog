@@ -13,7 +13,7 @@ void main() {
   final int e = int.parse(stdin.readLineSync()!);
   final int k = int.parse(stdin.readLineSync()!);
   const String no = ":(";
-  const String Yay = "Yay!";
-  print(e - a <= k ? Yay : no);
+  const String yay = "Yay!";
+  print(e - a <= k ? yay : no);
   exit(0);
 }
